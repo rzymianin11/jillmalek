@@ -5,8 +5,16 @@
  */
 @import '~normalize.css/normalize';
 
+
+@import "../../node_modules/include-media/dist/_include-media.scss";
+@import "../../node_modules/sass-easing/_easings.scss";
+@import "../../node_modules/normalize-scss/sass/normalize/_import-now.scss";
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 // Settings
 @import './variables';
+
+@import './overrides';
 
 // Tools
 @import './tools/mixins';
@@ -29,11 +37,15 @@
 @import './components/responsive-images';
 @import './components/address-forms';
 
+//Elements
+@import './elements/header';
+
 // Sections
 @import './sections/blog-posts';
 @import './sections/collection-list';
 @import './sections/featured-collection';
 @import './sections/image-with-text';
+@import './section/home-hero';
 
 // Templates
 @import './templates/gift_card';

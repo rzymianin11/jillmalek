@@ -31,3 +31,22 @@
 
   @return $properties;
 }
+
+
+@function rem($px) {
+  @return #{$px/$base}rem;
+}
+
+
+.be-sqaure {
+	position: relative;
+	padding-top: 100%;
+	width: 100%;
+	.inner {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

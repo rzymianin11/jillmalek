@@ -15,4 +15,6 @@ module.exports = {
       },
     },
   },
+  'network.externalTesting': true,
+  'network.externalTesting.address': 'localhost',
 };

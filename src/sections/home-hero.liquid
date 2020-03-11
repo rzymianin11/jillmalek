@@ -1,0 +1,68 @@
+<section class="home-hero">
+	<div class="container">
+		<div class="row section-row">
+			<div class="col-lg-6" style="background-image: url('{{ section.settings.bg-left | img_url: '960x' }}');">
+				<div class="be-sqaure">
+					<div class="inner">
+						<h1>{{ section.settings.title }}</h1>
+						<div class="text-box">
+							{{ section.settings.text }}
+						</div>
+						<a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 move-down-lg" style="background-image: url('{{ section.settings.bg-right | img_url: '960x' }}');">
+				<div class="be-sqaure">
+					 
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Home hero section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg-left",
+        "label": "Background on left box"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg-right",
+        "label": "Background on right box"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "An expression of light"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Luci Della Città<br/>Wallpaper Display at<br/>Bergdorf Goodman<br/>New York</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home hero section",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

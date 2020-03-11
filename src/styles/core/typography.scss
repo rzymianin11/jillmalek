@@ -1,12 +1,12 @@
 html {
-  font-size: 62.5%;
+  font-size: $base;
 }
 
 body {
   font-family: $font-body;
   font-weight: $font-body-weight;
   font-style: $font-body-style;
-  font-size: 1.6rem;
+  font-size: rem(14px);
 }
 
 h1,

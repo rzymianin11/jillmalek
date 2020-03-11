@@ -1,0 +1,12 @@
+$move-down: 50px;
+
+section.home-hero {
+	.section-row {
+		.move-down-lg {
+			@include media('>=lg'){
+				position: relative;
+				top: rem($move-down);
+			}
+		}
+	}
+}
