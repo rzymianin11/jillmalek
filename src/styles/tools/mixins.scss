@@ -67,6 +67,16 @@
   *zoom: 1;
 }
 
+@mixin icon() {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 /**
  * Hide element but make it accessible to screen readers
  *

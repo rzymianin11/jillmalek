@@ -9,3 +9,22 @@
   user-select: none;
   appearance: none;
 }
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+  font-size: rem(13px);
+  &.btn-primary {
+  	&:after {
+	  	@include icon();
+	  	content: "\f101";
+  	}
+  }
+}

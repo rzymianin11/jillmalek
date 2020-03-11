@@ -1,11 +1,63 @@
 $move-down: 50px;
+$padding-left: 100px;
+$padding-right: 86px;
+$padding-top: 100px;
+$padding-bottom: 100px;
 
 section.home-hero {
 	.section-row {
+		padding-bottom: rem($move-down);
+		.bg {
+			background-size: cover;
+			background-position: center center;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		@include media('>=lg'){
+			& > div {
+				&:first-child {
+					left: 15px;
+					right: 0;
+				}
+				&:last-child {
+					left: 0;
+					right: 15px;
+				}
+			}
+		}
 		.move-down-lg {
 			@include media('>=lg'){
 				position: relative;
 				top: rem($move-down);
+			}
+		}
+		.inner {
+			padding-left: rem($padding-left);
+			padding-right: rem($padding-right);
+			padding-top: rem($padding-top);
+			padding-bottom: rem($padding-bottom);
+			h1 {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				color: $primary-color;
+				font-size: rem(50px);
+				letter-spacing: rem(3.85px);
+				padding: 0;
+				margin: 0;
+			}
+			.text-box {
+				position: absolute;
+				left: rem($padding-left);
+				bottom: rem($padding-bottom);
+				opacity: 0.3;
+				font-size: rem(13px);
+				line-height: rem(13px);
+				color: #FFFFFF;
+				letter-spacing: rem(1px);
 			}
 		}
 	}

@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url({{ 'NeuzeitGro-Lig.woff2' | asset_url }}) format('woff2'),
+        url({{ 'NeuzeitGro-Lig.woff' | asset_url }}) format('woff'),
+        url({{ 'NeuzeitGro-Lig.ttf' | asset_url }}) format('truetype'),
+        url({{ 'NeuzeitGro-Lig.svg#NeuzeitGro-Lig' | asset_url }}) format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url({{ 'NeuzeitGro-Reg.woff2' | asset_url }}) format('woff2'),
+        url({{ 'NeuzeitGro-Reg.woff' | asset_url }}) format('woff'),
+        url({{ 'NeuzeitGro-Reg.ttf' | asset_url }}) format('truetype'),
+        url({{ 'NeuzeitGro-Reg.svg#NeuzeitGro-Reg' | asset_url }}) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url({{ 'NeuzeitGro-Bol.woff2' | asset_url }}) format('woff2'),
+        url({{ 'NeuzeitGro-Bol.woff' | asset_url }}) format('woff'),
+        url({{ 'NeuzeitGro-Bol.ttf' | asset_url }}) format('truetype'),
+        url({{ 'NeuzeitGro-Bol.svg#NeuzeitGro-Bol' | asset_url }}) format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url({{ 'NeuzeitGro-Bla.woff2' | asset_url }}) format('woff2'),
+        url({{ 'NeuzeitGro-Bla.woff' | asset_url }}) format('woff'),
+        url({{ 'NeuzeitGro-Bla.ttf' | asset_url }}) format('truetype'),
+        url({{ 'NeuzeitGro-Bla.svg#NeuzeitGro-Bla' | asset_url }}) format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "icons";
+    src: url({{ 'icons.woff2' | asset_url }}) format("woff2"),
+		url({{ 'icons.woff' | asset_url }}) format("woff"),
+		url({{ 'icons.ttf' | asset_url }}) format("truetype"),
+		url({{ 'icons.svg' | asset_url }}) format("svg");
+}
+
+@import '{{'icons.css' | asset_url }}';
+

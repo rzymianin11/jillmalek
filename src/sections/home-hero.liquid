@@ -1,18 +1,22 @@
 <section class="home-hero">
 	<div class="container">
 		<div class="row section-row">
-			<div class="col-lg-6" style="background-image: url('{{ section.settings.bg-left | img_url: '960x' }}');">
+			<div class="col-lg-6">
+				<div class="bg" style="background-image: url('{{ section.settings.bg-left | img_url: '960x' }}');"></div>
 				<div class="be-sqaure">
 					<div class="inner">
 						<h1>{{ section.settings.title }}</h1>
 						<div class="text-box">
 							{{ section.settings.text }}
+							<i class="icon icon-right-arrow"></i>
+							<i class="right-arrow icon-jilliconfont"></i>
 						</div>
-						<a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+						<a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-6 move-down-lg" style="background-image: url('{{ section.settings.bg-right | img_url: '960x' }}');">
+			<div class="col-lg-6 move-down-lg">
+				<div class="bg" style="background-image: url('{{ section.settings.bg-right | img_url: '960x' }}');"></div>
 				<div class="be-sqaure">
 					 
 				</div>
