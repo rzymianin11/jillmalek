@@ -22,6 +22,7 @@
   appearance: none;
   font-size: rem(13px);
   &.btn-primary {
+	  @include icon(right-arrow);
   	&:after {
 	  	@include icon();
 	  	content: "\f101";

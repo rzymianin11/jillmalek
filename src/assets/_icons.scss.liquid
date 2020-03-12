@@ -1,0 +1,56 @@
+@font-face {
+	font-family: "jill-icons";
+	src: url({{ 'jill-icons.eot' | asset_url }});
+	src: url({{ 'jill-icons.eot?#iefix' | asset_url }}) format('eot'),
+		url({{ 'jill-icons.woff2' | asset_url }}) format('woff2'),
+		url({{ 'jill-icons.woff' | asset_url }}) format('woff'),
+		url({{ 'jill-icons.ttf' | asset_url }}) format('truetype'),
+		url({{ 'jill-icons.svg#jill-icons' | asset_url }}) format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "jill-icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == right-arrow copy {
+		$char: "\E001";
+	}
+	@if $filename == right-arrow {
+		$char: "\E002";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-right-arrow copy {
+	@include icon(right-arrow copy);
+}
+.icon-right-arrow {
+	@include icon(right-arrow);
+}
