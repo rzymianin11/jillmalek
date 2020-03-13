@@ -1,0 +1,41 @@
+<section class="shop-wallpaper">
+	<div class="container">
+		<div class="bg" style="background-image: url('{{ section.settings.bg | img_url: '1920x' }}');"></div>
+		<div class="row section-row">
+			<div class="col-12">
+				<div class="inner">
+					<a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Shop wallpaper",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg",
+        "label": "Background"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shop wallpaper",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,32 @@
+.under-hero {
+	position: relative;
+	margin: rem(75px) 0;
+	&:after {
+		position: absolute;
+		content: "";
+		background-color: #F7F3EE;
+		left: 50%;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		
+	}
+	.section-row {
+		height: rem(200px);
+	}
+	h2 {
+		letter-spacing: rem(3.08px);
+		font-size: rem(40px);
+		font-weight: 400;
+	}
+	.btn {
+		padding-left: 0;
+	}
+	.text-box {
+		//width: rem(450px);
+//		max-width: 100%;
+	}
+	.move-down-lg {
+		padding-left: rem(160px);		
+	}
+}

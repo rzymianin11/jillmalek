@@ -33,9 +33,9 @@ gulp.task('iconfont', function(){
       .pipe(iconfontCss({
       fontName: fontName,
       path: './_icons2.scss',
-      targetPath: './_icons.scss',
+      targetPath: './_icons2.scss',
       fontPath: './src/styles/core/'
-    }));    
+    })).pipe(gulp.dest('./src/styles/core'));    
 //    browserSync.reload();
 });
 

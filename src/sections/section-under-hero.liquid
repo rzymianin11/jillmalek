@@ -1,0 +1,53 @@
+<section class="under-hero">
+	<div class="container">
+		<div class="row section-row align-items-center">
+			<div class="col-lg-6">
+				<div class="inner">
+					<h2>{{ section.settings.title }}</h2>
+				</div>
+			</div>
+			<div class="col-lg-6 move-down-lg">
+				<div class="text-box">
+					{{ section.settings.text }}
+				</div>
+				<a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+  {
+    "name": "Section under hero",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Lorem ipsum dolor sit amet consecteur"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Section under hero",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

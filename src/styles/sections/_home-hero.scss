@@ -48,6 +48,7 @@ section.home-hero {
 				letter-spacing: rem(3.85px);
 				padding: 0;
 				margin: 0;
+				font-weight: 400;
 			}
 			.text-box {
 				position: absolute;
@@ -58,6 +59,13 @@ section.home-hero {
 				line-height: rem(13px);
 				color: #FFFFFF;
 				letter-spacing: rem(1px);
+			}
+			.btn {
+				color: white;
+				position: absolute;
+				right: $padding-right;
+				bottom: $padding-bottom;
+				text-align: left;
 			}
 		}
 	}

@@ -21,11 +21,28 @@
   user-select: none;
   appearance: none;
   font-size: rem(13px);
+  background: none;
+  border-radius: 0;
+  &:hover, &:focus, &:active {
+	  background: none !important;
+	  outline: none;
+	  box-shadow: none;
+  }
   &.btn-primary {
-	  @include icon(right-arrow);
+	  text-transform: uppercase;
+	  color: #4B515D;
+	  letter-spacing: 1px;
+	  @include icon('right-arrow', 'after');
+	  position: relative;
+	  padding-right: 3em;
   	&:after {
-	  	@include icon();
-	  	content: "\f101";
+	  	color: $primary-color;
+  		display: inline-block;
+  		vertical-align: middle;
+  		position: absolute;
+  		top: 50%;
+  		transform: translateY(-50%);
+  		right: 0;
   	}
   }
 }

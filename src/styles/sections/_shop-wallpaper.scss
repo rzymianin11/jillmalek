@@ -1,0 +1,51 @@
+.shop-wallpaper {
+	.row {
+		height: 100%;
+	}
+	.container {
+		position: relative;
+		height: rem(500px);
+	}
+	.bg {
+		background-size: cover;
+		background-position: center center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	.inner {
+		background-color: white;
+		width: rem(275px);
+		height: rem(230px);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		a {
+			text-align: center;
+			color: $primary-color;
+			letter-spacing: 1px;
+			font-size: rem(13px);
+			font-weight: 400;
+			text-transform: uppercase;
+			width: calc(100% - 40px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: calc(100% - 40px);
+			border: 1px solid #F7F3EE;
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				color: white;
+				text-decoration:  none;
+				background-color: $primary-color;
+			}
+		}
+	}
+}

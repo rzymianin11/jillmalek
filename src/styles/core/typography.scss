@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: $base-font;
+  font-family: $base-font !important;
   font-weight: $font-body-weight;
   font-style: $font-body-style;
   font-size: rem(14px);

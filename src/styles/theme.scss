@@ -22,12 +22,13 @@
 
 // Core
 @import './core/forms';
+@import './core/forms';
 @import './core/helpers';
 @import './core/layout';
 @import './core/media';
 @import './core/responsive-tables';
 @import './core/rte';
-@import './core/typography';
+@import './core/icons2';
 
 // Components
 @import './components/buttons';
@@ -46,6 +47,9 @@
 @import './sections/featured-collection';
 @import './sections/image-with-text';
 @import './sections/home-hero';
+@import './sections/under-hero';
+@import './sections/shop-wallpaper';
+@import './sections/_separator.scss';
 
 // Templates
 @import './templates/gift_card';
