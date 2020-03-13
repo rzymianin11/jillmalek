@@ -1,11 +1,19 @@
 <section class="process">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6">
-				
+			<div class="col-lg-6 img">
+				<div class="slickjs">
+				  {%- for block in section.blocks -%}
+				  	<div class="position-relative"><div class="bg" style="background-image: url('{{ section.settings.bg | img_url: '1920x' }}');"></div></div>
+				  {% endfor %}
+				</div>
 			</div>
 			<div class="col-lg-6">
-				
+				<div class="slickjs-nav">
+					 {%- for block in section.blocks -%}
+					 	<div>{{ block.settings.title }}</div>
+					 {% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>
