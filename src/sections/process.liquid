@@ -1,10 +1,12 @@
 <section class="process">
 	<div class="container">
-		<div class="row">
+		<div class="row section-row align-items-stretch">
 			<div class="col-lg-6 img">
 				<div class="slickjs">
 				  {%- for block in section.blocks -%}
-				  	<div class="position-relative"><div class="bg" style="background-image: url('{{ section.settings.bg | img_url: '1920x' }}');"></div></div>
+				  	<div class="position-relative">
+					  	<div class="bg" style="background-image: url('{{ block.settings.bg | img_url: '1920x' }}');"></div>
+					</div>
 				  {% endfor %}
 				</div>
 			</div>

@@ -11,6 +11,10 @@ import '../../styles/theme.scss.liquid';
 import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
 import {cookiesEnabled} from '@shopify/theme-cart';
 
+import Process from '../sections/process';
+
+Process.init();
+
 // Common a11y fixes
 focusHash();
 bindInPageLinks();
