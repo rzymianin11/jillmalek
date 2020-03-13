@@ -1,6 +1,6 @@
-<section class="process">
+<section class="process process-{{ section.id }}">
 	<div class="container">
-		<div class="row section-row align-items-stretch">
+		<div class="row no-gutters section-row align-items-stretch {% if section.settings.position == "left" %}flex-row-reverse{% endif %} ">
 			<div class="col-lg-6 img">
 				<div class="slickjs">
 				  {%- for block in section.blocks -%}
@@ -10,16 +10,29 @@
 				  {% endfor %}
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-6" style="background-color: {{ section.settings.color_code }};">
 				<div class="slickjs-nav">
 					 {%- for block in section.blocks -%}
-					 	<div>{{ block.settings.title }}</div>
+					 	<div>
+						 	<h3>{{ block.settings.title }}</h3>
+						 	{{ block.settings.text }}
+						 	<a href="{{ block.settings.button_link }}" class="btn btn-primary">{{ block.settings.button_label }}</a>
+						 </div>
 					 {% endfor %}
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<style type="text/css">
+	.process-{{ section.id }} .slick-arrow:before {
+		color: {{ section.settings.arrows_color }} !important;
+	}
+	.process-{{ section.id }} .btn:after {
+		color: {{ section.settings.arrows_color }} !important;		
+	}
+</style>
 
 {% schema %}
   {
@@ -48,6 +61,12 @@
 	        "type": "text",
 	        "id": "color_code",
 	        "label": "HEX color code background",
+	        "default": "#4B515D"
+		},
+		{
+	        "type": "text",
+	        "id": "arrows_color",
+	        "label": "HEX color of arrows",
 	        "default": "#4B515D"
 		}
     ],

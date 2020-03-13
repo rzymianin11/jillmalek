@@ -27,11 +27,14 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == right-arrow copy {
+	@if $filename == left-arrow {
 		$char: "\E001";
 	}
-	@if $filename == right-arrow {
+	@if $filename == right-arrow copy {
 		$char: "\E002";
+	}
+	@if $filename == right-arrow {
+		$char: "\E003";
 	}
 
 	@return $char;
@@ -48,6 +51,9 @@
 	}
 }
 
+.icon-left-arrow {
+	@include icon(left-arrow);
+}
 .icon-right-arrow copy {
 	@include icon(right-arrow copy);
 }

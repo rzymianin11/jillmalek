@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="14px" viewBox="0 0 19 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Business" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-" transform="translate(-884.000000, -2143.000000)" fill="#AE9A7E" fill-rule="nonzero">
+            <g id="Process" transform="translate(103.000000, 1704.000000)">
+                <g id="right-arrow" transform="translate(790.500000, 446.500000) scale(-1, 1) translate(-790.500000, -446.500000) translate(781.000000, 439.000000)">
+                    <path d="M12.7943792,0.874920927 C12.5355351,0.607026358 12.1047317,0.607026358 11.8368371,0.874920927 C11.577993,1.133765 11.577993,1.56456843 11.8368371,1.82280915 L16.6921245,6.67809654 L0.67033979,6.67809654 C0.296856145,6.6786999 0,6.97555605 0,7.3490397 C0,7.72252334 0.296856145,8.02903334 0.67033979,8.02903334 L16.6921245,8.02903334 L11.8368371,12.8752702 C11.577993,13.1431648 11.577993,13.5745716 11.8368371,13.8328123 C12.1047317,14.1007069 12.5361385,14.1007069 12.7943792,13.8328123 L18.7990791,7.82811242 C19.0669736,7.56926834 19.0669736,7.13846491 18.7990791,6.8802242 L12.7943792,0.874920927 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
