@@ -4,6 +4,12 @@ $padding-right: 86px;
 $padding-top: 100px;
 $padding-bottom: 100px;
 
+$move-down-md: 50px;
+$padding-left-md: 50px;
+$padding-right-md: 56px;
+$padding-top-md: 50px;
+$padding-bottom-md: 50px;
+
 section.home-hero {
 	.section-row {
 		padding-bottom: rem($move-down);
@@ -19,12 +25,16 @@ section.home-hero {
 		@include media('>=lg'){
 			& > div {
 				&:first-child {
-					left: 15px;
-					right: 0;
+					.bg {
+						left: 15px;
+						right: 0;
+					}
 				}
 				&:last-child {
-					left: 0;
-					right: 15px;
+					.bg {
+						left: 0;
+						right: 15px;
+					}
 				}
 			}
 		}
@@ -39,6 +49,12 @@ section.home-hero {
 			padding-right: rem($padding-right);
 			padding-top: rem($padding-top);
 			padding-bottom: rem($padding-bottom);
+			@include media('<=xxl'){
+				padding-left: rem($padding-left-md);
+				padding-right: rem($padding-right-md);
+				padding-top: rem($padding-top-md);
+				padding-bottom: rem($padding-bottom-md);				
+			}
 			h1 {
 				position: absolute;
 				top: 50%;
@@ -59,6 +75,10 @@ section.home-hero {
 				line-height: rem(13px);
 				color: #FFFFFF;
 				letter-spacing: rem(1px);
+				@include media('<=xxl'){
+					left: rem($padding-left-md);
+					bottom: rem($padding-bottom-md);
+				}
 			}
 			.btn {
 				color: white;
@@ -66,6 +86,10 @@ section.home-hero {
 				right: $padding-right;
 				bottom: $padding-bottom;
 				text-align: left;
+				@include media('<=xxl'){
+					right: $padding-right-md;
+					bottom: $padding-bottom-md;
+				}
 			}
 		}
 	}

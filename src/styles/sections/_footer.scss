@@ -1,0 +1,46 @@
+.site-footer {
+	padding-top: rem(100px);
+	font-size: rem(13px);
+	letter-spacing: 1px;
+	p.h4 {
+		font-size: rem(14px);
+		letter-spacing: 1.08px;
+		margin-bottom: rem(40px);
+		opacity: 1;
+	}
+	p {
+		opacity: 0.5;
+	}
+	.newsletter-row {
+		margin-bottom: rem(80px);
+		h4 {
+			color: $primary-color;
+			font-size: rem(13px);
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			margin: 0;
+		}
+		input[type="email"]{
+			border: none;
+			border-bottom: 1px solid $primary-color;
+			color: $primary-color;
+			background-color: transparent;
+			width: 100%;
+			padding: 1em 0;
+			&:focus, &:active {
+				outline: none;
+				box-shadow: none;
+			}
+			@include placeholder {
+				color: $primary-color;
+			}
+		}
+		.input-group__btn {
+			display: none;
+		}
+	}
+	.copy-row {
+		padding-top: rem(130px);
+		padding-bottom: rem(50px);
+	}
+}
