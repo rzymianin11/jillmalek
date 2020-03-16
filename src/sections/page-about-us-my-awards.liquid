@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center page-header">
+			<h1>{{ section.settings.title }}</h1>
+			<div class="featured-text">{{ section.settings.featured_text }}</div>
+		</div>
+	</div>
+	<div class="carousel">
+		{%- for block in section.blocks -%}
+			<div class="slide px-3"><img src="{{ block.settings.image | img_url: '480x' }}" /></div>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "About us - My awards",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "My awards"
+      },
+      {
+        "type": "richtext",
+        "id": "featured_text",
+        "label": "Text",
+        "default": "<p>lorem ipsum dolor sit amet consexteur elit dolor</p>"
+      }
+    ],
+	"blocks": [
+      {
+        "type": "carousel",
+        "name": "Carousel",
+        "settings": [
+            {
+		        "type": "image_picker",
+		        "id": "image",
+		        "label": "Image"
+            },
+		      {
+		        "type": "url",
+		        "id": "button_link",
+		        "label": "Button link"
+		      }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center page-header">
+			<h1>{{ section.settings.title }}</h1>
+			<div class="featured-text">{{ section.settings.featured_text }}</div>
+		</div>
+	</div> 
+</div>
+
+
+{% schema %}
+  {
+    "name": "Process page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "My story"
+      },
+      {
+        "type": "richtext",
+        "id": "featured_text",
+        "label": "Text",
+        "default": "<p>Jill Malek’s range of wallcoverings and rugs are inspired by frequencies found in nature and urban landscapes.k</p>"
+      }
+    ]
+  }
+{% endschema %}

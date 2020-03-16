@@ -10,7 +10,7 @@
 			left: 0;
 			right: 0;
 		}
-		.slickjs {
+		.slickjs, .slickjs-2 {
 			height: 100%;
 			.position-relative {
 				height: 100%;
@@ -19,7 +19,7 @@
 				height: 100%;
 			}
 		}
-		.slickjs-nav {
+		.slickjs-nav, .slickjs-nav-2 {
 			height: 100%;
 			.slick-list, .slick-track {
 				height: 100%;
@@ -45,6 +45,15 @@
 				}
 			}	
 		}
+		 .slickjs-nav-2 {
+			.slick-list, .slick-track {
+				height: 100%;
+			}
+			.slick-list {
+				margin-top: 30%;
+				height: 70%;
+			}
+		 }
 		.btn {
 			color: white;
 			line-height:  normal;
@@ -79,5 +88,88 @@
 				@include icon('arrow-left');
 			}
 		}
+	}
+	&.processpage {
+		.slick-arrow {
+			top: -5%;	
+		}
+		.slickjs-nav-2  {
+			.slick-slide {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+				padding-left: 5%;
+				padding-right: 5%;
+				color: white;
+				h3 {
+					font-size: rem(30px);
+					letter-spacing: rem(2.31px);
+					margin-bottom: rem(30px);
+					font-weight: 200;
+				}
+				p {
+					letter-spacing: rem(1.08px);
+					font-size: rem(14px);
+				}
+			}
+		}
+		.slick-arrow {
+			&.slick-next {
+				right: 15%;
+			}
+			&.slick-prev {
+				left: 15%;
+			}
+		}
+		.slick-dots {
+			position: absolute;
+			top: -5%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+			li {
+				margin: 0;
+				background: none;
+				border: none;
+				border-right: 1px solid $primary-color;
+				padding: 1.5em 2em;
+				display: inline-block;
+				button {
+					background: none;
+					border: none;
+					color: $primary-color;
+					
+				}
+				&.slick-active {
+					button {
+						color: white;
+					}
+				}
+				&:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+}
+
+.processdesignrow {
+	margin-bottom: rem(50px);
+	h1 {
+		font-size: rem(40px);
+		letter-spacing: rem(3.08px);
+		margin-bottom: rem(20px);
+		margin-top: 0;	
+		font-weight: 300;
+	}
+	.featured-text {
+		text-transform: uppercase;
+		color: #4B515D;
+		font-size: rem(13px);
+		font-weight: 300;
 	}
 }

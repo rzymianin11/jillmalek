@@ -1,6 +1,10 @@
 section.header {
 	.header-row {
 		height: rem(150px);
+		body:not(.template-index) & {
+			border-bottom: 1px solid #ECECEC;
+			margin-bottom: rem(75px);
+		}
 		.burger-wrapper {
 			height: 100%;
 			.burger-container {

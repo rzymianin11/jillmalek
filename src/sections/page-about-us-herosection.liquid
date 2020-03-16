@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center page-header">
+			<h1>{{ section.settings.title }}</h1>
+			<div class="featured-text">{{ section.settings.featured_text }}</div>
+		</div>
+	</div>
+	<div class="row align-items-center">
+		<div class="col-lg-6 mb-5 mb-lg-0">
+			<img src="{{ section.settings.image | img_url: '960x' }}" class="w-100" />
+		</div>
+		<div class="col-lg-6 page-text">
+			{{ section.settings.text }}
+		</div>
+	</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "About us - Hero section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "My story"
+      },
+      {
+        "type": "richtext",
+        "id": "featured_text",
+        "label": "Text",
+        "default": "<p>Jill Malek’s range of wallcoverings and rugs are inspired by frequencies found in nature and urban landscapes.k</p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image on left box"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Lorem ipsum...</p>"
+      }
+    ]
+  }
+{% endschema %}

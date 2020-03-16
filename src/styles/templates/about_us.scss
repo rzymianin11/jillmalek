@@ -1,0 +1,63 @@
+body.about-us {
+	.page-header {
+		margin-bottom: rem(70px);
+		h1 {
+			font-size: rem(40px);
+			letter-spacing: rem(3.08px);
+			font-weight: 300;
+			margin-top: 0;
+			padding: 0;
+			margin-bottom: rem(20px);
+		}
+		.featured-text {
+			text-transform: uppercase;
+			font-size: rem(13px);
+			letter-spacing: 1px;
+			font-weight: 300;
+			color: #4B515D;
+		}
+	}
+	.page-text {
+		font-size: rem(14px);
+		text-align: center;
+		letter-spacing: rem(1.08px);
+		line-height: rem(18px);
+		color: #4A4A4A;
+	}
+	.carousel {
+		position: relative;
+	}
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 9;
+		color: $primary-color;
+		background: none;
+		margin: 0;
+		padding: 0;
+		border: none;
+		width: rem(20px);
+		color: transparent;
+		&:before {
+			color: $primary-color;
+		}
+		&:active, &:focus, &:hover {
+			outline: none;
+			box-shadow: none;
+		}
+		&.slick-next {
+			right: -50px;
+			transform: translate(50%, -50%);
+			@include icon('arrow-right');
+		}
+		&.slick-prev {
+			left: -50px;
+			transform: translate(-50%, -50%) rotate(180deg);
+			@include icon('arrow-left');
+		}
+	}
+	.slick-track {
+		display: flex;
+		align-items: center;
+	}
+}
