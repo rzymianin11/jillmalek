@@ -8,16 +8,22 @@
 		color: #4B515D;
 		letter-spacing: rem(1.08px);
 		font-weight: 700;
+		margin-bottom: rem(20px);
 		& > ul {
 			list-style-type: none;
 			padding: 0;
+			margin-top: rem(10px);
 			& > li {
 				position: relative;
 				padding-left: rem(20px);
+				label {
+					margin: 0;
+				}
 				a {
 					color: #4B515D;
 					letter-spacing: rem(1.08px);
-//					margin-bottom: rem(30px);
+					margin-bottom: rem(5px);
+					display: block;
 					font-weight: 300;
 				}
 				&:before {
@@ -27,7 +33,10 @@
 					height: 1px;
 					position: absolute;
 					left: 0;
-					top: 50%;
+					top: 0.6em;
+				}
+				input { 
+					display: none;
 				}	
 			}
 		}
