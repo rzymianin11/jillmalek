@@ -2,7 +2,61 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				sidebar
+				<ul>
+	{% assign tagall = '' %}
+	{% assign keys = '' %}
+{% for tag in collection.all_tags %}				
+	{% assign kk = tag | split:":" %}
+	{% assign keys = keys | append: kk[0] %}
+	{% assign keys = keys | append: '|' %}
+{% endfor %} 
+{% assign keys = keys | split: '|' | uniq %}
+<ul class="sidebar-filter">
+	<li>Collection
+		<ul>
+			{% for link in linklists['collection-list'].links %}
+				<li>
+		            <a href="{{ link.url }}">
+		              {{ link.title }}
+		            </a>
+				</li>
+			{% endfor %}
+		</ul>
+	</li>
+{% for key in keys %}	
+		<li>{{ key }}
+		<ul>
+	{% for tag in collection.all_tags %}
+		{% assign kk = tag | split:":" %}
+		{% if kk[0] == key %}
+		{% if current_tags contains tag %}
+             <li data-variant-image="{{ variant_image_url }}" class="current">
+               <label>
+                 <input  class="filter_checkbox coll-filter" id="checked" type="checkbox" checked onClick="">
+                   {% if is_color %}
+                     <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
+                   {% endif %}
+                   {{ kk[1] | link_to_remove_tag: tag }}
+               </label>
+            </li>
+          {% elsif collection.all_tags contains tag %}
+            <li data-variant-image="{{ variant_image_url }}">
+              <label>
+                <input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
+                {% if is_color %}
+                  <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
+                {% endif %}
+                {{ kk[1] | link_to_add_tag: tag }}
+              </label>
+            </li>
+          {% endif %}
+		{% endif %}
+	{% endfor %}
+		</ul></li>
+{% endfor %}
+</ul>			
+
+
 			</div>
 			<div class="col-lg-9">
 
@@ -54,3 +108,10 @@
     {% include 'pagination' %}
   {% endif %}
 {% endpaginate %}
+
+<script type="text/javascript">
+$('.filter_checkbox').off().change( function(){
+   	var newURL = $(this).nextAll('a').attr('href');
+   	window.location.href = newURL;
+   });
+</script>

@@ -1,0 +1,35 @@
+.sidebar-filter {
+	list-style-type: none;
+	font-size: rem(14px);
+	padding: 0;
+	margin: 0;
+	& > li {
+		text-transform: uppercase;
+		color: #4B515D;
+		letter-spacing: rem(1.08px);
+		font-weight: 700;
+		& > ul {
+			list-style-type: none;
+			padding: 0;
+			& > li {
+				position: relative;
+				padding-left: rem(20px);
+				a {
+					color: #4B515D;
+					letter-spacing: rem(1.08px);
+//					margin-bottom: rem(30px);
+					font-weight: 300;
+				}
+				&:before {
+					content: "";
+					background-color: #C5C5C5;
+					width: rem(10px);
+					height: 1px;
+					position: absolute;
+					left: 0;
+					top: 50%;
+				}	
+			}
+		}
+	}
+}

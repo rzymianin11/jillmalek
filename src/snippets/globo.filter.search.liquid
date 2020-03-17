@@ -1,0 +1,76 @@
+{% raw %}
+{% if result.isEmpty %}
+  <li class="gf-search-no-result" aria-label="Sorry, nothing found for {{result.term}}">
+    <p>Sorry, nothing found for &nbsp;<b>{{result.term}}</b></p>
+    <a href="/search?q={{result.did_you_mean | url_encode}}">Did you mean:<b>{{result.did_you_mean}}</b>?</a>
+  </li>
+{% else %}
+  {% if result.suggestions %}
+    <li class="gf-search-suggestions">
+      <a class="gf-search-header">Suggestions</a>
+      <ul>
+        {% for suggestion in result.suggestions %}
+          <li aria-label="Suggestions: {{suggestion.keyword}}">
+            <a href="/search?q={{suggestion.keyword | url_encode}}">{{suggestion.keyword}}<span class="count">{{suggestion.count}}</span></a>
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endif %}
+
+  {% if result.collections %}
+    <li class="gf-search-collections">
+      <a class="gf-search-header">Collections</a>
+      <ul>
+        {% for collection in result.collections %}
+          <li aria-label="Collections: {{collection.title}}"><a href="/collections/{{collection.handle}}">{{collection.title}}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endif %}
+
+  {% if result.pages %}
+    <li class="gf-search-pages">
+      <a class="gf-search-header">Pages</a>
+      <ul>
+        {% for page in result.pages %}
+          <li aria-label="Pages: {{page.title}}"><a href="/pages/{{page.handle}}">{{page.title}}</a></li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endif %}
+
+  {% if result.products %}
+    <li class="gf-search-products">
+      <a class="gf-search-header">Products</a>
+      <ul>
+        {% for product in result.products %}
+          <li aria-label="Products: {{product.title}}">
+            <a aria-label="{{product.handle}}" href="/products/{{product.handle}}">
+              <div class="gf-search-left">
+                {% if product.image %}
+                <img src="{{product.image.src | img_url: '100x'}}">
+                {% else %}
+                <img src="{{'https://cdn.shopify.com/s/images/themes/product-1.png' | img_url: '100x'}}">
+                {% endif %}
+              </div>
+              <div class="gf-search-right">
+                <div class="gf-search-item-product-title">{{product.title}}</div>
+                <div class="gf-search-item-product-vendor">{{product.vendor}}</div>
+                <div class="gf-search-item-product-price">
+                  <span class="gf-search-item-product">{{ product.price | money}}</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+        {% if result.total_product > 10 %}
+        <li class="gf-search-item gf-search-item-product gf-search-viewall" aria-label="Products: View all products">
+          <a href="/search?q={{result.term | url_encode}}">View all {{result.total_product}} products</a>
+        </li>
+        {% endif %}
+      </ul>
+    </li>
+  {% endif %}
+{% endif %}
+{% endraw %}

@@ -1,0 +1,49 @@
+{{ 'v5.globo.filter.css' | asset_url | stylesheet_tag }}<script>
+{%- assign assets_url = 'product-1.png' | asset_img_url: '50x' | split: 'product-1_50x.png' -%}
+{%- assign files_url  = 'product-1.png' | file_img_url: '50x' | split: 'product-1_50x.png' -%}
+  window.moneyFormat = "{{ shop.money_format | replace:'"',"'" }}";
+  window.shopCurrency = "{{ shop.currency }}";
+  window.assetsUrl = '{{ assets_url[0] }}';
+  window.filesUrl = '{{ files_url[0] }}';
+  var page_id = {% if template contains 'collection' %}{% if collection.handle == 'all' %}1{% else %}{{collection.id | default: 1}}{% endif %}{% elsif template contains 'search' %}2{% else %}0{% endif %};
+  var GloboFilterConfig = {
+    api: {
+      filterUrl: "https://filter-v5.globosoftware.net/filter",
+      searchUrl: "https://filter-v5.globosoftware.net/search",
+    },
+    shop: {
+      name: "{{ shop.name | escape }}",
+      url: "{{ shop.url }}",
+      domain: "{{ shop.permanent_domain }}",
+      product_image: {width: 500, height: 500},
+      no_image_url: "https://cdn.shopify.com/s/images/themes/product-1.png",
+      themeStoreId: 796,
+      swatches: {{ shop.metafields.globo.swatches | json }},
+      images: ["leftbox.jpg","malek.jpg","projects.jpg","rightbox.jpg","shopwallpaper.jpg"]    },
+    filter: {
+      id: {{ shop.metafields.globo.filters | json }}[page_id] || {{ shop.metafields.globo.filters | json }}['default'] || 0,
+      layout: 1,
+      showCount: 1,
+      isLoadMore: 0    },
+    collection: {
+      id: {{ collection.id | default: 0 }},
+      handle: '{{ collection.handle }}',
+      sort: {% if template contains 'collection' %}"{{ collection.default_sort_by | default: 'best-selling' }}"{% else %}null{% endif %},
+      tags: {% if current_tags %}[{% for tag in current_tags %}{{ tag | handle | json }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% else %}null{% endif %},
+      vendor: "{{ collection.current_vendor }}",
+      type: "{{ collection.current_type }}",
+      term: "{{ search.terms | escape }}",
+      limit: 12
+    },
+    selector: {
+      sortBy: '#SortBy',
+      pagination: '.pagination',
+      products: '.grid--view-items, .list-view-items'
+    }
+  };
+</script>
+<script id="gspfFilterTree"   type="template/html">{% include 'globo.filter.tree' %}</script>
+<script id="gspfFilterSort"   type="template/html">{% include 'globo.filter.sort' %}</script>
+<script id="gspfProduct"      type="template/html">{% include 'globo.filter.product' %}</script>
+<script id="gspfPagination"   type="template/html">{% include 'globo.filter.pagination' %}</script>
+{{ 'v5.globo.filter.lib.js' | asset_url | script_tag }}{% if template contains 'collection' %}<script type="text/javascript">var globofilter = new GloboFilter(GloboFilterConfig);</script>{% endif %}

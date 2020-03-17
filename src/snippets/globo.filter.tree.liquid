@@ -1,0 +1,186 @@
+{% raw %}
+<span onclick="globofilter.toggleCanvas()" class="gf-close-canvas"></span>
+<div class="gf-filter-contents">
+  {% if has_filter %}
+  <div class="gf-selection-wrapper">
+    <div class="gf-block-title">
+      <h3><span translatable>Filter By</span></h3>
+      <a translatable href="javascript:;" onclick="clearAllFilter()" class="gf-refine-toggle">Clear All</a>
+    </div>
+    <div class="gf-block-content globo-selected-items">
+      {% for filter in filters %}
+        {% if filter.is_selected %}
+          {% if filter.style == 'Slider' %}
+            <div class="selected-item gf-option-label">
+              <a href="javascript:" onclick="removeFilter({{filter.id}})">
+                <span translatable class="selected-item">
+                  {{filter.label}}                  <strong>
+                    {% if filter.attribute == 'Price' %}
+                      <span class="money">{{filter.values.min | times: 100 | money}}</span> - <span class="money">{{filter.values.max | times: 100 | money}}</span>
+                    {% else %}
+                      {{filter.values.min}} % - {{filter.values.max}} %
+                    {% endif %}
+                  </strong>
+                </span>
+                <span class="gf-clear"></span>
+              </a>
+            </div>
+          {% else %}
+            {% for value in filter.values %}
+              {% if value.selected %}
+                <div class="selected-item gf-option-label">
+                  <a href="javascript:" onclick="removeFilterValue({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')">
+                    <span class="selected-item"><span translatable>{{filter.label}}</span><strong{% unless filter.attribute == 'Vendor' %} translatable{% endunless %}>{{value.label}}</strong></span><span class="gf-clear"></span>
+                  </a>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% if filters %}
+    {% for filter in filters %}
+    <div data-filter-type="{{filter.attribute | replace: 'option:', ''}}" data-filter-id="{{filter.id}}" class="gf-option-block {{filter.class}}{% if filter.is_collapse %} is-collapsed{% endif %}">
+      <div class="gf-block-title">
+        <h3><span translatable>{{filter.label}}</span></h3>
+        {% if filter.help %}
+        <span class="gf-tooltip-trigger" aria-hidden="true">?</span>
+        <div class="gf-tooltip"><div class="gf-tooltip-content" translatable>{{filter.help | newline_to_br}}</div></div>
+        {% endif %}
+        {% if filter.is_selected %}
+        <a translatable href="javascript:" class="gf-clear" onclick="removeFilter({{filter.id}})">Clear</a>
+        {% endif %}
+      </div>
+      <div class="gf-block-content">
+        {% if filter.searchable and filter.style != 'Slider' %}<input type="text" value="" onkeyup="GloboFilter.searchValues(this);" class="gf-search">{% endif %}
+        {% assign values_count = filter.values | size %}
+        <div class="gf-scroll {% if filter.style != 'Slider' and values_count > 10 %}gf-block-scroll{% endif %}">
+          {% if filter.style == 'Slider' %}
+          <div class="gf-range-inputs">
+            <input class="gf-range-min" id="min-{{filter.id}}" value="{{filter.values.min}}" type="text">
+            <span class="gf-range-split"> - </span>
+            <input class="gf-range-max" id="max-{{filter.id}}" value="{{filter.values.max}}" type="text">
+            <input class="gf-inputs" value="{{filter.values.min}}:{{filter.values.max}}" id="ranger-{{filter.id}}" name="filter[{{filter.id}}][]" type="hidden">
+          </div>
+          <div class="gf-range-slider" data-min="{{filter.ranges.min}}" data-max="{{filter.ranges.max}}" data-id="{{filter.id}}" data-attribute="{{filter.id}}" id="slider-{{filter.id}}"></div>
+          {% else %}
+          <ul class="gf-option-box">
+            {% if filter.attribute == 'Collection' %}
+              {% if filter.tree %}
+                {% for node in filter.tree %}
+                  {% for value in filter.values %}
+                    {% if value.value == node.id %}
+                      <li>
+                        <div>
+                        {% if filter.style == 'Checkbox' %}
+                          <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                        {% elsif filter.style == 'Radio' %}
+                          <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleRadioFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                        {% endif %}
+                        {% if node.children %}<span></span>{% endif %}
+                        </div>
+                        {% if node.children %}
+                        <ul>
+                          {% for child in node.children %}
+                            {% for value in filter.values %}
+                              {% if value.value == child.id %}
+                                <li>
+                                  <div>
+                                  {% if filter.style == 'Checkbox' %}
+                                    <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                                  {% elsif filter.style == 'Radio' %}
+                                    <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleRadioFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                                  {% endif %}
+                                  {% if child.children %}<span></span>{% endif %}
+                                  </div>
+                                  {% if child.children %}
+                                    <ul>
+                                      {% for child2 in child.children %}
+                                        {% for value in filter.values %}
+                                          {% if value.value == child2.id %}
+                                            <li>
+                                              {% if filter.style == 'Checkbox' %}
+                                                <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                                              {% elsif filter.style == 'Radio' %}
+                                                <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleRadioFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                                              {% endif %}
+                                            </li>
+                                          {% endif %}
+                                        {% endfor %}
+                                      {% endfor %}
+                                    </ul>
+                                  {% endif %}
+                                </li>
+                              {% endif %}
+                            {% endfor %}
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              {% else %}
+                {% for value in filter.values %}
+                <li>
+                  <div>
+                  {% if filter.style == 'Checkbox' %}
+                    <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                  {% elsif filter.style == 'Radio' %}
+                    <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleRadioFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a>
+                  {% endif %}
+                  </div>
+                </li>
+                {% endfor %}
+              {% endif %}
+            {% else %}
+              {% for value in filter.values %}
+                {% if filter.style == 'Checkbox' %}
+                  <li><a{% unless filter.attribute == 'Vendor' %} translatable{% endunless %}{% if value.selected %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a></li>
+                {% elsif filter.style == 'Radio' %}
+                  <li><a{% unless filter.attribute == 'Vendor' %} translatable{% endunless %}{% if value.selected %} class="checked"{% endif %} onclick="toggleRadioFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">{{value.label}} ({{value.count}})</a></li>
+                {% elsif filter.style contains 'Swatch' %}
+                  {% assign attribute = filter.attribute | replace: 'option:', '' | downcase %}
+                  {% assign value_handle = value.value | downcase %}
+                  <li>
+                    <a translatable{% if value.selected %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{value.value | replace:"'", "\'" | escape_once}}')" href="javascript:" title="{{value.label | escape_once}}">
+                      {% if swatches[attribute] and swatches[attribute][value_handle] %}
+                        {% if swatches[attribute][value_handle].mode == 1 %}
+                          <span class="gf-option-one-color" style="background-color:{{ swatches[attribute][value_handle].color_1 }}"></span>{% if filter.style contains 'Swatch - Text' %} {{value.label}}{% endif %}
+                        {% elsif swatches[attribute][value_handle].mode == 2 %}
+                          <span class="gf-option-two-color" style="background-color:{{ swatches[attribute][value_handle].color_1 }}"><span class="bottom-color" style="border-bottom-color:{{ swatches[attribute][value_handle].color_2 }}"></span></span>{% if filter.style contains 'Swatch - Text' %} {{value.label}}{% endif %}
+                        {% elsif swatches[attribute][value_handle].mode == 3 %}
+                          <span class="gf-swatch-image" style="background-color: {{ value.value | replace:"'", "\'" | escape_once }}; background-image: url('{{ swatches[attribute][value_handle].image }}')"></span>{% if filter.style contains 'Swatch - Text' %} {{value.label}}{% endif %}
+                        {% endif %}
+                      {% else %}
+                        {% assign value_handle = value.value | handle %}
+                        {% assign value_jpg    = value_handle | append: '.jpg' %}
+                        {% assign value_png    = value_handle | append: '.png' %}
+                        {% assign value_jpeg   = value_handle | append: '.jpeg' %}
+                        <span class="gf-swatch-image" style="background-color: {{ value.value | replace:"'", "\'" | escape_once }};
+                          {% if images contains value_jpg %}
+                          background-image: url('{{ value_jpg | asset_img_url: '50x' | prepend: 'https:' }}')
+                          {% elsif images contains value_png %}
+                          background-image: url('{{ value_png | asset_img_url: '50x' | prepend: 'https:' }}')
+                          {% elsif images contains value_jpeg %}
+                          background-image: url('{{ value_jpeg | asset_img_url: '50x' | prepend: 'https:' }}')
+                          {% endif %}
+                          "></span>{% if filter.style contains 'Swatch - Text' %} {{value.label}}{% endif %}
+                      {% endif %}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endraw %}

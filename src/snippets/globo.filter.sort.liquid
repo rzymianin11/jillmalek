@@ -1,0 +1,18 @@
+{% raw %}
+<div class="gf-sort-wrap">
+  <h3 href="javascript:void(0)" class="gf-refine-toggle-mobile" tabindex="0" aria-label="Filter By">
+    <span onclick="globofilter.toggleCanvas()"><i class="fa fa-tasks" aria-hidden="true"></i> Filter By</span>
+    <a onclick="clearAllFilter()" href="javascript:;" class="gf-refine-toggle visible-xs">Clear All</a>
+  </h3>
+    <div class="sort-by">
+    <label for="changeSortBy" class="sort-by-toggle" role="button" tabindex="0" aria-expanded="false">Sort By</label>
+    <select id="changeSortBy" class="sortby-select" onchange="changeSortBy(this.value); return false;">
+            <option value="best-selling">Best Selling</option>            <option value="title-ascending">Alphabetically, A-Z</option>      <option value="title-descending">Alphabetically, Z-A</option>      <option value="price-ascending">Price, low to high</option>      <option value="price-descending">Price, high to low</option>      <option value="created-descending">Date, new to old</option>      <option value="created-ascending">Date, old to new</option>      <option value="sale-descending">% Sale off</option>    </select>
+  </div>
+          <div class="sort-by limit-by">
+    <label for="setLimit" class="sort-by-toggle" role="button" tabindex="0" aria-expanded="false">Show</label>
+    <select id="setLimit" class="sortby-select" onchange="setLimit(this.value); return false;">
+      <option selected value="12">12</option><option  value="24">24</option><option  value="48">48</option>    </select>
+  </div>
+    </div>
+{% endraw %}

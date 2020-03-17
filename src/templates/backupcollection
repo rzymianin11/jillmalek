@@ -1,0 +1,45 @@
+{% for link in linklists['collection-list'].links %}
+ 
+      {% if link.type == 'collection_link' %}
+ 
+        {% comment %}
+        If we have a collection link.
+        {% endcomment %}   
+ 
+        {% assign collection = link.object %}
+        {% assign number_of_links = number_of_links | plus: 1 %}
+ 
+    {% comment %}
+          Determine the link for the sub-collection by using the linkedlist page handle (=collection handle)
+                 and appending the subcollection name as a category filter
+    {% endcomment %}
+    {% assign subcollection_name = link.url | remove: "/collections/" %}
+        {% assign subcollection_link = "/collections/" | append: page.handle | append: "/category_" | append: subcollection_name %}
+ 
+        {% comment %}
+        If we have products in the collection.
+        {% endcomment %}  
+    
+{% if collection.products_count > 0 %}
+    <div class="grid__item grid-item product-grid-item {{ grid_item_width }} text-center">
+            <div class="grid__image product-grid-image">
+                <a href="{{ subcollection_link }}" class="grid-image--centered">
+                {% comment %}
+                  Bring in the featured image of the first product in the collection if no collection
+                  image has been uploaded for it.
+              {% endcomment %}
+                {% if collection.image %}
+                  <img src="{{ collection | img_url: image_size }}" alt="{{ link.title | escape }}">
+                {% else %}
+                  {% assign product = collection.products.first %}
+                  <img src="{{ product | img_url: image_size }}" alt="{{ link.title | escape }}">
+                {% endif %}
+                </a>
+              </div>
+              <p class="collection-grid__item-title">
+                <a href="{{ subcollection_link }}" class="collection-item__title">{{ link.title }}</a> 
+              </p>
+            </div>
+    {% endif %}
+    {% endif %}
+ {% endfor %}
