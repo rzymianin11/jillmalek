@@ -5,3 +5,115 @@
     border-color: $color-border;
   }
 }
+
+body.template-product {
+	section.header {
+		.header-row {
+			margin-bottom: 0;
+			border-bottom: none;		
+		}
+	}
+	.product-details {
+		color: white;
+		background-color: $secondary-color;
+		position: relative;
+		padding: rem(30px) rem(70px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		
+		.social-sharing {
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			color: $primary-color;
+			a {
+				display: inline-block;
+				margin-right: rem(10px);
+				color: $primary-color;
+			}
+		}
+		h1 {
+			color: $primary-color;
+			letter-spacing: rem(3.08px);
+			font-weight: 300;
+			margin-top: 0;
+		}
+		.description {
+			margin-top: rem(20px);
+			font-size: rem(14px);
+			margin-bottom: rem(20px);
+			ul {
+				margin-top: rem(20px);
+				margin-left: 0;
+				padding-left: 0;
+				list-style-type: none;
+				li {
+					font-size: rem(12px);
+					opacity: 0.7;
+					margin-bottom: rem(5px);
+					&:before {
+						content: "•";
+						color: $primary-color;
+						display: inline-block;
+						vertical-align: baseline;
+						margin-right: rem(5px);
+					}
+				}
+			}
+		}
+	}
+	label[for="Quantity"]{
+		text-transform: uppercase;
+		color: $primary-color;
+		font-size: rem(13px);
+		margin-bottom: 0;
+		letter-spacing: 1px;
+	}
+	.qty-input {
+		position: relative;
+		@include icon(arrow-down);
+		&:before {
+			color: $primary-color;
+			position: absolute;
+			font-size: 7px;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		#Quantity {
+			border: none;
+			color: $primary-color;
+			width: rem(66px);
+			border-bottom: 1px solid $primary-color;
+			padding: 1em 0;
+			background: transparent;
+			font-size: rem(12px);
+			@include placeholder {
+				color: $primary-color;
+			}
+		}
+	}
+	.related-items {
+		h2 {
+			font-weight: 300;
+			letter-spacing: rem(2.31px);
+			font-size: rem(30px);
+		}
+		.col-md-6 {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+		.product-title {
+			letter-spacing: rem(1.23px);
+			font-size: rem(16px);
+			text-align: center;
+			width: 100%;
+			margin-top: rem(20px);
+			a {
+				color: black;
+			}
+		}
+	}
+}

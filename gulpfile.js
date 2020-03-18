@@ -36,6 +36,11 @@ gulp.task('iconfont', function(){
       targetPath: './_icons2.scss',
       fontPath: './src/styles/core/'
     })).pipe(gulp.dest('./src/styles/core'));    
+    
+  return new Promise(function(resolve, reject) {
+    console.log("Font created");
+    resolve();
+  });    
 //    browserSync.reload();
 });
 

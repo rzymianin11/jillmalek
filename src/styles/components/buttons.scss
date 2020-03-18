@@ -46,3 +46,22 @@
   	}
   }
 }
+
+[data-submit-button] {
+	color: white;
+	text-transform: uppercase;
+	border: 1px solid $primary-color;
+	letter-spacing: 1px;
+	font-size: rem(13px);
+	font-weight: 700;
+	background: transparent;
+	padding: 1.5em 4em;
+	transition: all 0.3s ease-in;
+	&:hover {
+		background-color: $primary-color;
+	}
+  &:hover, &:focus, &:active {
+	  outline: none;
+	  box-shadow: none;
+  }
+}

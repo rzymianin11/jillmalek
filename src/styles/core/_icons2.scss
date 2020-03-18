@@ -17,10 +17,10 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == left-arrow {
+	@if $filename == arrow-down {
 		$char: "\E001";
 	}
-	@if $filename == right-arrow copy {
+	@if $filename == left-arrow {
 		$char: "\E002";
 	}
 	@if $filename == right-arrow {
@@ -41,11 +41,11 @@
 	}
 }
 
+.icon-arrow-down {
+	@include icon(arrow-down);
+}
 .icon-left-arrow {
 	@include icon(left-arrow);
-}
-.icon-right-arrow copy {
-	@include icon(right-arrow copy);
 }
 .icon-right-arrow {
 	@include icon(right-arrow);
