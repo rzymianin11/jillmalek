@@ -1,0 +1,74 @@
+<div class="container">
+	<div class="row mb-5">
+		<div class="col-12">
+			<h2 class="text-center">Case studies</h2>
+		</div>
+	</div>
+	{%- for block in section.blocks -%}
+		<div class="row casestudy-row {% cycle "", "flex-row-reverse" %}">
+			<div class="col-md-6" style="background-image: url('{{ block.settings.bg | img_url: '960x' }}');">	
+			</div>
+			<div class="col-md-6 case-study-textarea">
+				<h3>{{ block.settings.title }}</h3>
+				<h4>{{ block.settings.under_title}}</h4>
+				{{ block.settings.text }}
+				{% if block.settings.button_link != blank %}
+					<a class="btn btn-primary" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Case Studies",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Case studies"
+      }
+    ],
+	"blocks": [
+      {
+        "type": "casestudies",
+        "name": "Case studies row",
+        "settings": [
+            {
+		        "type": "image_picker",
+		        "id": "bg",
+		        "label": "Background"
+            },
+            {
+		        "type": "text",
+		        "id": "title",
+		        "label": "Title"
+            },
+            {
+		        "type": "text",
+		        "id": "under_title",
+		        "label": "Under title"
+            },
+		      {
+		        "type": "richtext",
+		        "id": "text",
+		        "label": "Text",
+		        "default": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>"
+		      },
+		      {
+		        "type": "text",
+		        "id": "button_label",
+		        "label": "Button label"
+		      },
+		      {
+		        "type": "url",
+		        "id": "button_link",
+		        "label": "Button link"
+		      }   
+        ]
+      }
+    ]
+  }
+{% endschema %}

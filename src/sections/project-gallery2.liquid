@@ -1,0 +1,49 @@
+<div class="container">
+	<div class="row">
+		{% for file in page.metafields.scb.gallery_project %}
+			<div class="col-md-6">
+				<img src="{% include 'img_url' with url: file.url, params: '960x' %}" class="w-100" />
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<section class="separator">
+</section>
+
+{% for link in page.metafields.scb.link_prev %}
+	{% assign image1 = pages[link.value].metafields.scb.gallery_project[0] %}
+	{% assign title1 = pages[link.value].title %}
+	{% assign url1 = pages[link.value].url %}
+{% endfor %}
+
+{% for link in page.metafields.scb.link_next %}
+	{% assign image2 = pages[link.value].metafields.scb.gallery_project[0] %}
+	{% assign title2 = pages[link.value].title %}
+	{% assign url2 = pages[link.value].url %}	
+{% endfor %}
+
+<div class="container">
+	<div class="row no-gutters nextprev">
+		<a href="{{ url1 }}" class="col-md-6 d-flex flex-column justify-content-center align-items-center colum">
+			<div class="bg" style="background-image: url('{% include 'img_url' with url: image1.url, params: '960x' %}');"></div>
+			<span class="position-relative zindex-2 btn btn-primary arrow-on-left">Previous project</span>
+			<h3 class="position-relative zindex-2 mt-5">{{ title1 }}</h3>
+		</a>
+		<a href="{{ url2 }}" class="col-md-6 d-flex flex-column justify-content-center align-items-center colum">
+			<div class="bg" style="background-image: url('{% include 'img_url' with url: image2.url, params: '960x' %}');"></div>
+			<span class="position-relative zindex-2 btn btn-primary">Next project</span>
+			<h3 class="position-relative zindex-2 mt-5">{{ title2 }}</h3>
+		</a>		
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Project Gallery",
+    "settings": [
+      
+
+    ]
+  }
+{% endschema %}

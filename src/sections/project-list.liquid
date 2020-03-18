@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row project-list-row">
+{% for p in linklists['projects-list'].links %}
+	{% assign handle = p.url | split: '/' | last %}
+
+	{% assign pag = pages[handle] %}
+		
+		<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+			<a href="{{ p.url }}"><img src="{% include 'img_url' with url: pag.metafields.scb.gallery_project[0].url, params: '320x270' %}" class="w-100" /></a>
+			<h2><a href="{{ p.url }}">{{ pag.title }}</a></h2>
+		</div>
+	
+
+{% endfor %}
+	</div>
+</div>

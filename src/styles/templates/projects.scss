@@ -1,0 +1,92 @@
+body.projects {
+	h1, h2 {
+		font-weight: 300;
+		letter-spacing: rem(3.08px);
+	}
+	.casestudy-row {
+		margin-bottom: rem(50px);
+		.case-study-textarea {
+			text-align: center;
+			background-color: #F5F5F5;
+			padding: rem(60px) rem(20px);
+			h3 {
+				letter-spacing: rem(1.23px);
+				font-size: rem(16px);
+				margin: 0;
+				margin-bottom: 0.6em;
+			}
+			h4 {
+				color: $primary-color;
+				letter-spacing: 1px;
+				font-size: rem(13px);
+				text-transform: uppercase;
+				margin-bottom: rem(25px);
+			}
+			p {
+				letter-spacing: rem(1.08px);
+				font-size: rem(14px);
+				line-height: rem(18px);
+				display: inline-block;
+				max-width: 400px;
+				color: #4A4A4A;
+			}
+		}
+	}
+	.project-list-row {
+		h2 {
+			font-size: rem(16px);
+			letter-spacing: rem(1.23px);
+			margin-top: 1em;
+		}
+		a {
+			color: black;
+		}
+		.col-12 {
+			margin-bottom: rem(30px);
+		}
+	}
+}
+
+body.project {
+	.nextprev {
+		height: rem(260px);
+		.colum {
+			position: relative;
+			text-align: center;
+			color: white;
+			&:hover {
+				text-decoration: none;
+			}
+			.btn {
+				color: white;
+			}
+			&:first-child {
+				padding-right: 0;
+			}
+			&:before {
+				content: "";
+				background-color: black;
+				opacity: 0.4;
+				position: absolute;
+				z-index: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+			}
+			h3 {
+				letter-spacing: rem(2.31px);
+				font-size: rem(20px);
+				font-weight: 300;
+			}
+			.bg {
+				position: absolute;
+				z-index: -1;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
+		}
+	}
+}

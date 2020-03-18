@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">aaaa
+		{% for file in page.metafields.scb.gallery %}
+			<div class="col-md-6">
+				<img src="{% include 'img_url' with url: file.url, params: '960x' %}" class="w-100" />
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Project Gallery",
+    "settings": [
+      
+	      {
+	        "type": "url",
+	        "id": "link_previous",
+	        "label": "Link to previous"
+	      },
+	      {
+	        "type": "url",
+	        "id": "link_next",
+	        "label": "Link to next"
+	      }       
+      
+    ]
+  }
+{% endschema %}
