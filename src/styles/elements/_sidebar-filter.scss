@@ -2,7 +2,9 @@
 	list-style-type: none;
 	font-size: rem(14px);
 	padding: 0;
+	border-right: 1px solid #F7F3EE;
 	margin: 0;
+	height: 100%;
 	& > li {
 		text-transform: uppercase;
 		color: #4B515D;
@@ -16,15 +18,36 @@
 			& > li {
 				position: relative;
 				padding-left: rem(20px);
+				text-transform: none;
+				margin-bottom: rem(10px);
 				label {
 					margin: 0;
+				}
+				&.current {
+					font-weight: 700;
+					a {
+						font-weight: 700;
+					}
+				}
+				.color_filter {
+					display: inline-block;
+					width: 1em;
+					height: 1em;
+					vertical-align: middle;
+					border-radius: 100%;
 				}
 				a {
 					color: #4B515D;
 					letter-spacing: rem(1.08px);
 					margin-bottom: rem(5px);
-					display: block;
+					display: inline-block;
+					vertical-align: middle;
+					margin-bottom: 0;
+					height: 1em;
 					font-weight: 300;
+					&:first-letter {
+						text-transform: uppercase;
+					}
 				}
 				&:before {
 					content: "";
@@ -34,6 +57,12 @@
 					position: absolute;
 					left: 0;
 					top: 0.6em;
+				}
+				&.color_row {
+					padding-left: 0;
+					&:before {
+						content: none;
+					}
 				}
 				input { 
 					display: none;

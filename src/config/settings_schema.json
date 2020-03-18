@@ -28,7 +28,12 @@
         "id": "color_main_bg",
         "label": "Background",
         "default": "#fff"
-      }
+      },
+      {
+    	"type": "textarea",
+	    "id": "tag_colors",
+      	"label": "Color HEX codes to filters"
+	  }
     ]
   },
   {

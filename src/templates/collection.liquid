@@ -2,7 +2,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
-				<ul>
 	{% assign tagall = '' %}
 	{% assign keys = '' %}
 {% for tag in collection.all_tags %}				
@@ -15,41 +14,89 @@
 	<li>Collection
 		<ul>
 			{% for link in linklists['collection-list'].links %}
-				<li>
+				<li {% if link.active %}class="current"{% endif %}>
+					{% if link.active %}
+					<a href="/collections/all">
+					{% else %}
 		            <a href="{{ link.url }}">
+			        {% endif %}
 		              {{ link.title }}
 		            </a>
 				</li>
 			{% endfor %}
 		</ul>
 	</li>
-{% for key in keys %}	
+
+{% for keyorder in linklists['sidebar-order'].links %}	
+	{% assign key = keyorder.title %}
 		<li>{{ key }}
 		<ul>
 	{% for tag in collection.all_tags %}
+	
+		{% if keyorder.links != blank %}
+			{% capture orderedtags %}
+			{% for tagsorder in keyorder.links %}
+				{% for tag in collection.all_tags %}
+					{% assign kk = tag | split:":" %}
+					{% if kk[1] == tagsorder.title %}
+						<li {% if current_tags contains tag %}class="current"{% endif %}>
+							<label>
+								<input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
+								{% if current_tags contains tag %}
+									{{ kk[1] | link_to_remove_tag: tag }}	
+								{% else %}
+									{{ kk[1] | link_to_add_tag: tag }}								
+								{% endif %}
+							</label>
+						</li>
+					{% endif %}
+				{% endfor %}
+			{% endfor %}	
+			{% endcapture %}
+		{% endif %}
+		
 		{% assign kk = tag | split:":" %}
 		{% if kk[0] == key %}
-		{% if current_tags contains tag %}
-             <li data-variant-image="{{ variant_image_url }}" class="current">
-               <label>
-                 <input  class="filter_checkbox coll-filter" id="checked" type="checkbox" checked onClick="">
-                   {% if is_color %}
-                     <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
-                   {% endif %}
-                   {{ kk[1] | link_to_remove_tag: tag }}
-               </label>
-            </li>
-          {% elsif collection.all_tags contains tag %}
-            <li data-variant-image="{{ variant_image_url }}">
-              <label>
-                <input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
-                {% if is_color %}
-                  <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
-                {% endif %}
-                {{ kk[1] | link_to_add_tag: tag }}
-              </label>
-            </li>
-          {% endif %}
+			{% if kk[0] == "colors" %}
+				{% assign is_color = true %}
+				{% assign css_color = '' %}
+				{% assign tag_colors = settings.tag_colors | newline_to_br | split: '<br />' %}
+				{% for color_row in tag_colors %}
+					{% assign colortmp = color_row | split: ':' %}
+					{% if colortmp[1] == kk[1] %}
+						{% assign css_color = colortmp[0] %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				{% assign is_color = false %}
+			{% endif %}
+			
+			{% if keyorder.links != blank %}
+				{{ orderedtags }}
+				{% break %}
+			{% else %}
+				{% if current_tags contains tag %}
+		             <li data-variant-image="{{ variant_image_url }}" class="current {% if is_color %}color_row{% endif %}">
+		               <label>
+		                 <input  class="filter_checkbox coll-filter" id="checked" type="checkbox" checked onClick="">
+		                   {% if is_color %}
+		                     <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
+		                   {% endif %}
+		                   {{ kk[1] | link_to_remove_tag: tag }}
+		               </label>
+		            </li>
+		          {% elsif collection.all_tags contains tag %}
+		            <li data-variant-image="{{ variant_image_url }}" class="{% if is_color %}color_row{% endif %}">
+		              <label>
+		                <input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
+		                {% if is_color %}
+		                  <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
+		                {% endif %}
+		                {{ kk[1] | link_to_add_tag: tag }}
+		              </label>
+		            </li>
+		          {% endif %}
+		    {% endif %}
 		{% endif %}
 	{% endfor %}
 		</ul></li>
