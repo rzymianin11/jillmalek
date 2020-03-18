@@ -13,6 +13,12 @@ body.template-product {
 			border-bottom: none;		
 		}
 	}
+	.seemore {
+		position: absolute;
+		right: 30px;
+		bottom: 30px;
+		color: white;
+	}
 	.product-details {
 		color: white;
 		background-color: $secondary-color;

@@ -35,15 +35,34 @@
 	  @include icon('right-arrow', 'after');
 	  position: relative;
 	  padding-right: 3em;
-  	&:after {
-	  	color: $primary-color;
-  		display: inline-block;
-  		vertical-align: middle;
-  		position: absolute;
-  		top: 50%;
-  		transform: translateY(-50%);
-  		right: 0;
-  	}
+	  	&:after {
+		  	color: $primary-color;
+	  		display: inline-block;
+	  		vertical-align: middle;
+	  		position: absolute;
+	  		top: 50%;
+	  		transform: translateY(-50%);
+	  		right: 0;
+	  	}
+  	 &.arrow-on-left {
+	  	 padding-right: 0;
+	  	 padding-left: 3em;
+	  	&:after {
+	  		left: 0;
+	  		right: auto;
+	  		transform: translateY(-50%) rotate(180deg);
+	  	}
+  	 }
+  }
+  &.btn-square {
+	  border: 1px solid $primary-color;
+	  text-transform: uppercase;
+	  padding: 1.5em 4em 1.4em 4em;
+	  font-weight: 700;
+	  transition: all 0.3s ease-in;
+	  &:hover {
+		  background-color: $primary-color !important;
+	  }
   }
 }
 

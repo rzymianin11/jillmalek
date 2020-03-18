@@ -20,4 +20,49 @@
 			}
 		}
 	}
+	#shopify-section-collection-hero {
+		margin-top: rem(-75px);
+	}
+	.collection-single-header {
+		color: white;
+		height: rem(360px);
+		position: relative;
+		.col-md-6 {
+			padding-right: rem(60px);
+			padding-left: rem(60px);
+			h1 {
+				color: $primary-color;
+				font-weight: 300;
+				left: rem(3.85px);
+				font-size: rem(30px);
+			}
+			div {
+				opacity: 0.3;
+				font-size: rem(12px);
+				text-align: right;
+				letter-spacing: 1px;
+			}
+		}		
+		.btn {
+			position: absolute;
+			right: rem(60px);
+			bottom: rem(50px);
+			color: white;
+		}
+	}
+	.collection-description {
+		color: #4A4A4A;
+		line-height: rem(18px);
+		font-size: rem(14px);
+		letter-spacing: rem(1.08px);
+	}
+	.collectionproducts {
+		h2 {
+			font-size: rem(16px);
+			letter-spacing: rem(1.23px);
+			margin-top: rem(34px);
+			margin-bottom: rem(80px);
+			text-align: center;
+		}
+	}
 }

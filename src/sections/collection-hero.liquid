@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row collection-single-header">
+		<div class="col-md-6 d-flex align-items-center justify-content-between" style="background-image: url('{% include 'img_url' with url: collection.metafields.scb.hero_left_bg[0].url, params: '960x' %}');">
+			<h1>{{ collection.title }}</h1><div class="text_on_right">{{ collection.metafields.scb.small_text_on_right | newline_to_br }}</div>
+			<a class="btn btn-primary arrow-on-left">BACK | COLLECTIONS</a>
+		</div>
+		<div class="col-md-6 d-none d-md-block" style="background-image: url('{% include 'img_url' with url: collection.metafields.scb.hero_right_bg[0].url, params: '960x' %}');">
+			
+		</div>	
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection hero section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "hero_left_bg",
+        "label": "Hero background image on left"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_right_bg",
+        "label": "Hero background image on left"
+      },
+      {
+        "type": "textarea",
+        "id": "small_text",
+        "label": "Small text on right",
+        "default": "Lorem ipsum dolor sit amet consecteur"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ]
+  }
+{% endschema %}
