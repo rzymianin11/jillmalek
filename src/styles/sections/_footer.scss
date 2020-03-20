@@ -43,4 +43,30 @@
 		padding-top: rem(130px);
 		padding-bottom: rem(50px);
 	}
+	.copycol {
+		color: white;
+		letter-spacing: 1px;
+		opacity: 0.4;
+		font-size: rem(13px);
+	}
+	.link-list {
+		& > div {
+			
+		}
+		ul {
+			padding: 0;
+			list-style-type: none;
+			margin-right: rem(30px);
+			li {
+				margin-bottom: rem(13px);
+				a {
+					color: white;
+					opacity: 0.5;
+					letter-spacing: 1px;
+					font-size: rem(13px);
+					white-space: nowrap;
+				}
+			}
+		}
+	}
 }

@@ -1,12 +1,17 @@
 .separator {
 	position: relative;
-	height: rem(100px);
+	height: rem(160px);
 	margin: rem(60px) 0;
+	margin-bottom: 0;
+	padding-bottom: rem(60px);
+	border-bottom: 1px solid white;
+	@include clearfix;
 	&:after {
 		position: absolute;
 		left: 50%;
 		top: 0;
-		bottom: 0;
+//		transform: translateY(-50%);
+		height: rem(100px);
 		width: 1px;
 		content: "";
 		background-color: #F7F3EE;

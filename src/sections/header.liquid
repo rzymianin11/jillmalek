@@ -11,7 +11,7 @@
   - Home page only: only shows on the home page
 {%- endcomment -%}
 <section class="header" data-section-id="{{ section.id }}" data-section-type="header">
-	<div class="container">
+	<div class="container-fluid">
 	
   {%- if section.settings.announcement_bar_enabled -%}
   <div class="row">
@@ -38,36 +38,36 @@
 				<span></span>
 			</a>
 			<div class="lines lines-down"><span></span><span></span><span></span></div>
+			  <nav role="navigation" class="navigation">
+			    <ul class=" d-flex flex-row">
+			      {% for link in linklists[section.settings.menu].links %}
+			        {% if link.links != blank %}
+			          <li>
+			            <a href="{{ link.url }}">
+			              {{ link.title }}
+			              {% include 'icon-arrow-down' %}
+			            </a>
+			            <ul>
+			              {% for childlink in link.links %}
+			                <li>
+			                  <a href="{{ childlink.url }}">
+			                    {{ childlink.title }}
+			                  </a>
+			                </li>
+			              {% endfor %}
+			            </ul>
+			          </li>
+			        {% else %}
+			          <li>
+			            <a href="{{ link.url }}">
+			              {{ link.title }}
+			            </a>
+			          </li>
+			        {% endif %}
+			      {% endfor %}
+			    </ul>
+			  </nav>
 		</div>
-	  <nav role="navigation" class="d-none">
-	    <ul>
-	      {% for link in linklists[section.settings.menu].links %}
-	        {% if link.links != blank %}
-	          <li>
-	            <a href="{{ link.url }}">
-	              {{ link.title }}
-	              {% include 'icon-arrow-down' %}
-	            </a>
-	            <ul>
-	              {% for childlink in link.links %}
-	                <li>
-	                  <a href="{{ childlink.url }}">
-	                    {{ childlink.title }}
-	                  </a>
-	                </li>
-	              {% endfor %}
-	            </ul>
-	          </li>
-	        {% else %}
-	          <li>
-	            <a href="{{ link.url }}">
-	              {{ link.title }}
-	            </a>
-	          </li>
-	        {% endif %}
-	      {% endfor %}
-	    </ul>
-	  </nav>
 	</div>
 	  <div class="col text-center">
 		    {% if template.name == 'index' %}

@@ -1,9 +1,44 @@
+$bigheader: rem(150px);
+$smallheader: rem(70px);
+
 section.header {
 	.header-row {
-		height: rem(150px);
+		height: $bigheader;
+		transition: all 0.3s ease-in;
+		will-change: auto;
+		transform: translate3d(0,0,0);
+		#shopify-section-header.small & {
+			height: $smallheader;
+		}
 		body:not(.template-index) & {
 			border-bottom: 1px solid #ECECEC;
 			margin-bottom: rem(75px);
+		}
+		.navigation {
+			list-style-type: none;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+			@include media('<=1199px'){
+				display: none;
+			}
+			ul {
+				margin: 0;
+				padding: 15px;
+			}
+			li {
+				display: inline-block;
+				margin-right: rem(20px);
+				a {
+					color: black;
+					font-weight: 300;
+					letter-spacing: 1px;
+					font-size: rem(14px);
+					text-transform: uppercase;
+				}
+			}
 		}
 		.burger-wrapper {
 			height: 100%;
@@ -36,6 +71,9 @@ section.header {
 						display: inline-block;
 						width: 100%;
 						height: 1px;
+						@include media('>1199px'){
+							display: none;
+						}
 						&:nth-child(2){
 							width: 50%;
 						}
@@ -44,4 +82,48 @@ section.header {
 			}
 		}
 	}
+}
+
+body {
+//	padding-top: rem(150px);
+}
+
+#shopify-section-header {
+	position: relative;
+	width: 100%;
+	height: $bigheader;
+	transition: all 0.3s ease-in;	
+	will-change: auto;
+	.header {
+		position: fixed;
+		width: 100%;
+		z-index: 99;
+		background-color: white;
+	}
+	&.small {
+		.header {
+			
+		}
+	}
+}
+
+#MainContent {
+	position: relative;
+	z-index: 2;
+	background-color: white;
+}
+
+#shopify-section-footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.footerspacer {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: rem(620px);
+	@include clearfix;
 }

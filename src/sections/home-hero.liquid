@@ -1,23 +1,15 @@
 <section class="home-hero">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row section-row">
-			<div class="col-lg-6">
-				<div class="bg" style="background-image: url('{{ section.settings.bg-left | img_url: '960x' }}');"></div>
-				<div class="be-sqaure">
-					<div class="inner">
-						<h1>{{ section.settings.title }}</h1>
-						<div class="text-box">
-							{{ section.settings.text }}
-						</div>
-						<a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
-					</div>
+			<div class="col-lg-4 d-flex flex-column justify-content-center align-items-start">
+				<h1>{{ section.settings.title }}</h1>
+				<div class="text-box">
+					{{ section.settings.text }}
 				</div>
+				<a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
 			</div>
-			<div class="col-lg-6 move-down-lg">
+			<div class="col-lg-8">
 				<div class="bg" style="background-image: url('{{ section.settings.bg-right | img_url: '960x' }}');"></div>
-				<div class="be-sqaure">
-					 
-				</div>
 			</div>
 		</div>
 	</div>
