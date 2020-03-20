@@ -14,23 +14,25 @@
 		</div>
 	{% section 'separator' %}
 		<div class="container">
-			<div class="row collectionproducts">
+			<div class="row collectionproducts large-gutters">
 				{% for product in collection.products %}
-					<div class="col-md-6">
+					<div class="col-md-6 ">
+						<a href="{{ product.url | within: collection  }}">
 						{% if product.images[1] != blank %}
 							<img class="w-100" src="{{ product.images[1] | img_url: '650x430' }}" />
 						{% else %}
 							<img class="w-100" src="{{ product.images[0] | img_url: '650x430' }}" />
 						{% endif %}
-						<h2>{{ product.title }}</h2>
+						</a>
+						<h2><a href="{{ product.url | within: collection  }}">{{ product.title }}</a></h2>
 					</div>
 				{% endfor %}
 			</div>
 		</div>
 		
 		<section class="shop-wallpaper">
-			<div class="container">
-				<div class="bg" style="background-image: url('//cdn.shopify.com/s/files/1/0351/4381/1203/files/shopwallpaper_1920x.jpg?v=1584096688');"></div>
+			<div class="container-fluid">
+				<img class="parallax" src="//cdn.shopify.com/s/files/1/0351/4381/1203/files/shopwallpaper_1920x.jpg?v=1584096688" />
 				<div class="row section-row">
 					<div class="col-12">
 						<div class="inner">
@@ -40,10 +42,12 @@
 				</div>
 			</div>
 		</section>
+		
+		{% section 'separator' %}
 {% else %}
 
 
-{% paginate collection.products by 12 %}
+{% paginate collection.products by 24 %}
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
@@ -157,11 +161,7 @@
 			      <div class="col-lg-4 product-box">
 			        {% if product.featured_image != blank %}
 			          <a href="{{ product.url | within: collection }}">
-			            {% include 'responsive-image' with
-			              image: product.featured_image,
-			              max_width: 700,
-			              max_height: 800
-			            %}
+				          <img class="w-100" src="{{ product.featured_image | img_url: "640x540", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
 			

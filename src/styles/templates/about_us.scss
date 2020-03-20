@@ -48,12 +48,12 @@ body.about-us {
 		&.slick-next {
 			right: -50px;
 			transform: translate(50%, -50%);
-			@include icon('arrow-right');
+			@include icon(right-arrow);
 		}
 		&.slick-prev {
 			left: -50px;
-			transform: translate(-50%, -50%) rotate(180deg);
-			@include icon('arrow-left');
+			transform: translate(-50%, -50%);
+			@include icon(left-arrow);
 		}
 	}
 	.slick-track {

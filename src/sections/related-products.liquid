@@ -1,5 +1,5 @@
 {% if section.settings.show_related_products == true %}
-<div class="container related-items" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true"><div class="row">
+<div class="container related-items" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true"><div class="row justify-content-around">
  
 {% comment %}
   Number of related items per row,
@@ -70,7 +70,7 @@
       {% assign grid_item_width = '' %}
   {%- assign max_height = 700 -%}
     {% when '2' %}
-      {% assign grid_item_width = 'col-md-6' %}
+      {% assign grid_item_width = 'col-md-6 col-lg-5' %}
   	  {%- assign max_height = 530 -%}
     {% when '3' %}
       {% assign grid_item_width = 'small--one-half medium-up--one-third' %}
@@ -97,7 +97,7 @@
   {% unless same_vendor and current_product.vendor != product.vendor %}
   {% unless same_type and current_product.type != product.type %}
   <div class="product-item {{ grid_item_width }}">
-  	<a href="{{ product.url }}"><img class="w-100" src="{{ product.images[0] | img_url: '900x' }}" alt="related product" /></a>
+  	<a href="{{ product.url }}"><img class="w-100" src="{{ product.images[0] | img_url: '650x430' }}" alt="related product" /></a>
   	<h3 class="product-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
   </div>
   {% assign counter = counter | plus: 1 %}
@@ -116,7 +116,7 @@
   {% unless related_items == blank %}
 
       {% unless heading == blank %}
-      <header class="section-header col-12 text-center mb-4">
+      <header class="section-header col-12 text-center mb-5">
         <h2 class="section-header__title">{{ heading }}</h2>
       </header>
       {% endunless %}

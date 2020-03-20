@@ -39,6 +39,19 @@ const Process = {
 				  slidesToShow: 1,
 				  slidesToScroll: 1,
 			});
+			
+		  $('.slickjs-3').slick({
+				  dots: false,
+				  infinite: true,
+				  speed: 500,
+				  fade: true,
+				  cssEase: 'linear',
+				  rows: 0,
+				  arrows: true,
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+			});
+			
 			$('.slickjs-nav-2').slick({
 			  slidesToShow: 1,
 			  slidesToScroll: 1,

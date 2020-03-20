@@ -13,6 +13,44 @@ body.template-product {
 			border-bottom: none;		
 		}
 	}
+	.featuredimages {
+		position: relative;
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			z-index: 12;
+			color: $primary-color;
+			background: none;
+			margin: 0;
+			padding: 0;
+			border: none;
+			width: rem(20px);
+			color: transparent;
+			&:before {
+				color: $primary-color;
+			}
+			&:active, &:focus, &:hover {
+				outline: none;
+				box-shadow: none;
+			}
+			&.slick-next {
+				right: 10%;
+				transform: translate(50%, -50%);
+				@include icon(right-arrow);
+				&:before {
+					color: $secondary-color;
+				}
+			}
+			&.slick-prev {
+				left: 10%;
+				transform: translate(-50%, -50%);
+				@include icon(left-arrow);
+				&:before {
+					color: $secondary-color;
+				}
+			}
+		}
+	}
 	.seemore {
 		position: absolute;
 		right: 30px;

@@ -30,11 +30,17 @@
 	@if $filename == arrow-down {
 		$char: "\E001";
 	}
-	@if $filename == left-arrow {
+	@if $filename == facebook {
 		$char: "\E002";
 	}
-	@if $filename == right-arrow {
+	@if $filename == left-arrow {
 		$char: "\E003";
+	}
+	@if $filename == pinterest {
+		$char: "\E004";
+	}
+	@if $filename == right-arrow {
+		$char: "\E005";
 	}
 
 	@return $char;
@@ -54,8 +60,14 @@
 .icon-arrow-down {
 	@include icon(arrow-down);
 }
+.icon-facebook {
+	@include icon(facebook);
+}
 .icon-left-arrow {
 	@include icon(left-arrow);
+}
+.icon-pinterest {
+	@include icon(pinterest);
 }
 .icon-right-arrow {
 	@include icon(right-arrow);

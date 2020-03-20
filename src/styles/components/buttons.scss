@@ -67,10 +67,10 @@
 	  	}
 	  	&:hover {
 		  	&:after {
-  animation-duration: 0.5s;
-  animation-name: changewidth;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+				  animation-duration: 0.5s;
+				  animation-name: changewidth;
+				  animation-iteration-count: infinite;
+				  animation-direction: alternate;
 		  	}
 	  	}
   	 &.arrow-on-left {

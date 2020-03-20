@@ -1,12 +1,19 @@
 <section data-section-id="{{ section.id }}" data-section-type="product">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row no-gutters">
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
-  		<div class="col-lg-6 position-relative">
-	  		<img class="w-100" src="{{ product.images[1] | img_url: '900x' }}" />
+  		<div class="col-lg-6 position-relative featuredimages">
+		  	<div class="slickjs-3">
+			  	{% assign images = product.images %}
+			  {% for image in images  %}
+				  <div>
+					<img class="w-100" src="{{ image | img_url: '900x900', crop: 'center' }}" />
+				  </div>
+			  {% endfor %}
+		  	</div>
   		</div>
   		<div class="col-lg-6 product-details">
 

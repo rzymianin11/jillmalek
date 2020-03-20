@@ -14,6 +14,8 @@ import {cookiesEnabled} from '@shopify/theme-cart';
 import Process from '../sections/process';
 import Shopwallpaper from '../sections/shop-wallpaper';
 
+import $ from 'jquery';
+
 Process.init();
 Shopwallpaper.init();
 
@@ -28,3 +30,17 @@ if (cookiesEnabled()) {
     'supports-cookies',
   );
 }
+
+$(function() {
+    //caches a jQuery object containing the header element
+    var header = $("#shopify-section-header");
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 100) {
+            header.addClass("small");
+        } else {
+            header.removeClass('small');
+        }
+    });
+});

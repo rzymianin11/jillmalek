@@ -77,3 +77,11 @@ $breakpoints: (
   xxl: 1400px
 );
 
+.large-gutters {
+    margin-right: -45px;
+    margin-left: -45px;
+    > [class*="col-"] {
+      padding-right: 45px;
+      padding-left: 45px;
+    }
+  }
