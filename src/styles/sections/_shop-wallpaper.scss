@@ -5,6 +5,13 @@
 	.container-fluid {
 		position: relative;
 		height: rem(500px);
+		.simpleParallax {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
 	}
 	.bg {
 		background-size: cover;

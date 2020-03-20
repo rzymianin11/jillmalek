@@ -10,6 +10,26 @@
   appearance: none;
 }
 
+@keyframes changewidth {
+  from {
+    transform: translate(0, -50%);
+  }
+
+  to {
+    transform: translate(5px, -50%);
+  }
+}
+
+@keyframes changewidthLeft {
+  from {
+    transform: translate(0, -50%);
+  }
+
+  to {
+    transform: translate(5px, -50%);
+  }
+}
+
 .btn {
   display: inline-block;
   vertical-align: middle;
@@ -35,6 +55,7 @@
 	  @include icon('right-arrow', 'after');
 	  position: relative;
 	  padding-right: 3em;
+	  padding-top: rem(12px);
 	  	&:after {
 		  	color: $primary-color;
 	  		display: inline-block;
@@ -44,6 +65,14 @@
 	  		transform: translateY(-50%);
 	  		right: 0;
 	  	}
+	  	&:hover {
+		  	&:after {
+  animation-duration: 0.5s;
+  animation-name: changewidth;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+		  	}
+	  	}
   	 &.arrow-on-left {
 	  	 padding-right: 0;
 	  	 padding-left: 3em;
@@ -51,6 +80,14 @@
 	  		left: 0;
 	  		right: auto;
 	  		transform: translateY(-50%) rotate(180deg);
+	  	}
+	  	&:hover {
+		  	&:after {
+				  animation-duration: 0.5s;
+				  animation-name: changewidthLeft;
+				  animation-iteration-count: infinite;
+				  animation-direction: alternate;
+		  	}
 	  	}
   	 }
   }

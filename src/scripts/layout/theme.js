@@ -12,8 +12,10 @@ import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
 import {cookiesEnabled} from '@shopify/theme-cart';
 
 import Process from '../sections/process';
+import Shopwallpaper from '../sections/shop-wallpaper';
 
 Process.init();
+Shopwallpaper.init();
 
 // Common a11y fixes
 focusHash();
