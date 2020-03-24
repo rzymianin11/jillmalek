@@ -16,6 +16,15 @@ import Shopwallpaper from '../sections/shop-wallpaper';
 
 import $ from 'jquery';
 
+import './jquery.parallax.min.js';
+
+$('.my-parallax-window').parallax({
+  speed: -.2,
+  sliderSelector: '>.my-parallax-slider',
+  mirrorSelector: '.parallax-mirror',
+  zIndex: 10
+})
+
 Process.init();
 Shopwallpaper.init();
 

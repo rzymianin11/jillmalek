@@ -7,6 +7,15 @@
 			margin-bottom: rem(10px);
 			a {
 				display: block;
+				overflow: hidden;
+				img {
+					transition: all 0.3s ease-in;
+				}
+				&:hover {
+					img {
+						transform: scale(1.2);
+					}
+				}
 			}
 		}
 		.product-title {

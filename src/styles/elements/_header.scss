@@ -1,4 +1,4 @@
-$bigheader: rem(150px);
+$bigheader: rem(100px);
 $smallheader: rem(70px);
 
 		body:not(.template-index):not(.template-product) {
@@ -11,6 +11,11 @@ $smallheader: rem(70px);
 		}
 		
 section.header {
+	.logo-image {
+		img {
+			height: rem(20px);
+		}
+	}
 	.header-row {
 		height: $bigheader;
 		transition: all 0.3s ease-in;
@@ -59,6 +64,9 @@ section.header {
 					justify-content: space-between;
 					align-items: stretch;
 					flex: 1;
+					@include media('>1199px'){
+						display: none;	
+					}
 					span {
 						width: 1px;
 						display: inline-block;

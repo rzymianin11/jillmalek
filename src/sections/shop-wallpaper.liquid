@@ -1,13 +1,21 @@
 <section class="shop-wallpaper">
 	<div class="container-fluid">
-		<img class="parallax" src="{{ section.settings.bg | img_url: '1920x' }}" />
-		<div class="row section-row">
-			<div class="col-12">
-				<div class="inner">
-					<a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+		<div class="my-parallax-window">
+			
+			
+		  <div class="my-parallax-slider">
+		  		<img  src="{{ section.settings.bg | img_url: '1920x' }}" />
+		  </div>
+		  
+			<div class="row no-gutters section-row">
+				<div class="col-12">
+					<div class="inner">
+						<a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+					</div>
 				</div>
 			</div>
 		</div>
+		  
 	</div>
 </section>
 

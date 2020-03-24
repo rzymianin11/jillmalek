@@ -4,8 +4,10 @@ import "slick-carousel/slick/slick.css";
 
 const Process = {
 	init : function(){
-		  $('.slickjs').slick({
-				  dots: false,
+		
+		$('.slickjs').each(function() {
+		  $(this).slick({
+				  dots: true,
 				  infinite: true,
 				  speed: 500,
 				  fade: true,
@@ -14,7 +16,9 @@ const Process = {
 				  arrows: false,
 				  slidesToShow: 1,
 				  slidesToScroll: 1,
+				  appendDots: $(this).closest('.process').find('.dots-container')
 			});
+		});
 			$('.slickjs-nav').slick({
 			  slidesToShow: 1,
 			  slidesToScroll: 1,
@@ -23,7 +27,7 @@ const Process = {
 			  focusOnSelect: true,
 			  fade: true,
 			  rows: 0,
-			  arrows: true,
+			  arrows: false,
 //			  prevArrow: 'arrow-left',
 //			  nextArrow: 'arrow-right'
 			});
