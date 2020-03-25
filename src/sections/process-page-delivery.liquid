@@ -2,6 +2,9 @@
 	<div class="row">
 		<div class="col-12 text-center page-header">
 			<h1>{{ section.settings.title }}</h1>
+<section class="separator small">
+	
+</section>
 			<div class="featured-text">{{ section.settings.featured_text }}</div>
 		</div>
 	</div> 
@@ -10,7 +13,7 @@
 
 <section class="process processpage process-{{ section.id }}">
 	<div class="container">
-		<div class="row no-gutters section-row align-items-stretch {% if section.settings.position == "left" %}flex-row-reverse{% endif %} ">
+		<div class="row no-gutters section-row align-items-stretch {% if section.settings.position == "left" %}flex-row-reverse{% endif %} {% if section.blocks.size < 2 %}oneslide{% endif %}">
 			<div class="col-lg-6 img">
 				<div class="slickjs-2">
 				  {%- for block in section.blocks -%}
@@ -20,7 +23,7 @@
 				  {% endfor %}
 				</div>
 			</div>
-			<div class="col-lg-6" style="background-color: {{ section.settings.color_code }};">
+			<div class="col-lg-6 position-relative" style="background-color: {{ section.settings.color_code }};">
 				<div class="slickjs-nav-2">
 					 {%- for block in section.blocks -%}
 					 	<div>

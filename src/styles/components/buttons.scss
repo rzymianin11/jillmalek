@@ -30,6 +30,16 @@
   }
 }
 
+@keyframes changewidthDown {
+  from {
+    transform: translate(0, -50%);
+  }
+
+  to {
+    transform: translate(0, -48%);
+  }
+}
+
 .btn {
   display: inline-block;
   vertical-align: middle;

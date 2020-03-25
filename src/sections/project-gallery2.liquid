@@ -1,8 +1,12 @@
 <div class="container">
 	<div class="row">
 		{% for file in page.metafields.scb.gallery_project %}
+			{% if page.metafields.scb.gallery_project.size > 1%}
 			<div class="col-md-6">
-				<img src="{% include 'img_url' with url: file.url, params: '960x' %}" class="w-100" />
+			{% else %}
+			<div class="col-12">			
+			{% endif %}
+				<img src="{% include 'img_url' with url: file.url, params: '960x1200_crop_center' %}" class="w-100" />
 			</div>
 		{% endfor %}
 	</div>
@@ -21,6 +25,34 @@
 	{% assign image2 = pages[link.value].metafields.scb.gallery_project[0] %}
 	{% assign title2 = pages[link.value].title %}
 	{% assign url2 = pages[link.value].url %}	
+{% endfor %}
+
+
+
+{% for item in linklists['projects-list'].links %}
+	{% if item.current %}
+    
+    {% assign prev_i = forloop.index0 | minus: 1 %}
+    {% if forloop.last != true %}
+	    {% assign next_i = forloop.index0 | plus: 1 %}
+	{% else %}
+		{% assign next_i = 0 %}
+	{% endif %}
+	
+    {% assign handle = linklists['projects-list'].links[prev_i].url | split: '/' | last %}
+
+	{% assign image1 = pages[handle].metafields.scb.gallery_project[0] %}
+	{% assign title1 = pages[handle].title %}
+	{% assign url1 = pages[handle].url %}
+    
+    {% assign handle = linklists['projects-list'].links[next_i].url | split: '/' | last %}
+    
+	{% assign image2 = pages[handle].metafields.scb.gallery_project[0] %}
+	{% assign title2 = pages[handle].title %}
+	{% assign url2 = pages[handle].url %}	
+    
+    {% break %}
+    {% endif %}
 {% endfor %}
 
 <div class="container">

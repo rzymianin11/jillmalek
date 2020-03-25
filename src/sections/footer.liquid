@@ -147,7 +147,7 @@
 			       col-12
 				{%- when 'text' -%}
 					{% if block.id == "text" %}
-						col-lg-5
+						col-lg-5 text-justify
 					{% else %}
 						col-lg-3					
 					{% endif %}
@@ -268,7 +268,6 @@
 		<div class="col copycol">
 	      <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
 	        <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-	        <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
 	      </div>
 		</div>
 		<div  class="col text-center">
@@ -277,8 +276,8 @@
 	        </a>
 		</div>
 		<div class="col text-lg-right">
-			<a href="#"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
-			<a href="#"><img src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
+			<a target="_blank" href="{{ settings.social_instagram_link }}"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
+			<a target="_blank" href="{{ settings.social_pinterest_link }}"><img src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
 		</div>
     </div>
   </div>

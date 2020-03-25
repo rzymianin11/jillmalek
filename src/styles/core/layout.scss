@@ -13,10 +13,16 @@ body,
 html {
   font-size: $base;
   font-family: $base-font !important;
-  height: 100%;
 }
+
 
 .site-footer {
 	background-color: #4B515D !important;
 	color: white;
+}
+
+
+
+body.opennav {
+	overflow-y: hidden;
 }

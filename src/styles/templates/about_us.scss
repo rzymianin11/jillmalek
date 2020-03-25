@@ -1,8 +1,44 @@
 body.about-us {
+	.presslogocontainer {
+		.slide {
+			text-align: center;
+		}
+		img {
+			max-height: 60px;
+			display: inline-block;
+			filter: grayscale(100%);
+			transition: all 0.3s ease-in;
+		}
+		a {
+			&:hover {
+				img {
+					filter: grayscale(0);
+				}
+			}
+		}
+	}
 	.page-header {
 		margin-bottom: rem(70px);
 		h1 {
-			font-size: rem(40px);
+			font-size: rem(30px);
+			letter-spacing: rem(3.08px);
+			font-weight: 300;
+			margin-top: 0;
+			padding: 0;
+			margin-bottom: rem(20px);
+		}
+		.featured-text {
+			text-transform: uppercase;
+			font-size: rem(13px);
+			letter-spacing: 1px;
+			font-weight: 300;
+			color: #4B515D;
+		}
+	}
+	.page-header2 {
+		margin-bottom: rem(30px);
+		h1 {
+			font-size: rem(30px);
 			letter-spacing: rem(3.08px);
 			font-weight: 300;
 			margin-top: 0;

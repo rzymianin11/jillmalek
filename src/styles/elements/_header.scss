@@ -11,9 +11,17 @@ $smallheader: rem(70px);
 		}
 		
 section.header {
+	.h1 {
+		margin-bottom: 0;
+	}
 	.logo-image {
 		img {
 			height: rem(20px);
+			@include media('<=768px'){
+				height: rem(12px);
+				width: auto;
+				max-width: none;
+			}
 		}
 	}
 	.header-row {
@@ -22,7 +30,9 @@ section.header {
 		will-change: auto;
 		transform: translate3d(0,0,0);
 		#shopify-section-header.small & {
-			height: $smallheader;
+			@include media('>768px'){
+				height: $smallheader;
+			}
 		}
 
 		.navigation {
@@ -144,8 +154,12 @@ body {
 
 .footerspacer {
 	position: relative;
+	z-index: -1;
 	display: block;
 	width: 100%;
 	height: rem(620px);
 	@include clearfix;
+	@include media('<=768px'){
+		height: rem(1072px);
+	}
 }

@@ -37,6 +37,7 @@
 @import './components/placeholders';
 @import './components/responsive-images';
 @import './components/address-forms';
+@import './components/mobile-nav';
 
 //Elements
 @import './elements/header';
@@ -60,3 +61,8 @@
 @import './templates/collection';
 @import './templates/about_us';
 @import './templates/projects';
+
+
+html, body {
+ // overflow-x: hidden;
+}

@@ -13,6 +13,9 @@
 	}
 	.section-row {
 		height: rem(200px);
+		@include media('<=768px'){
+			height: auto;	
+		}
 	}
 	h2 {
 		letter-spacing: rem(3.08px);
@@ -27,6 +30,11 @@
 //		max-width: 100%;
 	}
 	.move-down-lg {
-		padding-left: rem(160px);		
+		@include media('>768px'){
+			padding-left: rem(160px);	
+		}	
+		@include media('<=768px'){
+			margin-top: rem(50px);	
+		}
 	}
 }

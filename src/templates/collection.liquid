@@ -19,9 +19,9 @@
 					<div class="col-md-6 ">
 						<a href="{{ product.url | within: collection  }}">
 						{% if product.images[1] != blank %}
-							<img class="w-100" src="{{ product.images[1] | img_url: '650x430' }}" />
+							<img class="w-100" src="{{ product.images[1] | img_url: '650x430', crop: 'center' }}" />
 						{% else %}
-							<img class="w-100" src="{{ product.images[0] | img_url: '650x430' }}" />
+							<img class="w-100" src="{{ product.images[0] | img_url: '650x430', crop: 'center' }}" />
 						{% endif %}
 						</a>
 						<h2><a href="{{ product.url | within: collection  }}">{{ product.title }}</a></h2>
@@ -30,18 +30,6 @@
 			</div>
 		</div>
 		
-		<section class="shop-wallpaper">
-			<div class="container-fluid">
-				<img class="parallax" src="//cdn.shopify.com/s/files/1/0351/4381/1203/files/shopwallpaper_1920x.jpg?v=1584096688" />
-				<div class="row section-row">
-					<div class="col-12">
-						<div class="inner">
-							<a href="/collections/all">View all collections</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		
 		{% section 'separator' %}
 {% else %}

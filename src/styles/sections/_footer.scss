@@ -42,6 +42,9 @@
 	.copy-row {
 		padding-top: rem(130px);
 		padding-bottom: rem(50px);
+		@include media('<=768px'){
+			padding-top: rem(30px);	
+		}
 	}
 	.copycol {
 		color: white;
@@ -59,12 +62,21 @@
 			margin-right: rem(30px);
 			li {
 				margin-bottom: rem(13px);
+				&:hover, &:active, &:focus {
+					text-decoration: none;
+					a {
+						border-bottom: none !important;
+					}
+				}
 				a {
 					color: white;
 					opacity: 0.5;
 					letter-spacing: 1px;
 					font-size: rem(13px);
 					white-space: nowrap;
+					&:hover, &:active, &:focus {
+						border-bottom: none;	
+					}
 				}
 			}
 		}

@@ -13,6 +13,7 @@ import {cookiesEnabled} from '@shopify/theme-cart';
 
 import Process from '../sections/process';
 import Shopwallpaper from '../sections/shop-wallpaper';
+import MobileHeader from '../sections/mobilenav';
 
 import $ from 'jquery';
 
@@ -27,6 +28,7 @@ $('.my-parallax-window').parallax({
 
 Process.init();
 Shopwallpaper.init();
+MobileHeader.init();
 
 // Common a11y fixes
 focusHash();
@@ -52,4 +54,17 @@ $(function() {
             header.removeClass('small');
         }
     });
+    
+	
+	$('a[href^="#"]').click(function (e) {
+		console.log('animate');
+		e.preventDefault();
+		e.stopPropagation();
+		var el = $($(this).attr('scrollto')).offset().top - 150;
+	    $('html, body').animate({
+		    scrollTop: el
+		}, 500);
+	
+	    return false;
+	});
 });

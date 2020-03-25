@@ -10,6 +10,46 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
+
+<section class="mobile-navigation-wrapper d-flex flex-column">
+	<div class="mobile-container">
+		<div class="mobile-navigation-header col-auto">
+			<a href="#" class="closenav">X</a>
+		</div>
+		<div class="mobile-navigation-content col">
+		  <nav role="navigation" class="navigation-mobile">
+		    <ul class="">
+		      {% for link in linklists[section.settings.menu].links %}
+		        {% if link.links != blank %}
+		          <li>
+		            <a href="{{ link.url }}">
+		              {{ link.title }}
+		              {% include 'icon-arrow-down' %}
+		            </a>
+		            <ul>
+		              {% for childlink in link.links %}
+		                <li>
+		                  <a href="{{ childlink.url }}">
+		                    {{ childlink.title }}
+		                  </a>
+		                </li>
+		              {% endfor %}
+		            </ul>
+		          </li>
+		        {% else %}
+		          <li>
+		            <a href="{{ link.url }}">
+		              {{ link.title }}
+		            </a>
+		          </li>
+		        {% endif %}
+		      {% endfor %}
+		    </ul>
+		  </nav>
+		</div>	
+	</div>
+</section>
+
 <section class="header" data-section-id="{{ section.id }}" data-section-type="header">
 	<div class="container-fluid">
 	
@@ -85,8 +125,9 @@
 		    {% endif %}
 		</div>
 		<div class="col socials text-right">
-			<a href="#"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
-			<a href="#"><img src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
+			<a target="_blank" class="" href="{{ settings.social_instagram_link }}"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
+			<a target="_blank" href="{{ settings.social_pinterest_link }}"><img src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
+
 			
 			{% comment %}
 			    <a href="/cart">

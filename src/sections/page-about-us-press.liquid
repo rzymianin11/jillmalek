@@ -1,13 +1,16 @@
-<div class="container">
+<div class="container presslogocontainer">
 	<div class="row">
-		<div class="col-12 text-center page-header">
-			<h1>{{ section.settings.title }}</h1>
+		<div class="col-12 text-center page-header2 mb-0">
+			<h1 class="mb-0">{{ section.settings.title }}</h1>
 			<div class="featured-text">{{ section.settings.featured_text }}</div>
 		</div>
 	</div>
+<section class="separator small">
+	
+</section>
 	<div class="carousel">
 		{%- for block in section.blocks -%}
-			<div class="slide px-3"><img src="{{ block.settings.image | img_url: '480x' }}" /></div>
+			<div class="slide px-5"><a target="_blank" href="{{ block.settings.button_link }}"><img src="{{ block.settings.image | img_url: '480x' }}" /></a></div>
 		{% endfor %}
 	</div>
 </div>

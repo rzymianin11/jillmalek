@@ -61,3 +61,14 @@
 		}
 	}
 }
+
+#shopify-section-1584096618627 {
+	a {
+		border-color: $secondary-color;
+		color: $secondary-color;
+			&:hover {
+				color: white;
+				background-color: $secondary-color;
+			}
+	}
+}

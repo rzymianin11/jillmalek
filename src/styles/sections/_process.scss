@@ -14,6 +14,10 @@
 	}
 	#shopify-section-process-page-hero-section {
 		margin-bottom: rem(50px);
+		.featured-text {
+			max-width: 700px;
+			margin: 0 auto;
+		}
 	}
 	.dots-container {
 		position: absolute;
@@ -21,6 +25,10 @@
 		bottom: rem(50px);
 		right: 0;
 		z-index: 3;
+		@include media('<=768px'){
+			bottom: auto;
+			top: rem(150px);
+		}
 		.slick-dots {
 			list-style-type: none;
 			padding: 0;
@@ -63,6 +71,22 @@
 	}
 	.section-row {
 		height: rem(600px);
+		@include media('<=768px'){
+			height: auto;
+		}
+		&.oneslide {
+			.slickjs-nav-2 {
+				.slick-list {
+					margin-top: 0;
+					height: 100%;
+				}	
+			}
+		}
+		.img {
+			@include media('<=768px'){
+				height: rem(200px);	
+			}
+		}
 		.bg {
 			background-size: cover;
 			background-position: center center;
@@ -95,6 +119,9 @@
 				padding-left: 10%;
 				padding-right: 10%;
 				color: white;
+				@include media('<=768px'){
+					padding: 50px;
+				}
 				h3 {
 					font-size: rem(30px);
 					letter-spacing: rem(3.08px);
@@ -194,7 +221,11 @@
 			transform: translate(-50%, -50%);
 			padding: 0;
 			margin: 0;
+			white-space: nowrap;
 			list-style-type: none;
+			@include media('<=768px'){
+					
+			}
 			li {
 				margin: 0;
 				background: none;
@@ -222,7 +253,6 @@
 }
 
 .processdesignrow {
-	margin-bottom: rem(50px);
 	h1 {
 		font-size: rem(30px);
 		letter-spacing: rem(3.08px);
