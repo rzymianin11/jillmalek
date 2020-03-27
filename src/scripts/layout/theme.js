@@ -44,6 +44,7 @@ if (cookiesEnabled()) {
 
 $(function() {
     //caches a jQuery object containing the header element
+/*
     var header = $("#shopify-section-header");
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
@@ -55,6 +56,7 @@ $(function() {
         }
     });
     
+*/
 	
 	$('a[href^="#"]').click(function (e) {
 		console.log('animate');

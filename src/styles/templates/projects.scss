@@ -1,4 +1,4 @@
-body.projects {
+body.projects, body.collaborations {
 	h1, h2 {
 		font-weight: 300;
 		letter-spacing: rem(3.08px);
@@ -79,7 +79,7 @@ body.projects {
 	}
 }
 
-body.project {
+body.project, body.collaboratiion {
 	p {
 		font-weight: 300 !important;
 		span {

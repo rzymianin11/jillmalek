@@ -13,6 +13,22 @@ body.template-product {
 			border-bottom: none;		
 		}
 	}
+	.slickjs-3-nav {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		.slick-slide {
+			padding: 0 5px;
+			img {
+				border: 5px solid white;
+			}
+			&:focus, &:active {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+	}
 	.featuredimages {
 		position: relative;
 		.slick-arrow {
@@ -65,7 +81,59 @@ body.template-product {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		
+		.vsmall-gutters {
+			line-height: normal;
+		}
+		.select-wrapper {
+			position: relative;
+			@include icon(arrow-down);
+			width: rem(106px);
+			display: block;
+			padding: 0;
+			margin: 0;
+			line-height: normal;
+			&:before {
+				color: $primary-color;
+				position: absolute;
+				font-size: 7px;
+				right: 0;
+				bottom: rem(16px);
+			}
+			label {
+				text-transform: uppercase;
+				color: $primary-color;
+				font-size: rem(13px);
+				margin-bottom: 0;
+				letter-spacing: 1px;
+				margin: 0;
+				line-height: normal;
+			}
+			select {
+				position: relative;
+				border: none;
+				color: $primary-color;
+				width: 100%;
+				border-bottom: 1px solid $primary-color;
+				padding: 1em 0;
+				background: transparent;
+				font-size: rem(12px);
+				border-radius: 0;
+				padding: 1em 0;
+				height: rem(38px);
+			    -webkit-appearance: none;
+			    -moz-appearance: none;
+			    text-indent: 1px;
+			    text-overflow: '';
+			    margin: 0;
+				@include placeholder {
+					color: $primary-color;
+				}
+				&:focus, &:active {
+					outline: none;
+					box-shadow: none;
+				}
+			}
+		}
 		.social-sharing {
 			position: absolute;
 			right: 10px;
@@ -112,10 +180,14 @@ body.template-product {
 		text-transform: uppercase;
 		color: $primary-color;
 		font-size: rem(13px);
+		line-height: normal;
 		margin-bottom: 0;
+		margin-bottom: rem(3px);
 		letter-spacing: 1px;
 	}
 	.qty-input {
+		line-height: normal;
+		display: block;
 		position: relative;
 		@include icon(arrow-down);
 		&:before {
@@ -131,7 +203,7 @@ body.template-product {
 			color: $primary-color;
 			width: rem(66px);
 			border-bottom: 1px solid $primary-color;
-			padding: 1em 0;
+			height: rem(38px);
 			background: transparent;
 			font-size: rem(12px);
 			@include placeholder {

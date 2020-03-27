@@ -51,8 +51,21 @@ const Process = {
 				  fade: true,
 				  cssEase: 'linear',
 				  rows: 0,
-				  arrows: true,
+				  arrows: false,
 				  slidesToShow: 1,
+				  slidesToScroll: 1,
+			});
+			
+		  $('.slickjs-3-nav').slick({
+				  dots: false,
+				  infinite: true,
+				  focusOnSelect: true,
+				  speed: 500,
+				  cssEase: 'linear',
+				  asNavFor: '.slickjs-3',
+				  rows: 0,
+				  arrows: true,
+				  slidesToShow: 8,
 				  slidesToScroll: 1,
 			});
 			

@@ -28,9 +28,9 @@
 		right: 0;
 	}
 	.inner {
-		background-color: white;
-		width: rem(275px);
-		height: rem(230px);
+		background-color: rgba(255, 255, 255, 0.85);
+		width: rem(175px);
+		height: rem(50px);
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -41,22 +41,22 @@
 		justify-content: center;
 		a {
 			text-align: center;
-			color: $primary-color;
+			color: $secondary-color;
 			letter-spacing: 1px;
 			font-size: rem(13px);
 			font-weight: 400;
 			text-transform: uppercase;
-			width: calc(100% - 40px);
+			width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: calc(100% - 40px);
-			border: 1px solid #F7F3EE;
+			height: 100%;
+			padding-top: rem(3px);
 			transition: all 0.3s ease-in-out;
 			&:hover {
 				color: white;
 				text-decoration:  none;
-				background-color: $primary-color;
+				background-color: $secondary-color;
 			}
 		}
 	}
@@ -64,7 +64,6 @@
 
 #shopify-section-1584096618627 {
 	a {
-		border-color: $secondary-color;
 		color: $secondary-color;
 			&:hover {
 				color: white;

@@ -86,6 +86,15 @@ $breakpoints: (
     }
   }
   
+.vsmall-gutters {
+    margin-right: -5px;
+    margin-left: -5px;
+    > [class*="col-"] {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+  
 body, p, h1, h2 {
 	font-weight: 300;
 }

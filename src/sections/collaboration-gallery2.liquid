@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+		{% for file in page.metafields.scb.gallery_project %}
+			{% if page.metafields.scb.gallery_project.size > 1%}
+			<div class="col-md-6">
+			{% else %}
+			<div class="col-12">			
+			{% endif %}
+				<img src="{% include 'img_url' with url: file.url, params: '960x1200_crop_center' %}" class="w-100" />
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<section class="separator">
+</section>
+
+
+
+{% for item in linklists['collaboration-list'].links %}
+	{% if item.current %}
+    
+    {% assign prev_i = forloop.index0 | minus: 1 %}
+    {% if forloop.last != true %}
+	    {% assign next_i = forloop.index0 | plus: 1 %}
+	{% else %}
+		{% assign next_i = 0 %}
+	{% endif %}
+	
+    {% assign handle = linklists['collaboration-list'].links[prev_i].url | split: '/' | last %}
+
+	{% assign image1 = pages[handle].metafields.scb.gallery_project[0] %}
+	{% assign title1 = pages[handle].title %}
+	{% assign url1 = pages[handle].url %}
+    
+    {% assign handle = linklists['collaboration-list'].links[next_i].url | split: '/' | last %}
+    
+	{% assign image2 = pages[handle].metafields.scb.gallery_project[0] %}
+	{% assign title2 = pages[handle].title %}
+	{% assign url2 = pages[handle].url %}	
+	
+    
+    {% break %}
+    {% endif %}
+{% endfor %}
+
+<div class="container">
+	<div class="row no-gutters nextprev">
+		<a href="{{ url1 }}" class="col-md-6 d-flex flex-column justify-content-center align-items-center colum">
+			<div class="bg" style="background-image: url('{% include 'img_url' with url: image1.url, params: '960x' %}');"></div>
+			<span class="position-relative zindex-2 btn btn-primary arrow-on-left">Previous project</span>
+			<h3 class="position-relative zindex-2 mt-5">{{ title1 }}</h3>
+		</a>
+		<a href="{{ url2 }}" class="col-md-6 d-flex flex-column justify-content-center align-items-center colum">
+			<div class="bg" style="background-image: url('{% include 'img_url' with url: image2.url, params: '960x' %}');"></div>
+			<span class="position-relative zindex-2 btn btn-primary">Next project</span>
+			<h3 class="position-relative zindex-2 mt-5">{{ title2 }}</h3>
+		</a>		
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Project Gallery",
+    "settings": [
+      
+
+    ]
+  }
+{% endschema %}

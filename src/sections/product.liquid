@@ -14,6 +14,14 @@
 				  </div>
 			  {% endfor %}
 		  	</div>
+		  	<div class="slickjs-3-nav">
+			  	{% assign images = product.images %}
+			  {% for image in images  %}
+				  <div>
+					<img class="w-100" src="{{ image | img_url: '900x900', crop: 'center' }}" />
+				  </div>
+			  {% endfor %}
+		  	</div>	
   		</div>
   		<div class="col-lg-6 product-details">
 
@@ -43,39 +51,7 @@
 			  {% endif %}
 			
 			  {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
-			    {% unless product.has_only_default_variant %}
-			      {% for option in product.options_with_values %}
-			        <div class="js">
-			
-			          {% if forloop.index0 > 0 %}
-			
-			            {% for value in option.values %}
-			              <input type="radio" id="Option{{ option.position }}-{{ value }}" name="options[{{ option.name }}]" value="{{ value }}"{% if option.selected_value == value %} checked{% endif %}>
-			              <label for="Option{{ option.position }}-{{ value }}">{{ value }}</label>
-			            {% endfor %}
-			
-			          {% else %}
-			
-			            <label for="Option{{ option.position }}">
-			              {{ option.name }}
-			            </label>
-			
-			            <select
-			              id="Option{{ option.position }}"
-			              name="options[{{ option.name | escape }}]">
-			              {% for value in option.values %}
-			                <option
-			                  value="{{ value | escape }}"
-			                  {% if option.selected_value == value %}selected="selected"{% endif %}>
-			                    {{ value }}
-			                </option>
-			              {% endfor %}
-			            </select>
-			
-			          {% endif %}
-			        </div>
-			      {% endfor %}
-			    {% endunless %}
+
 			
 			    <noscript>
 			      <select name="id">
@@ -90,7 +66,53 @@
 			      </select>
 			    </noscript>
 				
-				<div class="row">
+				<div class="row vsmall-gutters">
+			    {% unless product.has_only_default_variant %}
+			      {% for option in product.options_with_values %}
+			        <div class="js col-auto">
+			
+			          {% if forloop.index0 > 0 %}
+					  	
+						  	<div class="select-wrapper ">
+				            <label for="Option{{ option.position }}">
+				              {{ option.name }}
+				            </label>
+				            <div class="qty-input"><select
+				              id="Option{{ option.position }}"
+				              name="options[{{ option.name | escape }}]">
+				              {% for value in option.values %}
+				                <option
+				                  value="{{ value | escape }}"
+				                  {% if option.selected_value == value %}selected="selected"{% endif %}>
+				                    {{ value }}
+				                </option>
+				              {% endfor %}
+				            </select></div>
+						  	</div>
+
+			          {% else %}
+						
+							<div class="select-wrapper">
+				            <label for="Option{{ option.position }}">
+				              {{ option.name }}
+				            </label>
+				            <div class="qty-input"><select
+				              id="Option{{ option.position }}"
+				              name="options[{{ option.name | escape }}]">
+				              {% for value in option.values %}
+				                <option
+				                  value="{{ value | escape }}"
+				                  {% if option.selected_value == value %}selected="selected"{% endif %}>
+				                    {{ value }}
+				                </option>
+				              {% endfor %}
+				            </select></div>
+							</div>
+			          {% endif %}
+			        </div>
+			      {% endfor %}
+			    {% endunless %}
+			    
 					<div class="col-auto d-flex flex-column">
 				   	 	<label for="Quantity">{{ 'products.product.quantity' | t }}</label>
 				   	 	<div class="qty-input"><input type="number" id="Quantity" name="quantity" value="1" min="1"></div>
