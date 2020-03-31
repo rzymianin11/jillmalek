@@ -97,7 +97,7 @@
   {% unless same_vendor and current_product.vendor != product.vendor %}
   {% unless same_type and current_product.type != product.type %}
   <div class="product-item {{ grid_item_width }}">
-  	<a href="{{ product.url }}"><img class="w-100" src="{{ product.images[0] | img_url: '650x430' }}" alt="related product" /></a>
+  	<a href="{{ product.url }}"><img class="w-100" src="{{ product.images[0] | img_url: '650x430', crop: 'center' }}" alt="related product" /></a>
   	<h3 class="product-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
   </div>
   {% assign counter = counter | plus: 1 %}

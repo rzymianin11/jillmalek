@@ -149,7 +149,7 @@
 			      <div class="col-lg-4 product-box">
 			        {% if product.featured_image != blank %}
 			          <a href="{{ product.url | within: collection }}">
-				          <img class="w-100" src="{{ product.featured_image | img_url: "640x540", crop: 'center' }}" />
+				          <img class="w-100" src="{{ product.featured_image | img_url: "640x450", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
 			
