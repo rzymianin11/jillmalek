@@ -34,7 +34,26 @@ section.header {
 				height: $smallheader;
 			}
 		}
-
+		.cart-icon {
+			color: $primary-color;
+			position: relative;
+			.count {
+				position: absolute;
+				right: -7px;
+				top: -7px;
+				width: 15px;
+				height: 15px;
+				font-size: rem(9px);
+				padding-top: 1px;
+				background-color: $secondary-color;
+				border-radius: 100%;
+				color: white;
+				z-index: 9;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
 		.navigation {
 			list-style-type: none;
 			position: absolute;
@@ -157,7 +176,7 @@ body {
 	z-index: -1;
 	display: block;
 	width: 100%;
-	height: rem(620px);
+	height: rem(753px);
 	@include clearfix;
 	@include media('<=768px'){
 		height: rem(1072px);

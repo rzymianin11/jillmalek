@@ -14,14 +14,18 @@
 				  </div>
 			  {% endfor %}
 		  	</div>
+		  	{% if images.size > 1 %}
+		  	{% comment %}
 		  	<div class="slickjs-3-nav">
 			  	{% assign images = product.images %}
 			  {% for image in images  %}
 				  <div>
-					<img class="w-100" src="{{ image | img_url: '900x900', crop: 'center' }}" />
+					<img class="w-100" src="{{ image | img_url: '100x100', crop: 'center' }}" />
 				  </div>
 			  {% endfor %}
 		  	</div>	
+		  	{% endcomment %}
+		  	{% endif %}
   		</div>
   		<div class="col-lg-6 product-details">
 

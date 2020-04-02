@@ -239,10 +239,12 @@
                   <div class="d-flex flex-row">
                   <ul class="site-footer__linklist
                             {% if inline_list %}list--inline{% endif %}">
-                    {%- for link in linklists['collection-list'].links -%}
+                    {%- for link in linklists['footer-collections'].links -%}
+                    {% comment %}
                     	{% if forloop.index == 5 %}
                   			</ul><ul>
                     	{% endif %}
+                    	                    {% endcomment %}
                       <li class="site-footer__linklist-item">
                         <a href="{{ link.url }}"
                           {% if link.current %} aria-current="page"{% endif %}

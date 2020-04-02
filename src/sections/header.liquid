@@ -126,16 +126,16 @@
 		</div>
 		<div class="col socials text-right">
 			<a target="_blank" class="" href="{{ settings.social_instagram_link }}"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
-			<a target="_blank" href="{{ settings.social_pinterest_link }}"><img src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
+			<a target="_blank" href="{{ settings.social_pinterest_link }}"><img class="mr-3" src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
 
 			
-			{% comment %}
-			    <a href="/cart">
+			
+			    <a href="/cart" class="cart-icon">
 			      {% include 'icon-cart' %}
-			      {{ 'layout.cart.title' | t }}
-			      ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+			      <span class="count">{{ cart.item_count }}</span>
 			    </a>
-	
+				
+			{% comment %}
 			    {% if shop.customer_accounts_enabled %}
 			      <ul>
 			        {% if customer %}

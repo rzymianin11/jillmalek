@@ -3,10 +3,13 @@
 {% assign pageurl = pageurl | split:'?' | last | split:'\u0026' | first | split: "=" %}
 
 {% if pageurl[0] == 'showall' and pageurl[1] == "true" %}
-	{% section 'collection-hero' %}
-	{% section 'separator' %}
+	{% comment %}{% section 'collection-hero' %}
+	{% section 'separator' %}{% endcomment %}
 		<div class="container">
 			<div class="row justify-content-center">
+				<div class="col-12 text-center mb-5">
+					<h1>{{ collection.title }}</h1>
+				</div>
 				<div class="col-md-8 text-center collection-description">
 					{{ collection.description }}
 				</div>
@@ -14,10 +17,10 @@
 		</div>
 	{% section 'separator' %}
 		<div class="container">
-			<div class="row collectionproducts large-gutters">
+			<div class="row collectionproducts vlarge-gutters">
 				{% for product in collection.products %}
 					<div class="col-md-6 ">
-						<a href="{{ product.url | within: collection  }}">
+						<a href="{{ product.url | within: collection  }}" class="aimg">
 						{% if product.images[1] != blank %}
 							<img class="w-100" src="{{ product.images[1] | img_url: '650x430', crop: 'center' }}" />
 						{% else %}
@@ -35,7 +38,6 @@
 {% else %}
 
 
-{% paginate collection.products by 24 %}
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
@@ -146,9 +148,9 @@
 
 			  <div class="row">
 			    {% for product in collection.products %}
-			      <div class="col-lg-4 product-box">
+			      <div class="col-lg-4 product-box product">
 			        {% if product.featured_image != blank %}
-			          <a href="{{ product.url | within: collection }}">
+			          <a href="{{ product.url | within: collection }}" class="aimg">
 				          <img class="w-100" src="{{ product.featured_image | img_url: "640x450", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
@@ -161,8 +163,8 @@
 			    {% else %}
 			      {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
 			        {% for i in (1..8) %}
-			        <div class="col-md-4 product-box">
-			          <a href="{{ product.url | within: collection  }}">
+			        <div class="col-md-4 product-box product">
+			          <a href="{{ product.url | within: collection  }}" class="aimg">
 			            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
 			            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
 			          </a>
@@ -178,22 +180,96 @@
 			      {% endif %}
 			
 			    {% endfor %}
+			    {% comment %}
+			    <div class="col-12">
+				    {% if paginate.next %}
+				        <div id="more" style="color: transparent;" class="theNextPage "><p>&darr; <a style="color: transparent;"  href="{{ paginate.next.url }}">More</a></p></div>
+				    {% endif %}
+				    <div id="loadingAnimation" class="hide text-center my-5 pb-5">{{ 'ajax-loader.gif' | asset_url | img_tag }}</div>	
+			    </div>
+			    <div id="product-list-foot"></div>
+			    {% endcomment %}
 			  </div>
   
 			</div>
+
 		</div>
+		{% section 'separator' %}
 	</div>
 
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
-{% endpaginate %}
+
 
 <script type="text/javascript">
+
 $('.filter_checkbox').off().change( function(){
    	var newURL = $(this).nextAll('a').attr('href');
    	window.location.href = newURL;
    });
 </script>
+
+{% comment %}
+
+  {% if template contains 'collection' %}
+  
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dotimeout/1.0/jquery.ba-dotimeout.min.js"></script>
+
+    <script>
+	
+    var isActive = false;
+
+    function ScrollExecute() {
+      scrollNode = $('#more').last();
+      shopUrl = "https://jill-malek.myshopify.com";
+      scrollURL = $('#more p a').last().attr("href");
+      nextPageURL = shopUrl+ scrollURL;
+      console.log(nextPageURL);
+
+      if(scrollNode.length > 0 && scrollNode.css('display') != 'none') {
+        $.ajax({
+          type: 'GET',
+          url: nextPageURL,
+          beforeSend: function() {
+            scrollNode.clone().empty().insertAfter(scrollNode).append('<img src="\"{{" "ajax-loader.gif"="" |="" asset_url="" }}\"=""/>');
+            scrollNode.hide();
+            if(scrollURL){
+              console.log("true")
+              $("#loadingAnimation").removeClass("hide");
+            }
+
+          },
+          success: function(data) {
+            // remove loading feedback
+
+            scrollNode.next().remove();
+            var filteredData = $(data).find(".product");
+                moreLink = $(data).find(".theNextPage").last();
+                $( ".theNextPage" ).remove();
+            filteredData.insertBefore( $("#product-list-foot") );
+            moreLink.insertBefore( $("#product-list-foot") );
+             $("#loadingAnimation").addClass("hide");
+            isActive = false;
+          },
+
+          dataType: "html"
+        });
+      }
+    }
+
+    $(document).ready(function () {
+      $(window).scroll(function(){
+        if(!isActive && $(document).height() - 500 < ($(document).scrollTop() + $(window).height())) {
+          $.doTimeout( 'scroll', 500, ScrollExecute);
+          isActive = true;
+        };
+      });
+    });
+    </script>
+  {% endif %}
+  
+{% endcomment %}
 
 {% endif %}

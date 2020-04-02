@@ -14,14 +14,14 @@ body.template-product {
 		}
 	}
 	.slickjs-3-nav {
-		position: absolute;
+///		position: absolute;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		.slick-slide {
-			padding: 0 5px;
+			padding: 10px;
 			img {
-				border: 5px solid white;
+				//border: 5px solid white;
 			}
 			&:focus, &:active {
 				outline: none;

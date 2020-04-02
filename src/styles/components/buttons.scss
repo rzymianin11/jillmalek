@@ -111,6 +111,20 @@
 		  background-color: $primary-color !important;
 	  }
   }
+  &-full {
+	  background-color: $primary-color;
+	  border: 1px solid $primary-color;
+	padding: 1em 5em;	  
+	color: white;
+	font-weight: 500;
+	text-transform: uppercase;
+  }
+  &-outlined {
+	text-transform: uppercase;
+	border: 1px solid $primary-color;
+	font-weight: 500;
+	padding: 1em 5em;	  
+  }
 }
 
 [data-submit-button] {

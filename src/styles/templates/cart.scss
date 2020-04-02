@@ -1,0 +1,110 @@
+body.template-cart {
+	h1 {
+		margin: 0;
+		padding: 0;
+	}
+	table {
+		width: 100%;
+		margin-top: rem(100px);
+		thead {
+			tr {
+				border-bottom: 1px solid #edeeed;
+				th {
+					text-align: center;
+					font-weight: 500;
+					letter-spacing: 1px;
+					padding-bottom: rem(30px);
+				}
+			}
+			.qtycol {
+				max-width: rem(40px);
+			}
+		}
+		.d-none-onlymb {
+			@include media('<=768px'){
+				display: none;	
+			}
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid #edeeed;
+				td {
+					text-align: center;
+					padding-top: rem(50px);
+					padding-bottom: rem(50px);
+					a {
+						color: black;
+						font-weight: 500;
+						text-transform: uppercase;
+						letter-spacing: 1px;
+						
+					}
+					img {
+						margin-right: rem(20px);
+					}
+					.qty {
+						display: inline-flex;
+						flex-direction: flex-row;
+						position: relative;
+						width: rem(80px);
+						align-items: center;
+						border-bottom: 1px solid $primary-color;
+						.plus, .minus {
+							display: inline-block;
+							color: $primary-color;
+							font-size: rem(20px);
+							vertical-align: middle;
+							flex: 1 1;
+							cursor: pointer;
+							cursor: hand;
+						}
+						input {
+							border: none;
+							display: inline-block;
+							vertical-align: middle;
+							width: rem(30px);
+							text-align: center;
+						}
+						&:before {
+							color: $primary-color;
+							font-size: rem(7px);
+							position: absolute;
+							right: 0;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+					}
+					@include media('<=768px'){
+						display: inline-block;
+						width: 100%;
+						text-align: left;
+						padding-bottom: 10px;
+						padding-top: 10px;
+					}
+				}
+			}
+			.details-col {
+				text-align: left;
+				.removea {
+					color: $primary-color;
+					font-weight: 200;
+					font-size: inherit;
+				}
+			}
+			.col-img {
+				width: rem(280px);
+			}
+		}
+	}
+	.total {
+		display: block;
+		text-align: right;
+		padding: rem(50px) 0 rem(100px) 0;
+		dl {
+			font-weight: 300;
+			dd, dt {
+	
+			}
+		}
+	}
+}

@@ -15,6 +15,8 @@ import Process from '../sections/process';
 import Shopwallpaper from '../sections/shop-wallpaper';
 import MobileHeader from '../sections/mobilenav';
 
+import Cart from './cart';
+
 import $ from 'jquery';
 
 import './jquery.parallax.min.js';
@@ -29,6 +31,7 @@ $('.my-parallax-window').parallax({
 Process.init();
 Shopwallpaper.init();
 MobileHeader.init();
+Cart.init();
 
 // Common a11y fixes
 focusHash();

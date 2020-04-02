@@ -2,10 +2,13 @@
 	#MainContent {
 		margin-bottom: rem(60px);
 	}
+	p, p span {
+		font-weight: 300 !important;
+	}
 	.row {
 		.product-box {
 			margin-bottom: rem(10px);
-			a {
+			a.aimg {
 				display: block;
 				position: relative;
 				overflow: hidden;
@@ -75,6 +78,27 @@
 		letter-spacing: rem(1.08px);
 	}
 	.collectionproducts {
+		a.aimg {
+			display: block;
+			position: relative;
+			overflow: hidden;
+			&:after {
+				transition: all 0.3s ease-in;
+				opacity: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+			&:hover {
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
 		h2 {
 			font-size: rem(16px);
 			letter-spacing: rem(1.23px);
