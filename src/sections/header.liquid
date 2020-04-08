@@ -71,13 +71,11 @@
   <div class="row justify-content-between header-row align-items-center">
 	<div class="col burger-wrapper">
 		<div class="burger-container">
-			<div class="lines lines-up"><span></span><span></span><span></span></div>
 			<a href="#" class="burger">
 				<span></span>
 				<span></span>
 				<span></span>
 			</a>
-			<div class="lines lines-down"><span></span><span></span><span></span></div>
 			  <nav role="navigation" class="navigation">
 			    <ul class=" d-flex flex-row">
 			      {% for link in linklists[section.settings.menu].links %}
@@ -125,8 +123,8 @@
 		    {% endif %}
 		</div>
 		<div class="col socials text-right">
-			<a target="_blank" class="" href="{{ settings.social_instagram_link }}"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
-			<a target="_blank" href="{{ settings.social_pinterest_link }}"><img class="mr-3" src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
+			<a target="_blank" class="d-none d-lg-inline-block" href="{{ settings.social_instagram_link }}"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
+			<a target="_blank" class="d-none d-lg-inline-block" href="{{ settings.social_pinterest_link }}"><img class="mr-3" src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
 
 			
 			

@@ -108,3 +108,10 @@ $breakpoints: (
 body, p, h1, h2 {
 	font-weight: 300;
 }
+
+.removeponmobile {
+	@include media('<=768px'){
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

@@ -10,6 +10,9 @@
 		margin-right: 0;
 		position: relative;
 		height: rem(600px);
+		@include media('<=768px'){
+			height: rem(400px);	
+		}
 		.simpleParallax {
 			position: absolute;
 			left: 0;
@@ -26,6 +29,13 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
+	}
+	.my-parallax-slider {
+		img {
+			@include media('<=768px'){
+				max-width: 100vh;
+			}
+		}
 	}
 	.inner {
 		background-color: rgba(255, 255, 255, 0.85);

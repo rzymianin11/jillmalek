@@ -25,7 +25,8 @@ $('.my-parallax-window').parallax({
   speed: -.2,
   sliderSelector: '>.my-parallax-slider',
   mirrorSelector: '.parallax-mirror',
-  zIndex: 10
+  zIndex: 10,
+  excludeAgents: false,
 })
 
 Process.init();

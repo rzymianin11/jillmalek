@@ -81,6 +81,9 @@ body.template-product {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		@include media('<=768px'){
+			padding: rem(30px) rem(15px);
+		}
 		.vsmall-gutters {
 			line-height: normal;
 		}
@@ -220,6 +223,9 @@ body.template-product {
 		.col-md-6 {
 			padding-left: 30px;
 			padding-right: 30px;
+			@include media('<=768px'){
+				margin-bottom: rem(30px);
+			}
 		}
 		.product-title {
 			letter-spacing: rem(1.23px);

@@ -14,15 +14,27 @@ section.header {
 	.h1 {
 		margin-bottom: 0;
 	}
-	.logo-image {
+	.socials {
+		@include media('<=768px'){
+//			display: none;
+		}
+	}
+	.logo-image {	
 		img {
 			height: rem(20px);
 			@include media('<=768px'){
 				height: rem(12px);
 				width: auto;
 				max-width: none;
+				margin-top: 4px;
 			}
 		}
+	}
+	.h1 {
+		line-height: normal;
+	}
+	h1 {
+		margin: 0;
 	}
 	.header-row {
 		height: $bigheader;
@@ -37,6 +49,12 @@ section.header {
 		.cart-icon {
 			color: $primary-color;
 			position: relative;
+			.icon {
+				@include media('<=768px'){
+					width: 30px;
+					height: 30px;
+				}
+			}
 			.count {
 				position: absolute;
 				right: -7px;
@@ -52,6 +70,9 @@ section.header {
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				@include media('<=768px'){
+					font-size: rem(12px);
+				}
 			}
 		}
 		.navigation {
@@ -81,10 +102,10 @@ section.header {
 			}
 		}
 		.burger-wrapper {
-			height: 100%;
+			height: 90%;
 			.burger-container {
 				height: 100%;
-				width: rem(40px);
+				width: rem(30px);
 				display: flex;
 				flex-direction: column;
 				align-items: stretch;
@@ -118,7 +139,7 @@ section.header {
 							display: none;
 						}
 						&:nth-child(2){
-							width: 50%;
+						//	width: 50%;
 						}
 					}
 				}
@@ -156,6 +177,7 @@ body {
 			
 		}
 	}
+	
 }
 
 #MainContent {
@@ -169,6 +191,26 @@ body {
 	left: 0;
 	bottom: 0;
 	right: 0;
+	@include media('<=768px'){
+		position: static;
+		padding-bottom: rem(50px);
+	}
+	@include media('<=768px'){
+		.site-footer {
+			.h4 {
+				margin-top: rem(45px) !important;
+				margin-bottom: 2.5em;
+			}
+			p {
+				margin-bottom: 0.5em;
+			}
+		}
+		ul {
+			li {
+				margin-bottom: 0.5em;
+			}
+		}
+	}
 }
 
 .footerspacer {
@@ -179,6 +221,6 @@ body {
 	height: rem(753px);
 	@include clearfix;
 	@include media('<=768px'){
-		height: rem(1072px);
+		display: none;
 	}
 }

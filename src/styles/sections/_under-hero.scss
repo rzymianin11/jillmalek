@@ -9,7 +9,9 @@
 		top: 0;
 		bottom: 0;
 		width: 1px;
-		
+		@include media('<=768px'){
+			content: none;	
+		}
 	}
 	.section-row {
 		height: rem(200px);
