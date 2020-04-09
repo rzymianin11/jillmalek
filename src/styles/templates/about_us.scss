@@ -70,6 +70,16 @@ body.about-us {
 	}
 	.carousel {
 		position: relative;
+
+		@include media('<=xs') {
+			margin: 0 -15px;
+			max-width: 85%;
+			overflow: visible;
+
+			.slick-list {
+				overflow: visible;
+			}
+		}
 	}
 	.slick-arrow {
 		position: absolute;
@@ -82,7 +92,12 @@ body.about-us {
 		border: none;
 		width: rem(20px);
 		color: transparent;
-		&:before {
+
+		@include media('<=xs') {
+			display: none !important;
+		}
+
+		&::before {
 			color: $primary-color;
 		}
 		&:active, &:focus, &:hover {

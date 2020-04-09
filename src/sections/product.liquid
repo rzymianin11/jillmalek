@@ -23,19 +23,19 @@
 					<img class="w-100" src="{{ image | img_url: '100x100', crop: 'center' }}" />
 				  </div>
 			  {% endfor %}
-		  	</div>	
+		  	</div>
 		  	{% endcomment %}
 		  	{% endif %}
   		</div>
   		<div class="col-lg-6 product-details">
 
 			  <h1>{{ product.title }}</h1>
-			  
+
 		    <div data-price-wrapper>
 		      <span data-product-price>
 		        {{ current_variant.price | money }}
 		      </span>
-		
+
 		      {% if product.compare_at_price_max > product.price %}
 		        <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
 		        <s data-compare-price>
@@ -45,18 +45,18 @@
 		        </s>
 		      {% endif %}
 		    </div>
-			
+
 			  <div class="rte description">
 			    {{ product.description }}
 			  </div>
-			
+
 			  {% if section.settings.show_share_buttons %}
 			    {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
 			  {% endif %}
-			
+
 			  {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true' %}
 
-			
+
 			    <noscript>
 			      <select name="id">
 			        {% for variant in product.variants %}
@@ -69,14 +69,14 @@
 			        {% endfor %}
 			      </select>
 			    </noscript>
-				
+
 				<div class="row vsmall-gutters">
 			    {% unless product.has_only_default_variant %}
 			      {% for option in product.options_with_values %}
 			        <div class="js col-auto">
-			
+
 			          {% if forloop.index0 > 0 %}
-					  	
+
 						  	<div class="select-wrapper ">
 				            <label for="Option{{ option.position }}">
 				              {{ option.name }}
@@ -95,7 +95,7 @@
 						  	</div>
 
 			          {% else %}
-						
+
 							<div class="select-wrapper">
 				            <label for="Option{{ option.position }}">
 				              {{ option.name }}
@@ -116,7 +116,7 @@
 			        </div>
 			      {% endfor %}
 			    {% endunless %}
-			    
+
 					<div class="col-auto d-flex flex-column">
 				   	 	<label for="Quantity">{{ 'products.product.quantity' | t }}</label>
 				   	 	<div class="qty-input"><input type="number" id="Quantity" name="quantity" value="1" min="1"></div>
@@ -137,7 +137,7 @@
 					    </button>
 					</div>
 			  {% endform %}
-			
+
   		</div>
 		</div>
 	</div>

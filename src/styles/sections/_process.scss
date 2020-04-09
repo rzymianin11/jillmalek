@@ -4,7 +4,7 @@
 		font-size: rem(30px);
 		letter-spacing: rem(3.08px);
 		margin-bottom: rem(20px);
-		margin-top: 0;	
+		margin-top: 0;
 		font-weight: 300;
 	}
 	p {
@@ -84,12 +84,12 @@
 				.slick-list {
 					margin-top: 0;
 					height: 100%;
-				}	
+				}
 			}
 		}
 		.img {
 			@include media('<=768px'){
-				height: rem(200px);	
+				height: rem(200px);
 			}
 		}
 		.bg {
@@ -139,7 +139,7 @@
 					font-weight: 300;
 					opacity: 0.7;
 				}
-			}	
+			}
 		}
 		 .slickjs-nav-2 {
 			.slick-list, .slick-track {
@@ -148,6 +148,10 @@
 			.slick-list {
 				margin-top: 30%;
 				height: 70%;
+
+				@include media('<=sm'){
+					height: 80%;
+				}
 			}
 		 }
 		.btn {
@@ -166,7 +170,7 @@
 			border: none;
 			width: rem(20px);
 			color: transparent;
-			&:before {
+			&::before {
 				color: $primary-color;
 			}
 			&:active, &:focus, &:hover {
@@ -187,7 +191,7 @@
 	}
 	&.processpage {
 		.slick-arrow {
-			top: -5%;	
+			top: -5%;
 		}
 		.slickjs-nav-2  {
 			.slick-slide {
@@ -199,6 +203,11 @@
 				padding-left: 5%;
 				padding-right: 5%;
 				color: white;
+				@include media('<=sm'){
+					padding-left: 30px;
+					padding-right: 30px;
+				}
+
 				h3 {
 					font-size: rem(30px);
 					letter-spacing: rem(2.31px);
@@ -214,9 +223,14 @@
 		.slick-arrow {
 			&.slick-next {
 				right: 15%;
+				@include media('<=sm') {
+					right: 10%;
+				}
 			}
 			&.slick-prev {
-				left: 15%;
+				@include media('<=sm') {
+					left: 10%;
+				}
 			}
 		}
 		.slick-dots {
@@ -229,7 +243,7 @@
 			white-space: nowrap;
 			list-style-type: none;
 			@include media('<=768px'){
-					
+
 			}
 			li {
 				margin: 0;
@@ -238,11 +252,16 @@
 				border-right: 1px solid $primary-color;
 				padding: 1.5em 2em;
 				display: inline-block;
+
+				@include media('<=sm') {
+					padding: 1.25em 1em;
+				}
+
 				button {
 					background: none;
 					border: none;
 					color: $primary-color;
-					
+
 				}
 				&.slick-active {
 					button {
@@ -262,7 +281,7 @@
 		font-size: rem(30px);
 		letter-spacing: rem(3.08px);
 		margin-bottom: rem(20px);
-		margin-top: 0;	
+		margin-top: 0;
 		font-weight: 300;
 	}
 	.featured-text {

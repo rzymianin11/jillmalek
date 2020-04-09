@@ -32,22 +32,22 @@
 				{% endfor %}
 			</div>
 		</div>
-		
-		
+
+
 		{% section 'separator' %}
 {% else %}
 
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-3 order-2 order-lg-1 mt-5 mt-lg-0">
 	{% assign tagall = '' %}
 	{% assign keys = '' %}
-{% for tag in collection.all_tags %}				
+{% for tag in collection.all_tags %}
 	{% assign kk = tag | split:":" %}
 	{% assign keys = keys | append: kk[0] %}
 	{% assign keys = keys | append: '|' %}
-{% endfor %} 
+{% endfor %}
 {% assign keys = keys | split: '|' | uniq %}
 <ul class="sidebar-filter">
 	<li>Collection
@@ -66,12 +66,12 @@
 		</ul>
 	</li>
 
-{% for keyorder in linklists['sidebar-order'].links %}	
+{% for keyorder in linklists['sidebar-order'].links %}
 	{% assign key = keyorder.title %}
 		<li>{{ key }}
 		<ul>
 	{% for tag in collection.all_tags %}
-	
+
 		{% if keyorder.links != blank %}
 			{% capture orderedtags %}
 			{% for tagsorder in keyorder.links %}
@@ -82,18 +82,18 @@
 							<label>
 								<input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
 								{% if current_tags contains tag %}
-									{{ kk[1] | link_to_remove_tag: tag }}	
+									{{ kk[1] | link_to_remove_tag: tag }}
 								{% else %}
-									{{ kk[1] | link_to_add_tag: tag }}								
+									{{ kk[1] | link_to_add_tag: tag }}
 								{% endif %}
 							</label>
 						</li>
 					{% endif %}
 				{% endfor %}
-			{% endfor %}	
+			{% endfor %}
 			{% endcapture %}
 		{% endif %}
-		
+
 		{% assign kk = tag | split:":" %}
 		{% if kk[0] == key %}
 			{% if kk[0] == "colors" %}
@@ -109,7 +109,7 @@
 			{% else %}
 				{% assign is_color = false %}
 			{% endif %}
-			
+
 			{% if keyorder.links != blank %}
 				{{ orderedtags }}
 				{% break %}
@@ -140,11 +140,11 @@
 	{% endfor %}
 		</ul></li>
 {% endfor %}
-</ul>			
+</ul>
 
 
 			</div>
-			<div class="col-lg-9">
+			<div class="col-lg-9 order-0 order-lg-2">
 
 			  <div class="row">
 			    {% for product in collection.products %}
@@ -154,12 +154,12 @@
 				          <img class="w-100" src="{{ product.featured_image | img_url: "640x450", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
-			
+
 			        <p class="product-title">
 			          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
 			        </p>
 			      </div>
-			
+
 			    {% else %}
 			      {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
 			        {% for i in (1..8) %}
@@ -168,29 +168,29 @@
 			            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
 			            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
 			          </a>
-			
+
 			          <p class="product-title">
 			            <a href="{{ product.url | within: collection  }}">{{ 'homepage.onboarding.product_title' | t }}</a>
 			          </p>
-	
+
 			        </div>
 			        {% endfor %}
 			      {% else %}
 			        <p>{{ 'collections.general.no_matches' | t }}</p>
 			      {% endif %}
-			
+
 			    {% endfor %}
 			    {% comment %}
 			    <div class="col-12">
 				    {% if paginate.next %}
 				        <div id="more" style="color: transparent;" class="theNextPage "><p>&darr; <a style="color: transparent;"  href="{{ paginate.next.url }}">More</a></p></div>
 				    {% endif %}
-				    <div id="loadingAnimation" class="hide text-center my-5 pb-5">{{ 'ajax-loader.gif' | asset_url | img_tag }}</div>	
+				    <div id="loadingAnimation" class="hide text-center my-5 pb-5">{{ 'ajax-loader.gif' | asset_url | img_tag }}</div>
 			    </div>
 			    <div id="product-list-foot"></div>
 			    {% endcomment %}
 			  </div>
-  
+
 			</div>
 
 		</div>
@@ -210,7 +210,7 @@ $('.filter_checkbox').off().change( function(){
 {% comment %}
 
   {% if template contains 'collection' %}
-  
+
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -218,7 +218,7 @@ $('.filter_checkbox').off().change( function(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dotimeout/1.0/jquery.ba-dotimeout.min.js"></script>
 
     <script>
-	
+
     var isActive = false;
 
     function ScrollExecute() {
@@ -269,7 +269,7 @@ $('.filter_checkbox').off().change( function(){
     });
     </script>
   {% endif %}
-  
+
 {% endcomment %}
 
 {% endif %}

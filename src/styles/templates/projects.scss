@@ -9,7 +9,7 @@ body.projects, body.collaborations {
 			position: absolute;
 			right: 0;
 			top: rem(20px);
-			&:after {
+			&::after {
 				top: 0.7em;
 				transform: rotate(90deg);
 				animation: none;
@@ -52,23 +52,23 @@ body.projects, body.collaborations {
 			margin-top: 1em;
 		}
 		a {
-			color: black;
+			position: relative;
 			display: block;
 			overflow: hidden;
-			position: relative;
-			&:after {
-				transition: all 0.3s ease-in;
-				opacity: 0;
-				background-color: rgba(0, 0, 0, 0.5);
+			color: black;
+			&::after {
 				content: "";
 				position: absolute;
-				left: 0;
 				top: 0;
 				right: 0;
 				bottom: 0;
+				left: 0;
+				transition: all 0.3s ease-in;
+				opacity: 0;
+				background-color: rgba(0, 0, 0, 0.5);
 			}
 			&:hover {
-				&:after {
+				&::after {
 					opacity: 1;
 				}
 			}
@@ -87,22 +87,37 @@ body.project, body.collaboratiion {
 		}
 	}
 	.nextprev {
-		height: rem(260px);
+		@include media('>md') {
+			height: rem(260px);
+		}
 		.colum {
 			position: relative;
 			text-align: center;
-			color: white;
-			overflow: hidden;
+
+			@include media('>md') {
+				color: white;
+				overflow: hidden;
+			}
+
+			@include media('<=md') {
+				height: 250px;
+				margin-bottom: 4.5rem;
+			}
+
 			&:hover {
 				text-decoration: none;
 			}
 			.btn {
 				color: white;
+
+				@include media('<=md') {
+					display: none;
+				}
 			}
 			&:first-child {
 				padding-right: 0;
 			}
-			&:before {
+			&::before {
 				content: "";
 				background-color: black;
 				opacity: 0.4;
@@ -112,11 +127,27 @@ body.project, body.collaboratiion {
 				right: 0;
 				bottom: 0;
 				top: 0;
+				@include media('<=md') {
+					display: none;
+				}
 			}
 			h3 {
-				letter-spacing: rem(2.31px);
-				font-size: rem(20px);
-				font-weight: 300;
+
+				@include media('>md') {
+					letter-spacing: rem(2.31px);
+					font-size: rem(20px);
+					font-weight: 300;
+				}
+
+				@include media('<=md') {
+					position: absolute !important;
+					top: 100%;
+					right: 0;
+					left: 0;
+					margin-top: 1.25rem !important;
+					color: black;
+    			font-size: 1rem;
+				}
 			}
 			.bg {
 				position: absolute;
@@ -131,7 +162,9 @@ body.project, body.collaboratiion {
 			}
 			&:hover {
 				.bg {
-					transform: scale(1.2);
+					@include media('>md') {
+						transform: scale(1.2);
+					}
 				}
 			}
 	}
