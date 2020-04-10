@@ -73,4 +73,13 @@ html, body {
 	h1 {
 		margin-top: 0;
 	}
+	img {
+		opacity: 0;
+		transition: opacity 0.2s ease-out;
+		will-change: opacity;
+
+		&.in {
+			opacity: 1;
+		}
+	}
 }

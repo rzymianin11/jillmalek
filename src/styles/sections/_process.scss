@@ -76,7 +76,7 @@
 	}
 	.section-row {
 		height: rem(600px);
-		@include media('<=768px'){
+		@include media('<=lg'){
 			height: auto;
 		}
 		&.oneslide {
@@ -88,7 +88,7 @@
 			}
 		}
 		.img {
-			@include media('<=768px'){
+			@include media('<=lg'){
 				height: rem(200px);
 			}
 		}
@@ -124,7 +124,11 @@
 				padding-left: 10%;
 				padding-right: 10%;
 				color: white;
-				@include media('<=768px'){
+				@include media('<=lg'){
+					padding-top: 60px;
+					padding-bottom: 50px;
+				}
+				@include media('<=sm'){
 					padding: 50px;
 				}
 				h3 {
@@ -141,7 +145,7 @@
 				}
 			}
 		}
-		 .slickjs-nav-2 {
+		.slickjs-nav-2 {
 			.slick-list, .slick-track {
 				height: 100%;
 			}
@@ -149,8 +153,9 @@
 				margin-top: 30%;
 				height: 70%;
 
-				@include media('<=sm'){
-					height: 80%;
+				@include media('<=lg'){
+					margin-top: 4rem;
+					height: auto;
 				}
 			}
 		 }
@@ -170,6 +175,10 @@
 			border: none;
 			width: rem(20px);
 			color: transparent;
+			@include media('<=lg'){
+				margin-top: -0.1em;
+				font-size: 0.8rem;
+			}
 			&::before {
 				color: $primary-color;
 			}
@@ -187,11 +196,20 @@
 				transform: translate(-50%, -50%);
 				@include icon(left-arrow);
 			}
+
+			&.slick-disabled {
+				visibility: hidden;
+				opacity: 0;
+			}
 		}
 	}
 	&.processpage {
 		.slick-arrow {
 			top: -5%;
+
+			@include media('<=lg'){
+				top: -0.5rem;
+			}
 		}
 		.slickjs-nav-2  {
 			.slick-slide {
@@ -242,8 +260,8 @@
 			margin: 0;
 			white-space: nowrap;
 			list-style-type: none;
-			@include media('<=768px'){
-
+			@include media('<=lg'){
+				top: -0.5rem;
 			}
 			li {
 				margin: 0;

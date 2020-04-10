@@ -9,7 +9,7 @@ $smallheader: rem(70px);
 				}
 			}
 		}
-		
+
 section.header {
 	.h1 {
 		margin-bottom: 0;
@@ -19,7 +19,7 @@ section.header {
 //			display: none;
 		}
 	}
-	.logo-image {	
+	.logo-image {
 		img {
 			height: rem(20px);
 			@include media('<=768px'){
@@ -57,19 +57,19 @@ section.header {
 			}
 			.count {
 				position: absolute;
-				right: -7px;
+				z-index: 9;
 				top: -7px;
+				right: -7px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				width: 15px;
 				height: 15px;
-				font-size: rem(9px);
 				padding-top: 1px;
-				background-color: $secondary-color;
 				border-radius: 100%;
+				font-size: rem(9px);
+				background-color: $secondary-color;
 				color: white;
-				z-index: 9;
-				display: flex;
-				align-items: center;
-				justify-content: center;
 				@include media('<=768px'){
 					font-size: rem(12px);
 				}
@@ -115,7 +115,7 @@ section.header {
 					align-items: stretch;
 					flex: 1;
 					@include media('>1199px'){
-						display: none;	
+						display: none;
 					}
 					span {
 						width: 1px;
@@ -153,31 +153,31 @@ body {
 }
 
 #shopify-section-header {
-	box-sizing: content-box;
 	position: relative;
+	box-sizing: content-box;
 	width: 100%;
 	height: $bigheader;
-	transition: all 0.3s ease-in;	
+	transition: all 0.3s ease-in;
 	will-change: auto;
-	&:before {
+	&::before {
 		content: "";
-		z-index: 1;
-		background-color: white;
 		position: absolute;
-		left: 0; top: 0; right: 0; bottom: 0;
+		z-index: 1; top: 0; right: 0; bottom: 0;
+		left: 0;
+		background-color: white;
 	}
 	.header {
 		position: fixed;
-		width: 100%;
 		z-index: 99;
+		width: 100%;
 		background-color: white;
 	}
 	&.small {
 		.header {
-			
+
 		}
 	}
-	
+
 }
 
 #MainContent {
@@ -191,7 +191,7 @@ body {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	@include media('<=768px'){
+	@include media('<=lg'){
 		position: static;
 	}
 	@include media('<=768px'){
@@ -219,7 +219,7 @@ body {
 	width: 100%;
 	height: rem(753px);
 	@include clearfix;
-	@include media('<=768px'){
+	@include media('<=lg'){
 		display: none;
 	}
 }

@@ -113,6 +113,30 @@ body.project, body.collaboratiion {
 				@include media('<=md') {
 					display: none;
 				}
+
+				& + h3 {
+					&::before, &::after {
+						font-size: 0.75em;
+						color: $primary-color;
+						vertical-align: middle;
+					}
+				}
+
+				&.arrow-on-left + h3 {
+					@include icon('left-arrow', 'before');
+
+					&::before {
+						margin-right: 1rem;
+					}
+				}
+
+				&:not(.arrow-on-left)+ h3 {
+					@include icon('right-arrow', 'after');
+
+					&::after {
+						margin-left: 1rem;
+					}
+				}
 			}
 			&:first-child {
 				padding-right: 0;
@@ -146,7 +170,7 @@ body.project, body.collaboratiion {
 					left: 0;
 					margin-top: 1.25rem !important;
 					color: black;
-    			font-size: 1rem;
+					font-size: 1rem;
 				}
 			}
 			.bg {

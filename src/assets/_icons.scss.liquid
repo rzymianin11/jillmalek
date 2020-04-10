@@ -33,17 +33,23 @@
 	@if $filename == cart {
 		$char: "\E002";
 	}
-	@if $filename == facebook {
+	@if $filename == close {
 		$char: "\E003";
 	}
-	@if $filename == left-arrow {
+	@if $filename == facebook {
 		$char: "\E004";
 	}
-	@if $filename == pinterest {
+	@if $filename == filter {
 		$char: "\E005";
 	}
-	@if $filename == right-arrow {
+	@if $filename == left-arrow {
 		$char: "\E006";
+	}
+	@if $filename == pinterest {
+		$char: "\E007";
+	}
+	@if $filename == right-arrow {
+		$char: "\E008";
 	}
 
 	@return $char;
@@ -66,8 +72,14 @@
 .icon-cart {
 	@include icon(cart);
 }
+.icon-close {
+	@include icon(close);
+}
 .icon-facebook {
 	@include icon(facebook);
+}
+.icon-filter {
+	@include icon(filter);
 }
 .icon-left-arrow {
 	@include icon(left-arrow);

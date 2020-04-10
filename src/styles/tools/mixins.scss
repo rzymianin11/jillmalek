@@ -86,6 +86,7 @@ $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 /**
  * Hide element but make it accessible to screen readers
  *
@@ -125,4 +126,14 @@ $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
   height: auto;
   margin: 0;
   clip: auto;
+}
+
+
+@mixin reset($type: null) {
+  @if $type == spacing { margin: 0; padding: 0; }
+  @if $type == list { margin: 0; padding: 0; list-style: none;
+    & li { margin: 0; padding: 0; }
+  }
+  @if $type == button { background-color: transparent; border: none; outline: none; cursor: pointer; }
+  @if $type == everything { position: static; float: none; width: auto; height: auto; margin: 0; padding: 0; border: none; background-color: transparent; list-style: none; }
 }

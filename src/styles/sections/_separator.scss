@@ -6,14 +6,21 @@
 	padding-bottom: rem(60px);
 	border-bottom: 1px solid white;
 	@include clearfix;
-	&:after {
+
+	@include media('<=lg') {
+		height: rem(80px);
+		margin: rem(40px) 0;
+	}
+
+	&::after {
+		content: "";
 		position: absolute;
-		left: 50%;
 		top: 0;
+		left: 50%;
+		width: 1px;
+
 //		transform: translateY(-50%);
 		height: rem(100px);
-		width: 1px;
-		content: "";
 		background-color: #F7F3EE;
 	}
 	&.small {
@@ -21,13 +28,13 @@
 		margin: rem(30px) 0;
 		margin-bottom: 0;
 		padding-bottom: rem(30px);
-		&:after {
-			position: absolute;
-			left: 50%;
-			top: 0;
-			height: rem(30px);
-			width: 1px;
+		&::after {
 			content: "";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 1px;
+			height: rem(30px);
 			background-color: #F7F3EE;
 		}
 	}

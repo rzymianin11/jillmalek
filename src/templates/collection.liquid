@@ -37,12 +37,12 @@
 		{% section 'separator' %}
 {% else %}
 
-	
+
 {% paginate collection.products by 1000 %}
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-3 order-2 order-lg-1 mt-5 mt-lg-0">
+			<div class="col-lg-3">
 	{% assign tagall = '' %}
 	{% assign keys = '' %}
 {% for tag in collection.all_tags %}
@@ -51,108 +51,113 @@
 	{% assign keys = keys | append: '|' %}
 {% endfor %}
 {% assign keys = keys | split: '|' | uniq %}
-<ul class="sidebar-filter">
-	<li>Collection
-		<ul>
-			{% for link in linklists['collection-list'].links %}
-				<li {% if link.active %}class="current"{% endif %}>
-					{% if link.active %}
-					<a href="/collections/all">
-					{% else %}
-		            <a href="{{ link.url }}">
-			        {% endif %}
-		              {{ link.title }}
-		            </a>
-				</li>
-			{% endfor %}
-		</ul>
-	</li>
-
-{% for keyorder in linklists['sidebar-order'].links %}
-	{% assign key = keyorder.title %}
-		<li>{{ key }}
-		<ul>
-	{% for tag in collection.all_tags %}
-
-		{% if keyorder.links != blank %}
-			{% capture orderedtags %}
-			{% for tagsorder in keyorder.links %}
-				{% for tag in collection.all_tags %}
-					{% assign kk = tag | split:":" %}
-					{% if kk[1] == tagsorder.title %}
-						<li {% if current_tags contains tag %}class="current"{% endif %}>
-							<label>
-								<input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
-								{% if current_tags contains tag %}
-									{{ kk[1] | link_to_remove_tag: tag }}
-								{% else %}
-									{{ kk[1] | link_to_add_tag: tag }}
+<button class="sidebar-filter-toggle">
+	<i class="icon-filter"></i> Show Filters
+</button>
+<div class="sidebar-filter">
+	<button class="sidebar-filter-close"></button>
+	<ul class="sidebar-filter-list">
+		<li>Collection
+			<ul>
+				{% for link in linklists['collection-list'].links %}
+					<li {% if link.active %}class="current"{% endif %}>
+						{% if link.active %}
+						<a href="/collections/all">
+						{% else %}
+									<a href="{{ link.url }}">
 								{% endif %}
-							</label>
-						</li>
-					{% endif %}
+										{{ link.title }}
+									</a>
+					</li>
 				{% endfor %}
-			{% endfor %}
-			{% endcapture %}
-		{% endif %}
+			</ul>
+		</li>
 
-		{% assign kk = tag | split:":" %}
-		{% if kk[0] == key %}
-			{% if kk[0] == "colors" %}
-				{% assign is_color = true %}
-				{% assign css_color = '' %}
-				{% assign tag_colors = settings.tag_colors | newline_to_br | split: '<br />' %}
-				{% for color_row in tag_colors %}
-					{% assign colortmp = color_row | split: ':' %}
-					{% if colortmp[1] == kk[1] %}
-						{% assign css_color = colortmp[0] %}
-					{% endif %}
-				{% endfor %}
-			{% else %}
-				{% assign is_color = false %}
-			{% endif %}
+	{% for keyorder in linklists['sidebar-order'].links %}
+		{% assign key = keyorder.title %}
+			<li>{{ key }}
+			<ul>
+		{% for tag in collection.all_tags %}
 
 			{% if keyorder.links != blank %}
-				{{ orderedtags }}
-				{% break %}
-			{% else %}
-				{% if current_tags contains tag %}
-		             <li data-variant-image="{{ variant_image_url }}" class="current {% if is_color %}color_row{% endif %}">
-		               <label>
-		                 <input  class="filter_checkbox coll-filter" id="checked" type="checkbox" checked onClick="">
-		                   {% if is_color %}
-		                     <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
-		                   {% endif %}
-		                   {{ kk[1] | link_to_remove_tag: tag }}
-		               </label>
-		            </li>
-		          {% elsif collection.all_tags contains tag %}
-		            <li data-variant-image="{{ variant_image_url }}" class="{% if is_color %}color_row{% endif %}">
-		              <label>
-		                <input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
-		                {% if is_color %}
-		                  <span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
-		                {% endif %}
-		                {{ kk[1] | link_to_add_tag: tag }}
-		              </label>
-		            </li>
-		          {% endif %}
-		    {% endif %}
-		{% endif %}
-	{% endfor %}
-		</ul></li>
-{% endfor %}
-</ul>
+				{% capture orderedtags %}
+				{% for tagsorder in keyorder.links %}
+					{% for tag in collection.all_tags %}
+						{% assign kk = tag | split:":" %}
+						{% if kk[1] == tagsorder.title %}
+							<li {% if current_tags contains tag %}class="current"{% endif %}>
+								<label>
+									<input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
+									{% if current_tags contains tag %}
+										{{ kk[1] | link_to_remove_tag: tag }}
+									{% else %}
+										{{ kk[1] | link_to_add_tag: tag }}
+									{% endif %}
+								</label>
+							</li>
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+				{% endcapture %}
+			{% endif %}
 
+			{% assign kk = tag | split:":" %}
+			{% if kk[0] == key %}
+				{% if kk[0] == "colors" %}
+					{% assign is_color = true %}
+					{% assign css_color = '' %}
+					{% assign tag_colors = settings.tag_colors | newline_to_br | split: '<br />' %}
+					{% for color_row in tag_colors %}
+						{% assign colortmp = color_row | split: ':' %}
+						{% if colortmp[1] == kk[1] %}
+							{% assign css_color = colortmp[0] %}
+						{% endif %}
+					{% endfor %}
+				{% else %}
+					{% assign is_color = false %}
+				{% endif %}
+
+				{% if keyorder.links != blank %}
+					{{ orderedtags }}
+					{% break %}
+				{% else %}
+					{% if current_tags contains tag %}
+									<li data-variant-image="{{ variant_image_url }}" class="current {% if is_color %}color_row{% endif %}">
+										<label>
+											<input  class="filter_checkbox coll-filter" id="checked" type="checkbox" checked onClick="">
+												{% if is_color %}
+													<span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
+												{% endif %}
+												{{ kk[1] | link_to_remove_tag: tag }}
+										</label>
+									</li>
+								{% elsif collection.all_tags contains tag %}
+									<li data-variant-image="{{ variant_image_url }}" class="{% if is_color %}color_row{% endif %}">
+										<label>
+											<input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
+											{% if is_color %}
+												<span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
+											{% endif %}
+											{{ kk[1] | link_to_add_tag: tag }}
+										</label>
+									</li>
+								{% endif %}
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+			</ul></li>
+	{% endfor %}
+	</ul>
+</div>
 
 			</div>
 			<div class="col-lg-9 order-0 order-lg-2">
 
 			  <div class="row">
 			    {% for product in collection.products %}
-			      <div class="col-lg-4 product-box product">
+			      <div class="col-sm-4 product-box product">
 			        {% if product.featured_image != blank %}
-			          <a href="{{ product.url | within: collection }}" class="aimg"> 
+			          <a href="{{ product.url | within: collection }}" class="aimg">
 				          <img class="w-100" src="{{ product.featured_image | img_url: "640x640", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
@@ -165,7 +170,7 @@
 			    {% else %}
 			      {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
 			        {% for i in (1..8) %}
-			        <div class="col-md-4 product-box product">
+			        <div class="col-sm-4 product-box product">
 			          <a href="{{ product.url | within: collection  }}" class="aimg">
 			            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
 			            {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}

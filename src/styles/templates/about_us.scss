@@ -68,12 +68,17 @@ body.about-us {
 		line-height: rem(18px);
 		color: #4A4A4A;
 	}
-	.carousel {
+	.about-carousel {
 		position: relative;
 
-		@include media('<=xs') {
-			margin: 0 -15px;
-			max-width: 85%;
+		@include media('<=lg') {
+			margin: 0 auto;
+			max-width: 80%;
+
+
+			@include media('<=sm') {
+				max-width: 60%;
+			}
 			overflow: visible;
 
 			.slick-list {

@@ -17,7 +17,7 @@
 	.newsletter-row {
 		margin-bottom: rem(80px);
 		@include media('<=768px'){
-			margin-bottom: rem(0px);	
+			margin-bottom: 0;
 		}
 		h4 {
 			color: $primary-color;
@@ -48,8 +48,8 @@
 	.copy-row {
 		padding-top: rem(130px);
 		padding-bottom: rem(50px);
-		@include media('<=768px'){
-			padding-top: rem(30px);	
+		@include media('<=lg'){
+			padding-top: rem(30px);
 		}
 	}
 	.copycol {
@@ -60,7 +60,7 @@
 	}
 	.link-list {
 		& > div {
-			
+
 		}
 		ul {
 			padding: 0;
@@ -81,7 +81,7 @@
 					font-size: rem(13px);
 					white-space: nowrap;
 					&:hover, &:active, &:focus {
-						border-bottom: none;	
+						border-bottom: none;
 					}
 				}
 			}

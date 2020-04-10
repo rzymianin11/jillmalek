@@ -14,6 +14,7 @@ section.home-hero {
 	.section-row {
 		padding-bottom: rem($move-down);
 		height: 90vh;
+    min-height: 400px;
 
 		@include media('<=md') {
 			height: auto;
