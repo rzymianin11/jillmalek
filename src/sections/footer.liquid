@@ -267,17 +267,17 @@
 
   <div class="container">
     <div class="row copy-row justify-content-between">
-		<div class="col copycol">
+		<div class="col-lg col-12 text-center text-lg-left copycol">
 	      <div class="grid__item small--one-whole {{ copyright_show_class }} site-footer-item-align-right">
 	        <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
 	      </div>
 		</div>
-		<div  class="col text-center">
+		<div  class="col-lg col-12 my-3 my-lg-0 text-center">
 	        <a href="/" class="logo-image">
 	            <img src="{{ 'logo-gold.svg' | asset_url }}" alt="logo" style="height: 10px;" />
 	        </a>
 		</div>
-		<div class="col text-lg-right">
+		<div class="col-lg col-12 text-center text-lg-right">
 			<a target="_blank" href="{{ settings.social_instagram_link }}"><img class="mr-3" src="{{ 'instagram.svg' | asset_url }}" alt="instagram" /></a>
 			<a target="_blank" href="{{ settings.social_pinterest_link }}"><img src="{{ 'pinterest.svg' | asset_url }}" alt="pinterest" /></a>
 		</div>

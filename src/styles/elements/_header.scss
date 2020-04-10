@@ -193,7 +193,6 @@ body {
 	right: 0;
 	@include media('<=768px'){
 		position: static;
-		padding-bottom: rem(50px);
 	}
 	@include media('<=768px'){
 		.site-footer {

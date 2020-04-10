@@ -150,8 +150,8 @@
 			    {% for product in collection.products %}
 			      <div class="col-lg-4 product-box product">
 			        {% if product.featured_image != blank %}
-			          <a href="{{ product.url | within: collection }}" class="aimg">
-				          <img class="w-100" src="{{ product.featured_image | img_url: "640x450", crop: 'center' }}" />
+			          <a href="{{ product.url | within: collection }}" class="aimg"> 
+				          <img class="w-100" src="{{ product.featured_image | img_url: "640x640", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
 

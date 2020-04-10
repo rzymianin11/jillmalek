@@ -2,6 +2,9 @@
 	padding-top: rem(100px);
 	font-size: rem(13px);
 	letter-spacing: 1px;
+	@include media('<=768px'){
+		padding-top: rem(50px);
+	}
 	p.h4 {
 		font-size: rem(14px);
 		letter-spacing: 1.08px;
@@ -13,6 +16,9 @@
 	}
 	.newsletter-row {
 		margin-bottom: rem(80px);
+		@include media('<=768px'){
+			margin-bottom: rem(0px);	
+		}
 		h4 {
 			color: $primary-color;
 			font-size: rem(13px);

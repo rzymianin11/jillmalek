@@ -137,6 +137,10 @@
 	background: transparent;
 	padding: 1.5em 4em;
 	transition: all 0.3s ease-in;
+	@include media('<=768px'){
+		padding: 1em 2em;
+		margin-top: 2em;
+	}
 	&:hover {
 		background-color: $primary-color;
 	}
