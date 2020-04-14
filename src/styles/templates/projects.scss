@@ -116,6 +116,8 @@ body.project, body.collaboratiion {
 
 				& + h3 {
 					&::before, &::after {
+						top: -0.15em;
+				    position: relative;
 						font-size: 0.75em;
 						color: $primary-color;
 						vertical-align: middle;

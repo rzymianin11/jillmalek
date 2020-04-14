@@ -1,22 +1,22 @@
 .under-hero {
 	position: relative;
 	margin: rem(75px) 0;
-	&:after {
-		position: absolute;
+	&::after {
 		content: "";
-		background-color: #F7F3EE;
-		left: 50%;
+		position: absolute;
 		top: 0;
 		bottom: 0;
+		left: 50%;
 		width: 1px;
-		@include media('<=768px'){
-			content: none;	
+		background-color: #F7F3EE;
+		@include media('<=lg'){
+			content: none;
 		}
 	}
 	.section-row {
 		height: rem(200px);
-		@include media('<=768px'){
-			height: auto;	
+		@include media('<=lg'){
+			height: auto;
 		}
 	}
 	h2 {
@@ -32,11 +32,11 @@
 //		max-width: 100%;
 	}
 	.move-down-lg {
-		@include media('>768px'){
-			padding-left: rem(160px);	
-		}	
-		@include media('<=768px'){
-			margin-top: rem(50px);	
+		@include media('>lg'){
+			padding-left: rem(160px);
+		}
+		@include media('<=lg'){
+			margin-top: rem(30px);
 		}
 	}
 }
