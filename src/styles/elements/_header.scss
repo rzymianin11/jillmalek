@@ -1,14 +1,13 @@
 $bigheader: rem(70px);
 $smallheader: rem(70px);
 
-		body:not(.template-index):not(.template-product) {
-			#shopify-section-header {
-				padding-bottom: rem(75px);
-				.header {
-					border-bottom: 1px solid #ECECEC;
-				}
-			}
+body:not(.template-index):not(.template-product) {
+	#shopify-section-header {
+		.header {
+			border-bottom: 1px solid #ECECEC;
 		}
+	}
+}
 
 section.header {
 	.h1 {
@@ -194,7 +193,7 @@ body {
 	@include media('<=lg'){
 		position: static;
 	}
-	@include media('<=768px'){
+	@include media('<=lg'){
 		.site-footer {
 			.h4 {
 				margin-top: rem(45px) !important;

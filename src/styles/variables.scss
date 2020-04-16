@@ -87,11 +87,13 @@ $breakpoints: (
   }
 
   .vlarge-gutters {
-    margin-right: -100px;
-    margin-left: -100px;
-    > [class*="col-"] {
-      padding-right: 100px;
-      padding-left: 100px;
+    @include media('>lg') {
+      margin-right: -100px;
+      margin-left: -100px;
+      > [class*="col-"] {
+        padding-right: 100px;
+        padding-left: 100px;
+      }
     }
   }
 

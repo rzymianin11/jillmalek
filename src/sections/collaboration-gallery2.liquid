@@ -3,11 +3,11 @@
 		{% for file in page.metafields.scb.gallery_project %}
 			{% if page.metafields.scb.gallery_project.size > 1%}
 				<div class="col-md-6">
-					<img src="{% include 'img_url' with url: file.url, params: '960x1200_crop_center' %}" class="w-100" />
+					<img src="{% include 'img_url' with url: file.url, params: '960x1200_crop_center' %}" class="w-100 mb-3 mb-md-0" />
 				</div>
 			{% else %}
-				<div class="col-lg-10 col-12 mx-auto">			
-					<img src="{% include 'img_url' with url: file.url, params: '960x600_crop_center' %}" class="w-100" />
+				<div class="col-lg-10 col-md-6 col-sm-12 col-12 mx-auto">
+					<img src="{% include 'img_url' with url: file.url, params: '960x600_crop_center' %}" class="w-100 mb-3" />
 				</div>
 			{% endif %}
 		{% endfor %}
@@ -21,27 +21,27 @@
 
 {% for item in linklists['collaboration-list'].links %}
 	{% if item.current %}
-    
+
     {% assign prev_i = forloop.index0 | minus: 1 %}
     {% if forloop.last != true %}
 	    {% assign next_i = forloop.index0 | plus: 1 %}
 	{% else %}
 		{% assign next_i = 0 %}
 	{% endif %}
-	
+
     {% assign handle = linklists['collaboration-list'].links[prev_i].url | split: '/' | last %}
 
 	{% assign image1 = pages[handle].metafields.scb.gallery_project[0] %}
 	{% assign title1 = pages[handle].title %}
 	{% assign url1 = pages[handle].url %}
-    
+
     {% assign handle = linklists['collaboration-list'].links[next_i].url | split: '/' | last %}
-    
+
 	{% assign image2 = pages[handle].metafields.scb.gallery_project[0] %}
 	{% assign title2 = pages[handle].title %}
-	{% assign url2 = pages[handle].url %}	
-	
-    
+	{% assign url2 = pages[handle].url %}
+
+
     {% break %}
     {% endif %}
 {% endfor %}
@@ -57,7 +57,7 @@
 			<div class="bg" style="background-image: url('{% include 'img_url' with url: image2.url, params: '960x' %}');"></div>
 			<span class="position-relative zindex-2 btn btn-primary">Next project</span>
 			<h3 class="position-relative zindex-2 mt-5">{{ title2 }}</h3>
-		</a>		
+		</a>
 	</div>
 </div>
 
@@ -65,7 +65,7 @@
   {
     "name": "Project Gallery",
     "settings": [
-      
+
 
     ]
   }

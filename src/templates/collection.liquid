@@ -7,8 +7,8 @@
 	{% section 'separator' %}{% endcomment %}
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-12 text-center mb-5">
-					<h1>{{ collection.title }}</h1>
+				<div class="col-12 text-center mb-lg-5">
+					<h1 class="mb-0">{{ collection.title }}</h1>
 				</div>
 				<div class="col-md-8 text-center collection-description">
 					{{ collection.description }}
@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="row collectionproducts vlarge-gutters">
 				{% for product in collection.products %}
-					<div class="col-md-6 ">
+					<div class="col-lg-6 col-sm-4">
 						<a href="{{ product.url | within: collection  }}" class="aimg">
 						{% if product.images[1] != blank %}
 							<img class="w-100" src="{{ product.images[1] | img_url: '650x430', crop: 'center' }}" />
@@ -158,7 +158,7 @@
 			      <div class="col-sm-4 product-box product">
 			        {% if product.featured_image != blank %}
 			          <a href="{{ product.url | within: collection }}" class="aimg">
-				          <img class="w-100" src="{{ product.featured_image | img_url: "640x640", crop: 'center' }}" />
+				          <img class="fade w-100" src="{{ product.featured_image | img_url: "640x640", crop: 'center' }}" />
 			          </a>
 			        {% endif %}
 

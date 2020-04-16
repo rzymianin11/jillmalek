@@ -10,7 +10,7 @@ body.template-product {
 	section.header {
 		.header-row {
 			margin-bottom: 0;
-			border-bottom: none;		
+			border-bottom: none;
 		}
 	}
 	.slickjs-3-nav {
@@ -40,28 +40,36 @@ body.template-product {
 			margin: 0;
 			padding: 0;
 			border: none;
-			width: rem(20px);
+			width: rem(40px);
+			height: rem(40px);
 			color: transparent;
-			&:before {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			transform: translateY(-50%);
+			background-color: white;
+			font-size: 0;
+			line-height: 0;
+
+			&::before {
 				color: $primary-color;
+				font-size: 0.8rem;
 			}
 			&:active, &:focus, &:hover {
 				outline: none;
 				box-shadow: none;
 			}
 			&.slick-next {
-				right: 10%;
-				transform: translate(50%, -50%);
+				right: 5%;
 				@include icon(right-arrow);
-				&:before {
+				&::before {
 					color: $secondary-color;
 				}
 			}
 			&.slick-prev {
-				left: 10%;
-				transform: translate(-50%, -50%);
+				left: 5%;
 				@include icon(left-arrow);
-				&:before {
+				&::before {
 					color: $secondary-color;
 				}
 			}
@@ -77,11 +85,14 @@ body.template-product {
 		color: white;
 		background-color: $secondary-color;
 		position: relative;
-		padding: rem(30px) rem(70px);
+		padding: rem(50px) rem(70px);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		@include media('<=768px'){
+		@include media('<=lg'){
+			padding: rem(40px);
+		}
+		@include media('<=sm'){
 			padding: rem(30px) rem(15px);
 		}
 		.vsmall-gutters {
@@ -95,7 +106,7 @@ body.template-product {
 			padding: 0;
 			margin: 0;
 			line-height: normal;
-			&:before {
+			&::before {
 				color: $primary-color;
 				position: absolute;
 				font-size: 7px;
@@ -168,7 +179,7 @@ body.template-product {
 					font-size: rem(12px);
 					opacity: 0.7;
 					margin-bottom: rem(5px);
-					&:before {
+					&::before {
 						content: "•";
 						color: $primary-color;
 						display: inline-block;
@@ -189,24 +200,24 @@ body.template-product {
 		letter-spacing: 1px;
 	}
 	.qty-input {
-		line-height: normal;
-		display: block;
 		position: relative;
+		display: block;
+		line-height: normal;
 		@include icon(arrow-down);
-		&:before {
-			color: $primary-color;
+		&::before {
 			position: absolute;
-			font-size: 7px;
-			right: 0;
 			top: 50%;
+			right: 0;
+			color: $primary-color;
+			font-size: 7px;
 			transform: translateY(-50%);
 		}
 		#Quantity {
-			border: none;
-			color: $primary-color;
 			width: rem(66px);
-			border-bottom: 1px solid $primary-color;
 			height: rem(38px);
+			border: none;
+			border-bottom: 1px solid $primary-color;
+			color: $primary-color;
 			background: transparent;
 			font-size: rem(12px);
 			@include placeholder {

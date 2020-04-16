@@ -3,11 +3,11 @@
 		{% for file in page.metafields.scb.gallery_project %}
 			{% if page.metafields.scb.gallery_project.size > 1%}
 				<div class="col-md-6">
-					<img src="{% include 'img_url' with url: file.url, params: '960x1200_crop_center' %}" class="w-100" />
+					<img src="{% include 'img_url' with url: file.url, params: '960x1200_crop_center' %}" class="w-100 mb-3 mb-md-0" />
 				</div>
 			{% else %}
-				<div class="col-lg-10 col-12 mx-auto">
-					<img src="{% include 'img_url' with url: file.url, params: '960x600_crop_center' %}" class="w-100" />
+				<div class="col-lg-10 col-md-6 col-sm-12 col-12 mx-auto">
+					<img src="{% include 'img_url' with url: file.url, params: '960x600_crop_center' %}" class="w-100 mb-3" />
 				</div>
 			{% endif %}
 		{% endfor %}

@@ -4,6 +4,7 @@ import 'lazysizes/plugins/rias/ls.rias'
 import 'lazysizes/plugins/bgset/ls.bgset'
 import 'lazysizes'
 import 'lazysizes/plugins/respimg/ls.respimg'
+import scrollLock from 'scroll-lock'
 
 import '../../styles/theme.scss'
 import '../../styles/theme.scss.liquid'
@@ -25,6 +26,18 @@ import imagesLoaded from 'imagesloaded'
 
 imagesLoaded.makeJQueryPlugin($)
 
+// Qty update
+$('.qty input').on('input', () => {
+  $('.qty input').trigger('click')
+  return false
+})
+$('.qty .minus, .qty .plus').on('click', () => {
+  setTimeout(() => {
+    $('input[name="update"]').trigger('click')
+  }, 150)
+  return false
+})
+
 // Images Fade In
 $('#MainContent')
   .imagesLoaded()
@@ -33,27 +46,35 @@ $('#MainContent')
   })
 
 // Sidebar Filters
-$('.sidebar-filter-toggle').on('click', function() {
-  $(this)
-    .next('.sidebar-filter')
-    .addClass('visible')
+$('.sidebar-filter-toggle').on('click', function () {
+  const $filters = $(this).next('.sidebar-filter')
+  toggleFilters($filters)
 
   return false
 })
-$('.sidebar-filter-close').on('click', function() {
-  $(this)
-    .parents('.sidebar-filter')
-    .removeClass('visible')
+$('.sidebar-filter-close').on('click', function () {
+  const $filters = $(this).parents('.sidebar-filter')
+  toggleFilters($filters)
 
   return false
 })
+
+function toggleFilters($filters) {
+  if ($filters.hasClass('visible')) {
+    $filters.removeClass('visible')
+    scrollLock.enablePageScroll()
+  } else {
+    $filters.addClass('visible')
+    scrollLock.disablePageScroll()
+  }
+}
 
 $('.my-parallax-window').parallax({
   speed: -0.2,
   sliderSelector: '>.my-parallax-slider',
   mirrorSelector: '.parallax-mirror',
   zIndex: 10,
-  excludeAgents: false
+  excludeAgents: false,
 })
 
 Process.init()
@@ -86,16 +107,16 @@ $(() => {
 
     */
 
-  $('a[href^="#"]').click(function(e) {
+  $('a[href^="#"]').click(function (e) {
     console.log('animate')
     e.preventDefault()
     e.stopPropagation()
     const el = $($(this).attr('scrollto')).offset().top - 150
     $('html, body').animate(
       {
-        scrollTop: el
+        scrollTop: el,
       },
-      500
+      500,
     )
 
     return false

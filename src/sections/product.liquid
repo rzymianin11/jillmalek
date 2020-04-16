@@ -10,7 +10,7 @@
 			  	{% assign images = product.images %}
 			  {% for image in images  %}
 				  <div>
-					<img class="w-100" src="{{ image | img_url: '900x900', crop: 'center' }}" />
+					<img class="w-100" data-lazy="{{ image | img_url: '900x900', crop: 'center' }}" />
 				  </div>
 			  {% endfor %}
 		  	</div>

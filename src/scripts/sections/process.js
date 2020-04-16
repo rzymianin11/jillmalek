@@ -2,15 +2,15 @@ import $ from 'jquery'
 import 'slick-carousel'
 import 'slick-carousel/slick/slick.css'
 
-const jQuery = $
-;(function($) {
+const jQuery = $;
+(function ($) {
   // create temporal object to get slick object
 
   // !!!!!!!!!!!
   // getSlick() -> TO CHYBA CZASEM ROZWALA CAY SKRYPT (Maximum stack exceded)
   // !!!!!!!!!!!
 
-  const getSlick = function() {
+  const getSlick = function () {
     const $tmp = $('<div>').slick()
     const slick = $tmp[0].slick.constructor
     $tmp.slick('unslick')
@@ -22,7 +22,7 @@ const jQuery = $
     if (Slick) {
       // hook checkResponsive method
       const checkResponsiveOrig = Slick.prototype.checkResponsive
-      Slick.prototype.checkResponsive = function(initial, forceUpdate) {
+      Slick.prototype.checkResponsive = function (initial, forceUpdate) {
         const _ = this
         if (_.options.autoSlidesToShow && !_.options.infinite && _.options.variableWidth) {
           const sliderWidth = _.$slider.width()
@@ -46,7 +46,7 @@ const jQuery = $
       }
       // hook getLeft method
       const getLeftOrig = Slick.prototype.getLeft
-      Slick.prototype.getLeft = function(slideIndex) {
+      Slick.prototype.getLeft = function (slideIndex) {
         const _ = this
         if (_.options.autoSlidesToShow && !_.options.infinite && _.options.variableWidth) {
           const targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex)
@@ -71,7 +71,7 @@ const jQuery = $
 
 const Process = {
   init() {
-    $('.slickjs').each(function() {
+    $('.slickjs').each(function () {
       $(this).slick({
         dots: true,
         infinite: true,
@@ -84,7 +84,7 @@ const Process = {
         slidesToScroll: 1,
         appendDots: $(this)
           .closest('.process')
-          .find('.dots-container')
+          .find('.dots-container'),
       })
     })
     $('.slickjs-nav').slick({
@@ -95,7 +95,7 @@ const Process = {
       focusOnSelect: true,
       fade: true,
       rows: 0,
-      arrows: false
+      arrows: false,
       //			  prevArrow: 'arrow-left',
       //			  nextArrow: 'arrow-right'
     })
@@ -110,7 +110,7 @@ const Process = {
       rows: 0,
       arrows: false,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     })
 
     $('.slickjs-3').slick({
@@ -118,11 +118,12 @@ const Process = {
       infinite: true,
       speed: 500,
       fade: true,
+      lazyLoad: 'progressive',
       cssEase: 'linear',
       rows: 0,
       arrows: true,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     })
 
     $('.slickjs-3-nav').slick({
@@ -142,10 +143,10 @@ const Process = {
         {
           breakpoint: 768,
           settings: {
-            centerMode: false
-          }
-        }
-      ]
+            centerMode: false,
+          },
+        },
+      ],
     })
 
     $('.slickjs-nav-2').slick({
@@ -157,7 +158,7 @@ const Process = {
       fade: true,
       infinite: false,
       rows: 0,
-      arrows: true
+      arrows: true,
       //			  prevArrow: 'arrow-left',
       //			  nextArrow: 'arrow-right'
     })
@@ -165,6 +166,7 @@ const Process = {
     $('.about-carousel').slick({
       dots: false,
       infinite: true,
+      lazyLoad: 'progressive',
       speed: 500,
       cssEase: 'linear',
       arrows: true,
@@ -174,28 +176,31 @@ const Process = {
         {
           breakpoint: 1024,
           settings: {
+            arrows: false,
             slidesToShow: 3,
             slidesToScroll: 3,
-            centerMode: true
-          }
+            centerMode: true,
+          },
         },
         {
           breakpoint: 600,
           settings: {
+            arrows: false,
             slidesToShow: 2,
-            slidesToScroll: 2
-          }
+            slidesToScroll: 2,
+          },
         },
         {
           breakpoint: 480,
           settings: {
+            arrows: false,
             slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
+            slidesToScroll: 1,
+          },
+        },
+      ],
     })
-  }
+  },
 }
 
 export default Process

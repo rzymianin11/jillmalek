@@ -2,7 +2,7 @@
 	<div class="container removeponmobile">
 		<div class="dots-container"></div>
 		<div class="row no-gutters section-row align-items-stretch {% if section.settings.position == "left" %}flex-row-reverse{% endif %} ">
-			<div class="col-lg-6 img">
+			<div class="col-md-6 img">
 				<div class="slickjs">
 				  {%- for block in section.blocks -%}
 				  	<div class="position-relative">
@@ -11,7 +11,7 @@
 				  {% endfor %}
 				</div>
 			</div>
-			<div class="col-lg-6" style="background-color: {{ section.settings.color_code }};">
+			<div class="col-md-6" style="background-color: {{ section.settings.color_code }};">
 				<div class="slickjs-nav">
 					 {%- for block in section.blocks -%}
 					 	<div>
@@ -31,7 +31,7 @@
 		color: {{ section.settings.arrows_color }} !important;
 	}
 	.process-{{ section.id }} .btn:after {
-		color: {{ section.settings.arrows_color }} !important;		
+		color: {{ section.settings.arrows_color }} !important;
 	}
 </style>
 

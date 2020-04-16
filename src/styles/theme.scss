@@ -77,11 +77,29 @@ html, body {
 	}
 	img {
 		opacity: 0;
-		transition: opacity 0.2s ease-out;
+		transition: all 0.2s ease-out;
 		will-change: opacity;
 
 		&.in {
 			opacity: 1;
 		}
 	}
+
+	.slick-cloned img {
+		opacity: 1;
+	}
+}
+
+body:not(.template-index):not(.template-product) {
+	#MainContent {
+		padding-top: rem(75px);
+	}
+}
+
+.template-cart input[name="update"] {
+	position: absolute;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	pointer-events: none;
 }

@@ -19,7 +19,9 @@ body.about-us {
 		a {
 			&:hover {
 				img {
-					// transform: scale(0.8);
+					@include media('>lg') {
+						transform: scale(0.8);
+					}
 					filter: grayscale(0);
 				}
 			}

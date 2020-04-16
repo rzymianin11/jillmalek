@@ -8,8 +8,9 @@
 	@include clearfix;
 
 	@include media('<=lg') {
-		height: rem(80px);
-		margin: rem(40px) 0;
+		height: rem(60px);
+		margin: rem(30px) 0;
+		padding-bottom: rem(30px);
 	}
 
 	&::after {
@@ -22,6 +23,10 @@
 //		transform: translateY(-50%);
 		height: rem(100px);
 		background-color: #F7F3EE;
+
+		@include media('<=lg') {
+			height: rem(60px);
+		}
 	}
 	&.small {
 		height: rem(60px);

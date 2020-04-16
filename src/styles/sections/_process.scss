@@ -88,7 +88,7 @@
 			}
 		}
 		.img {
-			@include media('<=lg'){
+			@include media('<=md'){
 				height: rem(200px);
 			}
 		}
@@ -221,7 +221,7 @@
 				padding-left: 5%;
 				padding-right: 5%;
 				color: white;
-				@include media('<=sm'){
+				@include media('<=lg'){
 					padding-left: 30px;
 					padding-right: 30px;
 				}
@@ -271,7 +271,7 @@
 				padding: 1.5em 2em;
 				display: inline-block;
 
-				@include media('<=sm') {
+				@include media('<=lg') {
 					padding: 1.25em 1em;
 				}
 
@@ -279,6 +279,7 @@
 					background: none;
 					border: none;
 					color: $primary-color;
+					padding: 0 0.25rem;
 
 				}
 				&.slick-active {

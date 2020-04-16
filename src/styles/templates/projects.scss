@@ -56,6 +56,7 @@ body.projects, body.collaborations {
 			display: block;
 			overflow: hidden;
 			color: black;
+
 			&::after {
 				content: "";
 				position: absolute;
@@ -101,7 +102,7 @@ body.project, body.collaboratiion {
 
 			@include media('<=md') {
 				height: 250px;
-				margin-bottom: 4.5rem;
+				margin-bottom: 6.5rem;
 			}
 
 			&:hover {
@@ -111,34 +112,43 @@ body.project, body.collaboratiion {
 				color: white;
 
 				@include media('<=md') {
-					display: none;
-				}
+					position: absolute !important;
+					top: 100%;
+					margin-top: 0.75rem;
+					color: black;
+					padding: 0.5rem 0 !important;
+					opacity: 0.5;
 
-				& + h3 {
-					&::before, &::after {
-						top: -0.15em;
-				    position: relative;
-						font-size: 0.75em;
-						color: $primary-color;
-						vertical-align: middle;
+					&::after, &::before {
+						display: none;
 					}
 				}
 
-				&.arrow-on-left + h3 {
-					@include icon('left-arrow', 'before');
+				// & + h3 {
+				// 	&::before, &::after {
+				// 		top: -0.15em;
+				//     position: relative;
+				// 		font-size: 0.75em;
+				// 		color: $primary-color;
+				// 		vertical-align: middle;
+				// 	}
+				// }
 
-					&::before {
-						margin-right: 1rem;
-					}
-				}
+				// &.arrow-on-left + h3 {
+				// 	@include icon('left-arrow', 'before');
 
-				&:not(.arrow-on-left)+ h3 {
-					@include icon('right-arrow', 'after');
+				// 	&::before {
+				// 		margin-right: 1rem;
+				// 	}
+				// }
 
-					&::after {
-						margin-left: 1rem;
-					}
-				}
+				// &:not(.arrow-on-left)+ h3 {
+				// 	@include icon('right-arrow', 'after');
+
+				// 	&::after {
+				// 		margin-left: 1rem;
+				// 	}
+				// }
 			}
 			&:first-child {
 				padding-right: 0;
@@ -170,7 +180,7 @@ body.project, body.collaboratiion {
 					top: 100%;
 					right: 0;
 					left: 0;
-					margin-top: 1.25rem !important;
+					margin-top: 3rem !important;
 					color: black;
 					font-size: 1rem;
 				}

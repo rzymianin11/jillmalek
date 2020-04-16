@@ -11,7 +11,7 @@
 		padding-right: 0;
 		padding-left: 0;
 		@include media('<=lg'){
-			height: rem(400px);
+			height: rem(300px);
 		}
 		.simpleParallax {
 			position: absolute;

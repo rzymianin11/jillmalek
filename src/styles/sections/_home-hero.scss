@@ -14,7 +14,7 @@ section.home-hero {
 	.section-row {
 		padding-bottom: rem($move-down);
 		height: 90vh;
-    min-height: 400px;
+    min-height: 360px;
 
 		@include media('<=md') {
 			height: auto;
@@ -89,7 +89,7 @@ section.home-hero {
 				color: white;
 			}
 
-			@include media('<=md') {
+			@include media('<=lg') {
 				margin-top: rem(10px);
 			}
 		}
