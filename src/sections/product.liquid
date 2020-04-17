@@ -5,7 +5,7 @@
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
-  		<div class="col-md-6 position-relative featuredimages">
+  		<div class="col-lg-6 position-relative featuredimages">
 		  	<div class="slickjs-3">
 			  	{% assign images = product.images %}
 			  {% for image in images  %}
@@ -27,7 +27,7 @@
 		  	{% endcomment %}
 		  	{% endif %}
   		</div>
-  		<div class="col-md-6 product-details">
+  		<div class="col-lg-6 product-details">
 
 			  <h1>{{ product.title }}</h1>
 
