@@ -32,7 +32,7 @@
 	}
 	.my-parallax-slider {
 		img {
-			@include media('<=768px'){
+			@include media('<=768px','portrait'){
 				max-width: 100vh;
 			}
 		}

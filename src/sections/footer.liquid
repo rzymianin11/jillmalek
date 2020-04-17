@@ -147,22 +147,22 @@
 			       col-12
 				{%- when 'text' -%}
 					{% if block.id == "text" %}
-						col-lg-5 text-justify
+						col-lg-6 text-justify
 					{% else %}
-						col-lg-3 col-md-4
+						col-lg-2 col-md-4 col-sm-6
 					{% endif %}
 				{%- when 'link_list' -%}
-					col-md-4 d-flex flex-row link-list
+					col-lg-4 col-md-8 col-sm-6 link-list
 			{%- endcase -%}
 		      ">
 
             {%- case block.type -%}
               {%- when 'newsletter' -%}
               		<div class="row newsletter-row">
-	              		<div class="col-lg-5 d-flex align-items-center">
+	              		<div class="col-lg-6 d-flex align-items-center">
 				  			<h4>{{ block.settings.title | escape }}</h4>
 	              		</div>
-	              		<div class="col-lg-7">
+	              		<div class="col-lg-6">
 		                  {%- assign formId = 'ContactFooter' -%}
 		                  {% form 'customer', id: formId, novalidate: 'novalidate' %}
 		                    {%- if form.posted_successfully? -%}

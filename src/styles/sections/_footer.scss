@@ -88,3 +88,11 @@
 		}
 	}
 }
+
+.link-list {
+	display: flex;
+
+	> * {
+		flex: 1 0 0;
+	}
+}

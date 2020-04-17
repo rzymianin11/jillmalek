@@ -13,6 +13,11 @@ body.template-product {
 			border-bottom: none;
 		}
 	}
+	.slickjs-3 {
+		&, .slick-track, .slick-list, img {
+			height: 100%;
+		}
+	}
 	.slickjs-3-nav {
 ///		position: absolute;
 		bottom: 0;

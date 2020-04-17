@@ -49,13 +49,24 @@ body.projects, body.collaborations {
 		h2 {
 			font-size: rem(16px);
 			letter-spacing: rem(1.23px);
-			margin-top: 1em;
+			display: block;
+			letter-spacing: 0.07687rem;
+			font-size: 1rem;
+			margin-top: 1.25rem;
+			font-weight: 200;
+			margin-bottom: 1rem;
+
+			a {
+				&::after {
+					display: none;
+				}
+			}
 		}
 		a {
 			position: relative;
-			display: block;
 			overflow: hidden;
 			color: black;
+			display: block;
 
 			&::after {
 				content: "";
@@ -75,7 +86,7 @@ body.projects, body.collaborations {
 			}
 		}
 		.col-12 {
-			margin-bottom: rem(30px);
+			margin-bottom: rem(10px);
 		}
 	}
 }
