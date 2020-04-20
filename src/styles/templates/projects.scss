@@ -6,13 +6,19 @@ body.projects, body.collaborations {
 	}
 	.hero-row {
 		.btn {
-			position: absolute;
-			right: 0;
-			top: rem(20px);
-			&::after {
-				top: 0.7em;
-				transform: rotate(90deg);
-				animation: none;
+			@include media('>xs') {
+				position: absolute;
+				right: 0;
+				top: rem(20px);
+				&::after {
+					top: 0.7em;
+					transform: rotate(90deg);
+					animation: none;
+				}
+			}
+			@include media('<=xs') {
+				margin-bottom: 2rem;
+				margin-top: -2rem;
 			}
 		}
 	}

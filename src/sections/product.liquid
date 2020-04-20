@@ -1,11 +1,11 @@
 <section data-section-id="{{ section.id }}" data-section-type="product">
 	<div class="container-fluid removeponmobile">
-		<div class="row no-gutters">
+		<div class="row row-product-hero no-gutters">
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
-  		<div class="col-lg-6 position-relative featuredimages">
+  		<div class="col-gallery position-relative featuredimages">
 		  	<div class="slickjs-3">
 			  	{% assign images = product.images %}
 			  {% for image in images  %}
@@ -13,7 +13,8 @@
 					<img class="w-100" data-lazy="{{ image | img_url: '900x900', crop: 'center' }}" />
 				  </div>
 			  {% endfor %}
-		  	</div>
+				</div>
+				<button class="toggle-lightbox" data-toggle="product-lightbox"></button>
 		  	{% if images.size > 1 %}
 		  	{% comment %}
 		  	<div class="slickjs-3-nav">
@@ -27,7 +28,7 @@
 		  	{% endcomment %}
 		  	{% endif %}
   		</div>
-  		<div class="col-lg-6 product-details">
+  		<div class="col-content product-details">
 
 			  <h1>{{ product.title }}</h1>
 
@@ -142,6 +143,18 @@
 		</div>
 	</div>
 </section>
+
+<div id="product-lightbox" class="product-lightbox">
+	<div class="slickjs-3">
+		{% assign images = product.images %}
+	{% for image in images  %}
+		<div>
+		<img class="w-100" data-lazy="{{ image | img_url: '900x900', crop: 'center' }}" />
+		</div>
+	{% endfor %}
+	</div>
+	<button class="product-lightbox-close" data-dismiss="product-lightbox"></button>
+</div>
 
 {% schema %}
   {

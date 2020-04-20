@@ -17,6 +17,42 @@ body.template-product {
 		&, .slick-track, .slick-list, img {
 			height: 100%;
 		}
+
+		@include media('<=lg','>md') {
+			.slick-slide {
+				height: 460px;
+
+				img {
+					object-fit: cover;
+				}
+			}
+		}
+	}
+	.row-product-hero {
+		.col-gallery, .col-content {
+			position: relative;
+
+			@include media('>lg') {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			@include media('<=lg') {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+
+			@include media('<=lg', '>md', 'landscape') {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+		}
+
+		.col-gallery {
+			@include media('<=lg', '>md', 'landscape') {
+				max-height: 90vh;
+			}
+		}
 	}
 	.slickjs-3-nav {
 ///		position: absolute;
@@ -48,13 +84,17 @@ body.template-product {
 			width: rem(40px);
 			height: rem(40px);
 			color: transparent;
-			display: inline-flex;
+			display: inline-flex !important;
 			align-items: center;
 			justify-content: center;
 			transform: translateY(-50%);
 			background-color: white;
 			font-size: 0;
 			line-height: 0;
+			@include media('>xl') {
+				visibility: hidden;
+				opacity: 0;
+			}
 
 			&::before {
 				color: $primary-color;
@@ -77,6 +117,18 @@ body.template-product {
 				&::before {
 					color: $secondary-color;
 				}
+			}
+		}
+		.toggle-lightbox {
+			@include reset(button);
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+
+			@include media('<xl') {
+				display: none;
 			}
 		}
 	}
@@ -246,12 +298,113 @@ body.template-product {
 		.product-title {
 			letter-spacing: rem(1.23px);
 			font-size: rem(16px);
-			text-align: center;
 			width: 100%;
 			margin-top: rem(20px);
+			margin-bottom: 1rem;
 			a {
 				color: black;
 			}
+		}
+	}
+}
+
+.product-lightbox {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	transition: all 0.3s ease-out;
+	opacity: 0;
+	visibility: hidden;
+
+	.product-lightbox-visible & {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.slickjs-3 {
+		height: 85vh;
+		width: 85vh;
+		max-height: 85vh;
+		max-width: 85vh;
+
+		.slick-slide {
+		}
+
+		&, .slick-track, .slick-list, img {
+			height: 100%;
+		}
+
+		img {
+			height: 85vh;
+			width: 85vh;
+			object-fit: cover;
+		}
+	}
+
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 12;
+		color: $primary-color;
+		background: none;
+		margin: 0;
+		padding: 0;
+		border: none;
+		width: rem(40px);
+		height: rem(40px);
+		color: transparent;
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+		transform: translateY(-50%);
+		background-color: white;
+		font-size: 0;
+		line-height: 0;
+
+		&::before {
+			color: $primary-color;
+			font-size: 1.1rem;
+		}
+		&:active, &:focus, &:hover {
+			outline: none;
+			box-shadow: none;
+		}
+		&.slick-next {
+			right: -10%;
+			@include icon(right-arrow);
+			&::before {
+				color: $secondary-color;
+			}
+		}
+		&.slick-prev {
+			left: -10%;
+			@include icon(left-arrow);
+			&::before {
+				color: $secondary-color;
+			}
+		}
+	}
+
+	&-close {
+		@include reset(button);
+		position: absolute;
+		z-index: 2;
+		top: 1rem;
+		right: 1rem;
+		font-size: 1.2rem;
+		padding: 0.25rem;
+		@include icon(close);
+
+		&:hover, &:focus {
+			box-shadow: none;
+			outline: none;
 		}
 	}
 }

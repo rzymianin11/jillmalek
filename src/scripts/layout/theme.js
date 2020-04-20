@@ -26,6 +26,8 @@ import imagesLoaded from 'imagesloaded'
 
 imagesLoaded.makeJQueryPlugin($)
 
+$('.footerspacer').css('height', `${$('footer').outerHeight()}px`)
+
 // Qty update
 $('.qty input').on('input', () => {
   $('.qty input').trigger('click')
@@ -44,6 +46,20 @@ $('#MainContent')
   .progress((instance, image) => {
     $(image.img).addClass('in')
   })
+
+// Product Lightbox
+$('[data-toggle="product-lightbox"]').on('click', () => {
+  $('body').addClass('product-lightbox-visible')
+  scrollLock.disablePageScroll()
+
+  return false
+})
+$('[data-dismiss="product-lightbox"]').on('click', () => {
+  $('body').removeClass('product-lightbox-visible')
+  scrollLock.enablePageScroll()
+
+  return false
+})
 
 // Sidebar Filters
 $('.sidebar-filter-toggle').on('click', function () {

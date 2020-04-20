@@ -158,6 +158,12 @@ body {
 	height: $bigheader;
 	transition: all 0.3s ease-in;
 	will-change: auto;
+	transition: transform 1s $easeOutExpo;
+
+	.product-lightbox-visible & {
+		transform: translate3d(0,-100%,0);
+	}
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -190,9 +196,13 @@ body {
 	left: 0;
 	bottom: 0;
 	right: 0;
+	@include media('height<=700px'){
+		position: static;
+	}
 	@include media('<=lg'){
 		position: static;
 	}
+
 	@include media('<=lg'){
 		.site-footer {
 			.h4 {
@@ -219,6 +229,9 @@ body {
 	height: rem(753px);
 	@include clearfix;
 	@include media('<=lg'){
+		display: none;
+	}
+	@include media('height<=700px'){
 		display: none;
 	}
 }

@@ -11,10 +11,11 @@ $padding-top-md: 50px;
 $padding-bottom-md: 50px;
 
 section.home-hero {
+	padding-bottom: rem($move-down);
 	.section-row {
-		padding-bottom: rem($move-down);
-		height: 90vh;
-    min-height: 360px;
+		height: 85vh;
+    min-height: 300px;
+		background-color: $primary-color;
 
 		@include media('<=md') {
 			height: auto;
@@ -28,8 +29,43 @@ section.home-hero {
 					}
 				}
 				&:last-child {
-					height: 360px;
+					height: 300px;
 				}
+			}
+		}
+		.col-image, .col-content {
+			position: relative;
+
+			@include media('>lg') {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+
+			@include media('<=lg') {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+
+			@include media('<=lg', '>md', 'landscape') {
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+		}
+
+		.col-content {
+			padding-left: 5%;
+			padding-right: 30px;
+			@include media('<=lg', 'portrait') {
+				flex: 1 1 auto;
+				order: 1;
+				margin-bottom: auto;
+			}
+		}
+
+		.col-image {
+			@include media('<=lg', 'portrait') {
+				order: -1;
+				height: 45vh;
 			}
 		}
 
@@ -56,10 +92,6 @@ section.home-hero {
 				}
 			}
 		}
-		.col-lg-4 {
-			background-color: $primary-color;
-			padding-left: 5%;
-		}
 		h1 {
 			font-size: rem(40px);
 			letter-spacing: rem(3.85px);
@@ -77,6 +109,7 @@ section.home-hero {
 			letter-spacing: rem(1px);
 			display: block;
 			opacity: 0.7;
+			max-width: 560px;
 		}
 		.btn {
 			color: white;

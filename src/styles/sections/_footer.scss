@@ -51,6 +51,9 @@
 		@include media('<=lg'){
 			padding-top: rem(30px);
 		}
+		@include media('height<=800px'){
+			padding-top: rem(30px);
+		}
 	}
 	.copycol {
 		color: white;
