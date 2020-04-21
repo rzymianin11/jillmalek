@@ -114,6 +114,18 @@ const Process = {
     })
 
     $('.slickjs-3').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      lazyLoad: 'progressive',
+      cssEase: 'linear',
+      rows: 0,
+      arrows: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    })
+
+    $('.slickjs-4').slick({
       dots: false,
       infinite: true,
       speed: 500,

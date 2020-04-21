@@ -1,6 +1,6 @@
 {% if section.settings.show_related_products == true %}
 <div class="container related-items" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true"><div class="row justify-content-around">
- 
+
 {% comment %}
   Number of related items per row,
   and number of rows.
@@ -64,7 +64,7 @@
   {% assign counter = 0 %}
   {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
   {% assign current_product = product %}
-  
+
   {% case number_of_related_products_per_row %}
     {% when '1' %}
       {% assign grid_item_width = '' %}
@@ -124,10 +124,15 @@
 
 
   {% endunless %}
-     
+
 {% endif %}
 </div>
 </div>
+
+{% unless related_items == blank %}
+<section class="separator small"></section>
+{% endunless %}
+
 {% endif %}
 
 {% schema %}

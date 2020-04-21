@@ -20,26 +20,29 @@
 	@if $filename == arrow-down {
 		$char: "\E001";
 	}
-	@if $filename == cart {
+	@if $filename == camera {
 		$char: "\E002";
 	}
-	@if $filename == close {
+	@if $filename == cart {
 		$char: "\E003";
 	}
-	@if $filename == facebook {
+	@if $filename == close {
 		$char: "\E004";
 	}
-	@if $filename == filter {
+	@if $filename == facebook {
 		$char: "\E005";
 	}
-	@if $filename == left-arrow {
+	@if $filename == filter {
 		$char: "\E006";
 	}
-	@if $filename == pinterest {
+	@if $filename == left-arrow {
 		$char: "\E007";
 	}
-	@if $filename == right-arrow {
+	@if $filename == pinterest {
 		$char: "\E008";
+	}
+	@if $filename == right-arrow {
+		$char: "\E009";
 	}
 
 	@return $char;
@@ -58,6 +61,9 @@
 
 .icon-arrow-down {
 	@include icon(arrow-down);
+}
+.icon-camera {
+	@include icon(camera);
 }
 .icon-cart {
 	@include icon(cart);

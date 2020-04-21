@@ -14,7 +14,9 @@
 				  </div>
 			  {% endfor %}
 				</div>
-				<button class="toggle-lightbox" data-toggle="product-lightbox"></button>
+				<button class="toggle-lightbox" data-toggle="product-lightbox">
+					<i class="icon-camera"></i>
+				</button>
 		  	{% if images.size > 1 %}
 		  	{% comment %}
 		  	<div class="slickjs-3-nav">
@@ -145,11 +147,11 @@
 </section>
 
 <div id="product-lightbox" class="product-lightbox">
-	<div class="slickjs-3">
+	<div class="slickjs-4">
 		{% assign images = product.images %}
 	{% for image in images  %}
 		<div>
-		<img class="w-100" data-lazy="{{ image | img_url: '900x900', crop: 'center' }}" />
+		<img data-lazy="{{ image | img_url: '900x900', crop: 'center' }}" />
 		</div>
 	{% endfor %}
 	</div>
