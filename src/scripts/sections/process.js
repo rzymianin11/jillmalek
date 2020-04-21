@@ -120,6 +120,7 @@ const Process = {
       lazyLoad: 'progressive',
       cssEase: 'linear',
       rows: 0,
+      touchThreshold: 20,
       arrows: false,
       slidesToShow: 1,
       slidesToScroll: 1,
