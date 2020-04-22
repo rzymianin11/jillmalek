@@ -9,8 +9,12 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-auto">
-
-<a href="{{ product.collections[0].url }}?showall=true" class="btn btn-square">See more of this collection</a>
+{% if product.collections[0].handle == 'all' %}
+	{% assign linkk = product.collections[1].url %}
+{% else %}
+	{% assign linkk = product.collections[0].url %}
+{% endif %}
+<a href="{{ linkk }}?showall=true" class="btn btn-square">See more of this collection</a>
 		</div>
 	</div>
 </div>

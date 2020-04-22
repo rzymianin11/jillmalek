@@ -1,6 +1,6 @@
 <section class="home-hero">
 	<div class="container-fluid">
-		<div class="row section-row">
+		<div class="row section-row" style="background-color: {{ section.settings.bg-coor }};">
 			<div class="col-content d-flex flex-column justify-content-center align-items-start">
 				<h1>{{ section.settings.title }}</h1>
 				<div class="text-box">
@@ -19,6 +19,12 @@
   {
     "name": "Home hero section",
     "settings": [
+      {
+        "type": "color",
+        "id": "bg-coor",
+        "label": "Background color on left box",
+        "default" : "#AE9A7E"
+      },
       {
         "type": "image_picker",
         "id": "bg-left",
