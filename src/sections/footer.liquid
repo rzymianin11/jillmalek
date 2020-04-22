@@ -163,6 +163,19 @@
 				  			<h4>{{ block.settings.title | escape }}</h4>
 	              		</div>
 	              		<div class="col-lg-6">
+		              		
+		              		<form method="post" action="https://oi.vresp.com?fid=090ca32db8" target="vr_optin_popup" onsubmit="window.open( 'http://www.verticalresponse.com', 'vr_optin_popup', 'scrollbars=yes,width=600,height=450' ); return true;" >
+
+
+					  		<div class="d-flex">
+    <input type="email" class="emailinputflex" placeholder="Email address" name="email_address" />
+
+    <input type="submit" class="btn btn-simple" value="Join Now" />
+					  		</div>
+
+</form>
+
+		              		{% comment %}
 		                  {%- assign formId = 'ContactFooter' -%}
 		                  {% form 'customer', id: formId, novalidate: 'novalidate' %}
 		                    {%- if form.posted_successfully? -%}
@@ -202,6 +215,7 @@
 		                      </span>
 		                    {% endif %}
 		                  {% endform %}
+		                  {% endcomment %}
                 		</div>
               		</div>
 

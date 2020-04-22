@@ -58,6 +58,14 @@
 	  outline: none;
 	  box-shadow: none;
   }
+  &-simple {
+	  color: $primary-color;
+	  flex: 0 1 auto;
+	  border-bottom: 1px solid $primary-color;
+	  &:hover {
+		  color: white;
+	  }
+  }
   &.btn-primary {
 	  text-transform: uppercase;
 	  color: #4B515D;
