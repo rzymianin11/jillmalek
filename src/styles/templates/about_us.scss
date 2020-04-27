@@ -112,12 +112,12 @@ body.about-us {
 			box-shadow: none;
 		}
 		&.slick-next {
-			right: -50px;
+			right: -25px;
 			transform: translate(50%, -50%);
 			@include icon(right-arrow);
 		}
 		&.slick-prev {
-			left: -50px;
+			left: -25px;
 			transform: translate(-50%, -50%);
 			@include icon(left-arrow);
 		}

@@ -15,9 +15,9 @@
 				</div>
 			</div>
 		</div>
-	{% section 'separator' %}
+	{% section 'separator-small' %}
 		<div class="container">
-			<div class="row collectionproducts vlarge-gutters">
+			<div class="row collectionproducts large-gutters">
 				{% for product in collection.products %}
 					<div class="col-lg-6 col-sm-4 product-box">
 						<a href="{{ product.url | within: collection  }}" class="aimg">
@@ -78,20 +78,20 @@
 			<li>{{ key }}
 			<ul>
 		{% for tag in collections.all.tags %}
-
 			{% if keyorder.links != blank %}
 				{% capture orderedtags %}
 				{% for tagsorder in keyorder.links %}
-					{% for tag in collection.all_tags %}
+					{% for tag in collections.all.tags %}
 						{% assign kk = tag | split:":" %}
 						{% if kk[1] == tagsorder.title %}
+						{% capture url %}/collections/all/{{ tag | handle }}{% endcapture %}
 							<li {% if current_tags contains tag %}class="current"{% endif %}>
 								<label>
 									<input  class="filter_checkbox coll-filter" id="unchecked" type="checkbox" onClick="">
 									{% if current_tags contains tag %}
-										{{ kk[1] | link_to_remove_tag: tag }}
+										{{  kk[1] | link_to: url }}
 									{% else %}
-										{{ kk[1] | link_to_add_tag: tag }}
+										{{  kk[1] | link_to: url }}
 									{% endif %}
 								</label>
 							</li>
@@ -122,13 +122,14 @@
 					{% break %}
 				{% else %}
 						{% if current_tags contains tag %}
+							{% capture url %}/collections/all/{{ tag | handle }}{% endcapture %}
 							<li data-variant-image="{{ variant_image_url }}" class="current {% if is_color %}color_row{% endif %}">
 								<label>
 									<input  class="filter_checkbox coll-filter" id="checked" type="checkbox" checked onClick="">
 										{% if is_color %}
 											<span style="background-color: {{ css_color }}; background-image: url('{{ swatch_image_url }}');" class="color_filter"></span>
 										{% endif %}
-										{{ kk[1] | link_to_remove_tag: tag }}
+										{{  kk[1] | link_to: url }}
 								</label>
 							</li>
 						{% elsif collections.all.tags contains tag %}

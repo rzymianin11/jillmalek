@@ -4,9 +4,17 @@
 	{% assign handle = p.url | split: '/' | last %}
 
 	{% assign pag = pages[handle] %}
+	
+	
+	{% for images in pag.metafields.scb.gallery_project %}
+		{% if images.url != blank %}
+			{% assign image = images.url %}
+			{% break %}
+		{% endif %}
+	{% endfor %}
 		
 		<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-			<a href="{{ p.url }}"><img src="{% include 'img_url' with url: pag.metafields.scb.gallery_project[0].url, params: '320x270_crop_center' %}" class="w-100" /></a>
+			<a href="{{ p.url }}"><img src="{% include 'img_url' with url: image, params: '320x270_crop_center' %}" class="w-100" /></a>
 			<h2><a href="{{ p.url }}">{{ pag.title }}</a></h2>
 		</div>
 	

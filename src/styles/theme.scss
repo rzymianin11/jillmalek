@@ -102,3 +102,9 @@ body:not(.template-index):not(.template-product) {
 	visibility: hidden;
 	pointer-events: none;
 }
+
+.mb-lg-30 {
+	@include media('>768px'){
+		margin-bottom: 30px;
+	}	
+}
